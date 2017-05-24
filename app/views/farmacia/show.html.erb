@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @farmacium.nombre %>
+</p>
+
+<p>
+  <strong>Cedulajur:</strong>
+  <%= @farmacium.cedulaJur %>
+</p>
+
+<p>
+  <strong>Sucursal:</strong>
+  <%= @farmacium.sucursal %>
+</p>
+
+<p>
+  <strong>Direccion:</strong>
+  <%= @farmacium.direccion %>
+</p>
+
+<p>
+  <strong>Correo:</strong>
+  <%= @farmacium.correo %>
+</p>
+
+<p>
+  <strong>Telefono1:</strong>
+  <%= @farmacium.telefono1 %>
+</p>
+
+<p>
+  <strong>Telefono2:</strong>
+  <%= @farmacium.telefono2 %>
+</p>
+
+<p>
+  <strong>Latitud:</strong>
+  <%= @farmacium.latitud %>
+</p>
+
+<p>
+  <strong>Longitud:</strong>
+  <%= @farmacium.longitud %>
+</p>
+
+<p>
+  <strong>Cant lab:</strong>
+  <%= @farmacium.cant_lab %>
+</p>
+
+<p>
+  <strong>Activo:</strong>
+  <%= @farmacium.activo %>
+</p>
+
+<%= link_to 'Edit', edit_farmacium_path(@farmacium) %> |
+<%= link_to 'Back', farmacia_path %>

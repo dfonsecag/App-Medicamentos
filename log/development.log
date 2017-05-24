@@ -4,3 +4,90 @@ Started GET "/" for 127.0.0.1 at 2017-05-23 19:46:57 -0600
 Processing by Rails::WelcomeController#index as HTML
   Rendered /var/lib/gems/2.3.0/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (4.0ms)
 Completed 200 OK in 50ms (Views: 24.7ms | ActiveRecord: 0.0ms)
+  [1m[36m (15.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (6.7ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateFarmacia (20170524015832)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (15.5ms)[0m  [1mCREATE TABLE "farmacia" ("id" serial primary key, "nombre" character varying, "cedulaJur" character varying, "sucursal" character varying, "direccion" character varying, "correo" character varying, "telefono1" integer, "telefono2" integer, "latitud" character varying, "longitud" character varying, "cant_lab" integer, "activo" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20170524015832"]]
+  [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (6.4ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'farmacia'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/farmacia" for 127.0.0.1 at 2017-05-23 19:59:52 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FarmaciaController#index as HTML
+  [1m[35mFarmacium Load (1.3ms)[0m  SELECT "farmacia".* FROM "farmacia"
+  Rendered farmacia/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 8598ms (Views: 8564.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/farmacia.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2017-05-23 20:00:01 -0600
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2017-05-23 20:00:01 -0600
+
+
+Started GET "/assets/farmacia.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-05-23 20:00:01 -0600
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2017-05-23 20:00:01 -0600
+
+
+Started GET "/assets/scaffolds.self-b894adcf76074d058bce4cdbfd23c4d467fc688c11a223cca760412655255e6a.css?body=1" for 127.0.0.1 at 2017-05-23 20:00:01 -0600
+
+
+Started GET "/farmacia/new" for 127.0.0.1 at 2017-05-23 20:00:09 -0600
+Processing by FarmaciaController#new as HTML
+  Rendered farmacia/_form.html.erb (61.5ms)
+  Rendered farmacia/new.html.erb within layouts/application (70.4ms)
+Completed 200 OK in 166ms (Views: 109.2ms | ActiveRecord: 5.9ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddAttachmentPhotoToFarmacia (20170524020518)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "farmacia" ADD "photo_file_name" character varying[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "farmacia" ADD "photo_content_type" character varying
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "farmacia" ADD "photo_file_size" integer[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "farmacia" ADD "photo_updated_at" timestamp
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20170524020518"]]
+  [1m[35m (2.5ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (6.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'farmacia'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+
+
+Started GET "/farmacia" for 127.0.0.1 at 2017-05-23 20:11:12 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FarmaciaController#index as HTML
+  [1m[35mFarmacium Load (1.2ms)[0m  SELECT "farmacia".* FROM "farmacia"
+  Rendered farmacia/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 16076ms (Views: 16043.8ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/application.self-e2dd0c6a7164125aa0536db5b094804f7ab0365839a1e27fc6258d9233b70de6.css?body=1" for 127.0.0.1 at 2017-05-23 20:11:28 -0600
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2017-05-23 20:11:28 -0600

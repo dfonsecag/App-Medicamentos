@@ -1,0 +1,61 @@
+<%= form_for(@farmacium) do |f| %>
+  <% if @farmacium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@farmacium.errors.count, "error") %> prohibited this farmacium from being saved:</h2>
+
+      <ul>
+      <% @farmacium.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :cedulaJur %><br>
+    <%= f.text_field :cedulaJur %>
+  </div>
+  <div class="field">
+    <%= f.label :sucursal %><br>
+    <%= f.text_field :sucursal %>
+  </div>
+  <div class="field">
+    <%= f.label :direccion %><br>
+    <%= f.text_field :direccion %>
+  </div>
+  <div class="field">
+    <%= f.label :correo %><br>
+    <%= f.text_field :correo %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono1 %><br>
+    <%= f.number_field :telefono1 %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono2 %><br>
+    <%= f.number_field :telefono2 %>
+  </div>
+  <div class="field">
+    <%= f.label :latitud %><br>
+    <%= f.text_field :latitud %>
+  </div>
+  <div class="field">
+    <%= f.label :longitud %><br>
+    <%= f.text_field :longitud %>
+  </div>
+  <div class="field">
+    <%= f.label :cant_lab %><br>
+    <%= f.number_field :cant_lab %>
+  </div>
+  <div class="field">
+    <%= f.label :activo %><br>
+    <%= f.check_box :activo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
