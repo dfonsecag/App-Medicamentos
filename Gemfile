@@ -6,10 +6,12 @@ gem 'rails', '4.2.6'
 #usar base datos PG
 gem 'pg'
 
+#usar swealert
+
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'autoprefixer-rails'
-
+gem 'bootstrap_form'
 #insertar image
 gem "paperclip", "~> 5.0.0"
 # Use SCSS for stylesheets

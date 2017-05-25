@@ -15,3 +15,20 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+$(function() {
+  $('#pictureInput').on('change', function(event) {
+    var files = event.target.files;
+    var image = files[0]
+    var reader = new FileReader();
+    reader.onload = function(file) {
+      var img = new Image(300,200);
+      console.log(file);
+      img.addClass = 'rounded';
+      img.src = file.target.result;
+      $('#target').html(img);
+      $("img").addClass("rounded"); 
+    }
+    reader.readAsDataURL(image);
+    console.log(files);
+  });
+});

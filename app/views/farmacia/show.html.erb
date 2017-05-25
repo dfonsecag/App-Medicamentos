@@ -19,6 +19,12 @@
   <strong>Direccion:</strong>
   <%= @farmacium.direccion %>
 </p>
+<style>
+  .img {
+   height: 200px;
+    width: 200px;
+}
+</style>
 
 <p>
   <strong>Correo:</strong>
@@ -34,26 +40,7 @@
   <strong>Telefono2:</strong>
   <%= @farmacium.telefono2 %>
 </p>
-
-<p>
-  <strong>Latitud:</strong>
-  <%= @farmacium.latitud %>
-</p>
-
-<p>
-  <strong>Longitud:</strong>
-  <%= @farmacium.longitud %>
-</p>
-
-<p>
-  <strong>Cant lab:</strong>
-  <%= @farmacium.cant_lab %>
-</p>
-
-<p>
-  <strong>Activo:</strong>
-  <%= @farmacium.activo %>
-</p>
+<%= image_tag @farmacium.photo.url , :class => "img"%>
 
 <%= link_to 'Edit', edit_farmacium_path(@farmacium) %> |
 <%= link_to 'Back', farmacia_path %>

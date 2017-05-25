@@ -28,8 +28,8 @@ class FarmaciaController < ApplicationController
 
     respond_to do |format|
       if @farmacium.save
-        format.html { redirect_to @farmacium, notice: 'Farmacium was successfully created.' }
-        format.json { render :show, status: :created, location: @farmacium }
+        format.html { redirect_to "/farmacia/new", notice: 'Farmacia creada con éxito.' }
+       
       else
         format.html { render :new }
         format.json { render json: @farmacium.errors, status: :unprocessable_entity }
@@ -42,7 +42,7 @@ class FarmaciaController < ApplicationController
   def update
     respond_to do |format|
       if @farmacium.update(farmacium_params)
-        format.html { redirect_to @farmacium, notice: 'Farmacium was successfully updated.' }
+        format.html { redirect_to @farmacium, notice: 'Farmacia se actualizó con éxito.' }
         format.json { render :show, status: :ok, location: @farmacium }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class FarmaciaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def farmacium_params
-      params.require(:farmacium).permit(:nombre, :cedulaJur, :sucursal, :direccion, :correo, :telefono1, :telefono2, :latitud, :longitud, :cant_lab, :activo)
+      params.require(:farmacium).permit(:nombre, :cedulaJur, :sucursal, :direccion, :correo, :telefono1, :telefono2, :latitud, :longitud, :cant_lab, :activo, :photo)
     end
 end
