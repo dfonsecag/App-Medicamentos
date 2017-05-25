@@ -28,8 +28,7 @@ class LaboratoriosController < ApplicationController
 
     respond_to do |format|
       if @laboratorio.save
-        format.html { redirect_to @laboratorio, notice: 'Laboratorio was successfully created.' }
-        format.json { render :show, status: :created, location: @laboratorio }
+        format.html { redirect_to "/laboratorios/new", notice: 'Laboratorio creado con éxito.' }
       else
         format.html { render :new }
         format.json { render json: @laboratorio.errors, status: :unprocessable_entity }
@@ -56,8 +55,8 @@ class LaboratoriosController < ApplicationController
   def destroy
     @laboratorio.destroy
     respond_to do |format|
-      format.html { redirect_to laboratorios_url, notice: 'Laboratorio was successfully destroyed.' }
-      format.json { head :no_content }
+      msg = { :status => "ok", :message => "Eliminado!" }
+        format.json { render :json => msg }
     end
   end
 
