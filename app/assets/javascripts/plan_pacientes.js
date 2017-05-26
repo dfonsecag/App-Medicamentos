@@ -1,22 +1,28 @@
-#Crear laboratorio por ajax
-function crearTodos() {
-	var data = $(this).serializeArray();
-
-	 $.ajax({
-      url: '/todos',
-      method: 'post',
-      data: JSON.stringify({ 
-        // Those property names must match the property names of your PromotionDecision  view model
-        description: $('#description').val(), 
-        priority: $('#priority').val()
-    }),
-    contentType: "application/json; charset=utf-8",
-      success: function(data) {
-       alert('creado exitosamente');
-   },
-   error: function(data) {
-    alert('Verificar que los campos necesarios esten completos.');
+// funcion para eliminar Plan paciente
+function deletePlanPaciente(id) {
+    swal({
+  title: 'Desea eliminar este plan paciente ?',
+  text: "",
+  type: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Si, eliminar.'
+}).then(function () {
+    $.ajax({
+    url:  "/plan_pacientes/"+id,
+    method: "delete",
+    success: function(data) { 
+        $("#"+id).remove();
+          swal(
+    'Eliminado!',
+    'Plan Paciente eliminado.',
+    'success'
+  )
+    },
+     error: function(data) {
+     alert('No fue eliminado');
    }
-
-    });
+});
+})
 }

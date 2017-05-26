@@ -1,4 +1,4 @@
-// funcion para eliminar algo
+// funcion para eliminar laboratorio
 function delete_laboratorio(id) {
     swal({
   title: 'Desea eliminar este laboratorio   ?',
@@ -13,7 +13,6 @@ function delete_laboratorio(id) {
     url:  "/laboratorios/"+id,
     method: "delete",
     success: function(data) { 
-        debugger;
         $("#"+id).remove();
           swal(
     'Eliminado!',
@@ -25,13 +24,5 @@ function delete_laboratorio(id) {
      alert('No fue eliminado');
    }
 });
-
-
- 
 })
-
-
-
-
-	
 }

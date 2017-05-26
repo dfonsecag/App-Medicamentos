@@ -20,6 +20,7 @@ class PlanPacientesController < ApplicationController
 
   # GET /plan_pacientes/1/edit
   def edit
+    @laboratorios = Laboratorio.all
   end
 
   # POST /plan_pacientes
@@ -29,8 +30,7 @@ class PlanPacientesController < ApplicationController
 
     respond_to do |format|
       if @plan_paciente.save
-        format.html { redirect_to @plan_paciente, notice: 'Plan paciente was successfully created.' }
-        format.json { render :show, status: :created, location: @plan_paciente }
+        format.html { redirect_to "/plan_pacientes/new", notice: 'Plan Paciente creado con éxito.' }
       else
         format.html { render :new }
         format.json { render json: @plan_paciente.errors, status: :unprocessable_entity }
@@ -43,8 +43,8 @@ class PlanPacientesController < ApplicationController
   def update
     respond_to do |format|
       if @plan_paciente.update(plan_paciente_params)
-        format.html { redirect_to @plan_paciente, notice: 'Plan paciente was successfully updated.' }
-        format.json { render :show, status: :ok, location: @plan_paciente }
+        format.html { redirect_to "/plan_pacientes", notice: 'Plan Paciente actualizado con éxito.' }
+        
       else
         format.html { render :edit }
         format.json { render json: @plan_paciente.errors, status: :unprocessable_entity }
@@ -57,8 +57,8 @@ class PlanPacientesController < ApplicationController
   def destroy
     @plan_paciente.destroy
     respond_to do |format|
-      format.html { redirect_to plan_pacientes_url, notice: 'Plan paciente was successfully destroyed.' }
-      format.json { head :no_content }
+      msg = { :status => "ok", :message => "Eliminado!" }
+        format.json { render :json => msg }
     end
   end
 
