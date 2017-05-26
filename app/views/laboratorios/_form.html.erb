@@ -1,15 +1,5 @@
 <%= bootstrap_form_for(@laboratorio) do |f| %>
-  <% if @laboratorio.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@laboratorio.errors.count, "error") %> prohibited this laboratorio from being saved:</h2>
-
-      <ul>
-      <% @laboratorio.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+ 
 <div class="col-md-8 col-md-offset-2  col-xs-12 col-sm-10">
   <div class="field">
 

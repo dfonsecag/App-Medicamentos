@@ -1,7 +1,12 @@
-<p id="notice"><%= notice %></p>
 
+<script type="text/javascript">
+  var msj = "<%= notice %>";
+  if(msj!='')
+    swal(msj);
+  
+</script>
 <h1 class="text-center">Lista de  Laboratorios</h1>
-<div class="col-md-6 col-md-offset-3  col-xs-12 col-sm-10">
+<div class="col-lg-8 col-md-8 col-md-offset-2 col-lg-offset-2  col-xs-12 col-sm-12">
 <table class="table table-striped table-condensed"">
   <thead>
     <tr>
@@ -14,11 +19,17 @@
   <tbody>
     <% @laboratorios.each do |laboratorio| %>
       <tr id="<%= laboratorio.id %>">
-        <td><%= laboratorio.nombre %></td>
-        <td><%= laboratorio.descripcion %></td>
-        <td><%= link_to 'Mostrar', laboratorio, :class => "btn btn-info" %>
-        <%= link_to 'Editar', edit_laboratorio_path(laboratorio), :class => "btn btn-success" %>
-        <button class="btn btn-danger" onclick="delete_laboratorio(<%= laboratorio.id %>)">Eliminar</button></td>
+        <td width="25%"><%= laboratorio.nombre %></td>
+        <td width="44%"><%= laboratorio.descripcion %></td>
+        <td width="35%">
+          <a href="/laboratorios/<%= laboratorio.id %>" class="btn btn-info">
+         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Mostrar
+          </a>
+          <a href="/laboratorios/<%= laboratorio.id %>/edit" class="btn btn-success">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar
+          </a>
+           <button class="btn btn-danger" onclick="delete_laboratorio(<%= laboratorio.id %>)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</button>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -27,5 +38,7 @@
 
 <br>
 <div class="col-md-6 col-md-offset-4  col-xs-12 col-sm-10">
-<%= link_to 'New Laboratorio', new_laboratorio_path %>
+<%= link_to 'Nuevo Laboratorio', new_laboratorio_path, :class => "btn btn-success"%>
+
+
 </div>

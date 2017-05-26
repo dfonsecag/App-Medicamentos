@@ -41,7 +41,7 @@ class LaboratoriosController < ApplicationController
   def update
     respond_to do |format|
       if @laboratorio.update(laboratorio_params)
-        format.html { redirect_to @laboratorio, notice: 'Laboratorio was successfully updated.' }
+        format.html { redirect_to "/laboratorios", notice: 'Laboratorio actualizado con éxito.' }
         format.json { render :show, status: :ok, location: @laboratorio }
       else
         format.html { render :edit }

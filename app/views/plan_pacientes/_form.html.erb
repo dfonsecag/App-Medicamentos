@@ -1,0 +1,28 @@
+<%= bootstrap_form_for(@plan_paciente) do |f| %>
+  <% if @plan_paciente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@plan_paciente.errors.count, "error") %> prohibited this plan_paciente from being saved:</h2>
+
+      <ul>
+      <% @plan_paciente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :nombre %>
+  </div>  
+  <div class="field">
+  <label for="sel1">Seleccione el laboratorio:</label>
+  <select class="form-control" id="sel1">
+    <% @laboratorios.each do |laboratorio| %>
+    <option><%= laboratorio.nombre %></option>    
+    <% end %>
+  </select>
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

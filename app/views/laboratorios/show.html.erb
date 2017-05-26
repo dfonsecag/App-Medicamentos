@@ -1,14 +1,23 @@
 <p id="notice"><%= notice %></p>
+<%= bootstrap_form_for(@laboratorio) do |f| %>
+<div class="col-lg-6 col-md-8 col-md-offset-2 col-lg-offset-3  col-xs-12 col-sm-12">
+	<div class="field">
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @laboratorio.nombre %>
-</p>
+    <%= f.text_field :nombre ,   :readonly => true%>
+  </div>
+  <div class="field">
+    
+    <%= f.text_field :descripcion,  :readonly => true %>
+  </div>
+</div>
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @laboratorio.descripcion %>
-</p>
+<% end %>
+<div class="col-lg-6 col-md-8 col-md-offset-2 col-lg-offset-5 col-xs-12 col-sm-12">
 
-<%= link_to 'Edit', edit_laboratorio_path(@laboratorio) %> |
-<%= link_to 'Back', laboratorios_path %>
+		 <a href="/laboratorios" class="btn btn-info">
+         <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>Laboratorios
+          </a>
+          <a href="/laboratorios/<%= @laboratorio.id %>/edit" class="btn btn-success">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar
+          </a>
+ </div>
