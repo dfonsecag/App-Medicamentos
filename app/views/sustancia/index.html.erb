@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sustancia</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sustancia.each do |sustancium| %>
+      <tr>
+        <td><%= sustancium.descripcion %></td>
+        <td><%= link_to 'Show', sustancium %></td>
+        <td><%= link_to 'Edit', edit_sustancium_path(sustancium) %></td>
+        <td><%= link_to 'Destroy', sustancium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sustancium', new_sustancium_path %>

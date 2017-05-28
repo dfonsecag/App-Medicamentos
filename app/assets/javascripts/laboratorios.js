@@ -1,3 +1,6 @@
+
+  
+
 // funcion para eliminar laboratorio
 function delete_laboratorio(id) {
     swal({

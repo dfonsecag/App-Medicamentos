@@ -10,6 +10,9 @@ class PlanPacientesController < ApplicationController
   # GET /plan_pacientes/1
   # GET /plan_pacientes/1.json
   def show
+       @tipo_plan = TipoPlan.new
+       @plan_Paciente_Paciente = TipoPlan.where(["plan_paciente_id = ? and tipo = ?", params[:id], "Paciente"])
+       @plan_Paciente_Farmacia = TipoPlan.where(["plan_paciente_id = ? and tipo = ?", params[:id], "Farmacia"])
   end
 
   # GET /plan_pacientes/new

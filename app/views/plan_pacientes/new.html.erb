@@ -1,10 +1,13 @@
+
 <script type="text/javascript">
-	var msj = "<%= notice %>";
-	if(msj!='')
-		swal(msj);
-	
+var msj = "<%= notice %>";
+	$(document).ready(function() {
+  if(msj!='')
+  	swal(msj, "", "success")
+
+});
 </script>
-<h1 class="text-center">Nuevo Laboratorio</h1>
+<h1 class="text-center">Nuevo Plan Paciente</h1>
 
 <%= render 'form' %>
 

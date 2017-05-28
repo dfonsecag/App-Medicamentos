@@ -1,0 +1,21 @@
+<%= form_for(@sustancium) do |f| %>
+  <% if @sustancium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sustancium.errors.count, "error") %> prohibited this sustancium from being saved:</h2>
+
+      <ul>
+      <% @sustancium.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion %><br>
+    <%= f.text_field :descripcion %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

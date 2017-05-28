@@ -1,9 +1,10 @@
-
 <script type="text/javascript">
-	var msj = "<%= notice %>";
-	if(msj!='')
-		swal("Laboratorio creado con éxito.");
-	
+var msj = "<%= notice %>";
+	$(document).ready(function() {
+  if(msj!='')
+  	swal(msj, "", "success")
+
+});
 </script>
 <h1 class="text-center">Nuevo Laboratorio</h1>
 

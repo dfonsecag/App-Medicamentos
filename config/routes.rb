@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :sustancia
+  resources :tipo_plans
   resources :plan_pacientes
   resources :laboratorios
   resources :farmacia
