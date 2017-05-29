@@ -28,8 +28,7 @@ class PresentacionsController < ApplicationController
 
     respond_to do |format|
       if @presentacion.save
-        format.html { redirect_to @presentacion, notice: 'Presentacion was successfully created.' }
-        format.json { render :show, status: :created, location: @presentacion }
+       format.html { redirect_to "/presentacions/new", notice: 'Presentación creada con éxito.' }
       else
         format.html { render :new }
         format.json { render json: @presentacion.errors, status: :unprocessable_entity }
@@ -42,7 +41,7 @@ class PresentacionsController < ApplicationController
   def update
     respond_to do |format|
       if @presentacion.update(presentacion_params)
-        format.html { redirect_to @presentacion, notice: 'Presentacion was successfully updated.' }
+        format.html { redirect_to "/presentacions", notice: 'Presentación actualizada con éxito.' }
         format.json { render :show, status: :ok, location: @presentacion }
       else
         format.html { render :edit }

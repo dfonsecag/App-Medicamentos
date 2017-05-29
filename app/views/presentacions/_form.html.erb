@@ -1,21 +1,16 @@
-<%= form_for(@presentacion) do |f| %>
-  <% if @presentacion.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@presentacion.errors.count, "error") %> prohibited this presentacion from being saved:</h2>
 
-      <ul>
-      <% @presentacion.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= bootstrap_form_for(@presentacion) do |f| %>
+ 
+<div class="col-md-8 col-md-offset-2  col-xs-12 col-sm-10">
   <div class="field">
-    <%= f.label :descripcion %><br>
+    
     <%= f.text_field :descripcion %>
   </div>
   <div class="actions">
     <%= f.submit %>
+    <a href="/presentacions" class="btn btn-info">
+         <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>Cancelar
+          </a>
   </div>
 <% end %>
+ </div>

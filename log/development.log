@@ -41577,3 +41577,2374 @@ Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 17:57:07 -0
 
 
 Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 17:57:07 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateSustancia (20170528235810)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (26.6ms)[0m  [1mCREATE TABLE "sustancia" ("id" serial primary key, "descripcion" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20170528235810"]]
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePresentacions (20170529000011)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (9.8ms)[0m  [1mCREATE TABLE "presentacions" ("id" serial primary key, "descripcion" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20170529000011"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.6ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (7.0ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'farmacia'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (6.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'laboratorios'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (7.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'plan_pacientes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (6.5ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'presentacions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (6.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'sustancia'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (10.9ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tipo_plans'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+
+
+Started GET "/sustancias" for 127.0.0.1 at 2017-05-28 18:02:27 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (2.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActionController::RoutingError (No route matches [GET] "/sustancias"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (8.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (18.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (36.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (152.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (64.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (115.0ms)
+
+
+Started GET "/sustancia" for 127.0.0.1 at 2017-05-28 18:02:38 -0600
+Processing by SustanciaController#index as HTML
+  [1m[35mSustancium Load (1.4ms)[0m  SELECT "sustancia".* FROM "sustancia"
+  Rendered sustancia/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 1397ms (Views: 1386.9ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/assets/presentacions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-05-28 18:02:39 -0600
+
+
+Started GET "/assets/sustancia.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2017-05-28 18:02:39 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:02:39 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:02:39 -0600
+
+
+Started GET "/sustancia" for 127.0.0.1 at 2017-05-28 18:05:49 -0600
+Processing by SustanciaController#index as HTML
+  [1m[36mSustancium Load (0.9ms)[0m  [1mSELECT "sustancia".* FROM "sustancia"[0m
+  Rendered sustancia/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 143ms (Views: 135.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:05:49 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:05:49 -0600
+
+
+Started GET "/sustancia/new" for 127.0.0.1 at 2017-05-28 18:05:50 -0600
+Processing by SustanciaController#new as HTML
+  Rendered sustancia/_form.html.erb (14.1ms)
+  Rendered sustancia/new.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 159ms (Views: 140.3ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/sustancia/new" for 127.0.0.1 at 2017-05-28 18:06:08 -0600
+Processing by SustanciaController#new as HTML
+  Rendered sustancia/_form.html.erb (3.6ms)
+  Rendered sustancia/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 154ms (Views: 152.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:06:08 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:06:08 -0600
+
+
+Started GET "/presentacion" for 127.0.0.1 at 2017-05-28 18:06:20 -0600
+
+ActionController::RoutingError (No route matches [GET] "/presentacion"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.8) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (4.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (84.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (46.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (96.9ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:06:26 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (1.3ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 158ms (Views: 148.1ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:06:26 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:06:26 -0600
+
+
+Started GET "/presentacions/new" for 127.0.0.1 at 2017-05-28 18:06:28 -0600
+Processing by PresentacionsController#new as HTML
+  Rendered presentacions/_form.html.erb (89.7ms)
+  Rendered presentacions/new.html.erb within layouts/application (93.4ms)
+Completed 500 Internal Server Error in 110ms (ActiveRecord: 1.6ms)
+
+ActionView::Template::Error (undefined method `form_bootstrap_form_for' for #<#<Class:0x007f725da44c10>:0x000000021ebf20>):
+    1: <%= form_bootstrap_form_for(@presentacion) do |f| %>
+    2:  
+    3: <div class="col-md-8 col-md-offset-2  col-xs-12 col-sm-10">
+    4:   <div class="field">
+  app/views/presentacions/_form.html.erb:1:in `_app_views_presentacions__form_html_erb__744137911698018024_70064594447440'
+  app/views/presentacions/new.html.erb:3:in `_app_views_presentacions_new_html_erb__1300341561243759320_70064594426560'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (18.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (65.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (63.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (119.3ms)
+
+
+Started GET "/presentacions/new" for 127.0.0.1 at 2017-05-28 18:07:03 -0600
+Processing by PresentacionsController#new as HTML
+  Rendered presentacions/_form.html.erb (7.3ms)
+  Rendered presentacions/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 165ms (Views: 163.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:07:03 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:07:03 -0600
+
+
+Started GET "/presentacions/new" for 127.0.0.1 at 2017-05-28 18:07:36 -0600
+Processing by PresentacionsController#new as HTML
+  Rendered presentacions/_form.html.erb (36.8ms)
+  Rendered presentacions/new.html.erb within layouts/application (39.2ms)
+Completed 200 OK in 177ms (Views: 176.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:07:36 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:07:36 -0600
+
+
+Started GET "/presentacions/new" for 127.0.0.1 at 2017-05-28 18:08:21 -0600
+Processing by PresentacionsController#new as HTML
+  Rendered presentacions/_form.html.erb (1.3ms)
+  Rendered presentacions/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 44ms (Views: 43.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:08:21 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:08:21 -0600
+
+
+Started POST "/presentacions" for 127.0.0.1 at 2017-05-28 18:08:35 -0600
+Processing by PresentacionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jCLS4z6l8r5O1uCA/iMdZ2WQIWJlXLdeUG7XGGagAVyQntJfwK2za1Nsae06XwV47pPNGtZdIgFemGF1DTFYYw==", "presentacion"=>{"descripcion"=>""}, "commit"=>"Create Presentacion"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered presentacions/_form.html.erb (1.2ms)
+  Rendered presentacions/new.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 56ms (Views: 51.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:08:35 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:08:35 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:09:48 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.3ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 54ms (Views: 50.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:09:48 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:09:48 -0600
+
+
+Started GET "/presentacions/new" for 127.0.0.1 at 2017-05-28 18:09:50 -0600
+Processing by PresentacionsController#new as HTML
+  Rendered presentacions/_form.html.erb (1.9ms)
+  Rendered presentacions/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 79ms (Views: 75.0ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/presentacions" for 127.0.0.1 at 2017-05-28 18:09:51 -0600
+Processing by PresentacionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZzjVSOj334REfSVEBeawZoP0jZWORP1JKZSojtmuNSF7hNX0Fv+eUVnHrCnBmqh5CPdh7T1FaBYnYh7jsj9sHg==", "presentacion"=>{"descripcion"=>""}, "commit"=>"Create Presentacion"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  Rendered presentacions/_form.html.erb (1.7ms)
+  Rendered presentacions/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 73ms (Views: 70.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:09:52 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:09:52 -0600
+
+
+Started POST "/presentacions" for 127.0.0.1 at 2017-05-28 18:09:58 -0600
+Processing by PresentacionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fZVisqV5iqXjacuPWwBsdQyle05tzrhFIcJ00/XANcdhKWIOW3HLcP7TQuKffHRqh6aXNt7PLRovNMK+nlFs+A==", "presentacion"=>{"descripcion"=>"Jarabe"}, "commit"=>"Create Presentacion"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "presentacions" ("descripcion", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["descripcion", "Jarabe"], ["created_at", "2017-05-29 00:09:58.773426"], ["updated_at", "2017-05-29 00:09:58.773426"]]
+  [1m[35m (0.9ms)[0m  COMMIT
+Redirected to http://localhost:3000/presentacions/new
+Completed 302 Found in 9ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/presentacions/new" for 127.0.0.1 at 2017-05-28 18:09:58 -0600
+Processing by PresentacionsController#new as HTML
+  Rendered presentacions/_form.html.erb (1.5ms)
+  Rendered presentacions/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 50ms (Views: 49.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:09:58 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:09:58 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:10:02 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.4ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 47ms (Views: 46.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:10:35 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.3ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 51ms (Views: 50.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:10:35 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:10:35 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:10:39 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.4ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 60ms (Views: 59.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:10:39 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:10:39 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:10:58 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.3ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 65ms (Views: 59.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:10:58 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:10:58 -0600
+
+
+Started GET "/presentacions/1/edit" for 127.0.0.1 at 2017-05-28 18:11:00 -0600
+Processing by PresentacionsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPresentacion Load (0.5ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered presentacions/_form.html.erb (1.6ms)
+  Rendered presentacions/edit.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 59ms (Views: 49.8ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/presentacions/1" for 127.0.0.1 at 2017-05-28 18:11:02 -0600
+Processing by PresentacionsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cQ1DFOTJdYvuC/kwHUUo20QAn7s380AClrOYLssMb49tsUOoGsE0XvOxcF3ZOTDEzwNzw4Ty1V2YRS5DoJ02sA==", "presentacion"=>{"descripcion"=>"Jarabe"}, "commit"=>"Update Presentacion", "id"=>"1"}
+  [1m[35mPresentacion Load (0.4ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/presentacions
+Completed 302 Found in 5ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:11:02 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.3ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 46ms (Views: 45.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:11:02 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:11:02 -0600
+
+
+Started GET "/presentacions/1/edit" for 127.0.0.1 at 2017-05-28 18:11:21 -0600
+Processing by PresentacionsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPresentacion Load (0.4ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered presentacions/_form.html.erb (2.2ms)
+  Rendered presentacions/edit.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 46ms (Views: 44.3ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/presentacions/1" for 127.0.0.1 at 2017-05-28 18:11:22 -0600
+Processing by PresentacionsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"e7Ia55tubEV6CH7Zl3GTT3AOElu294NLvkBevhCYbHtnDhpbZWYtkGey97RTDYtQ+w3+IwX2FhSwtujTewk1RA==", "presentacion"=>{"descripcion"=>"Jarabe"}, "commit"=>"Update Presentacion", "id"=>"1"}
+  [1m[36mPresentacion Load (0.3ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/presentacions
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:11:22 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.3ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 51ms (Views: 50.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:11:22 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:11:22 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:15:47 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.3ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (7.4ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (undefined method `nombre' for #<Presentacion:0x0000000483bb58>):
+    20:   <tbody>
+    21:     <% @presentacions.each do |presentacion| %>
+    22:       <tr id="<%= presentacion.id %>">
+    23:         <td width="20%"><%= presentacion.nombre %></td>
+    24:         <td width="40%"><%= presentacion.descripcion %></td>
+    25:         <td width="35%">
+    26:           <a href="/presentacions/<%= presentacion.id %>" class="btn btn-info">
+  app/views/presentacions/index.html.erb:23:in `block in _app_views_presentacions_index_html_erb__4323248931310064557_37954460'
+  app/views/presentacions/index.html.erb:21:in `_app_views_presentacions_index_html_erb__4323248931310064557_37954460'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (19.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (30.5ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:16:07 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.4ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 50ms (Views: 48.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:16:07 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:16:07 -0600
+
+
+Started GET "/presentacions/1" for 127.0.0.1 at 2017-05-28 18:16:09 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPresentacion Load (0.4ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered presentacions/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 39ms (Views: 37.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/presentacions/1/edit" for 127.0.0.1 at 2017-05-28 18:16:12 -0600
+Processing by PresentacionsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPresentacion Load (0.4ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered presentacions/_form.html.erb (1.4ms)
+  Rendered presentacions/edit.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 40ms (Views: 39.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/presentacions/1/edit" for 127.0.0.1 at 2017-05-28 18:16:34 -0600
+Processing by PresentacionsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPresentacion Load (0.9ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered presentacions/_form.html.erb (1.1ms)
+  Rendered presentacions/edit.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 40ms (Views: 37.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:16:34 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:16:34 -0600
+
+
+Started GET "/presentacions/1/edit" for 127.0.0.1 at 2017-05-28 18:16:49 -0600
+Processing by PresentacionsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPresentacion Load (0.6ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered presentacions/_form.html.erb (1.5ms)
+  Rendered presentacions/edit.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 42ms (Views: 40.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:16:49 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:16:49 -0600
+
+
+Started GET "/presentacions/" for 127.0.0.1 at 2017-05-28 18:16:55 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.3ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 39ms (Views: 38.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:16:55 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:16:55 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:17:05 -0600
+
+
+Started GET "/presentacions/" for 127.0.0.1 at 2017-05-28 18:18:54 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.4ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 124ms (Views: 122.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/presentacions.self-1bf5c74ef21fe5ab2582025a360605af34ebbb1cb3826004861997f0c3ebf1ba.js?body=1" for 127.0.0.1 at 2017-05-28 18:18:54 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:18:54 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:18:54 -0600
+
+
+Started DELETE "/presentacions/1" for 127.0.0.1 at 2017-05-28 18:19:01 -0600
+Processing by PresentacionsController#destroy as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPresentacion Load (0.5ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "presentacions" WHERE "presentacions"."id" = $1[0m  [["id", 1]]
+  [1m[35m (1.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/presentacions
+Completed 200 OK in 8ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:19:01 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.4ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 83ms (Views: 81.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/presentacions/new" for 127.0.0.1 at 2017-05-28 18:19:08 -0600
+Processing by PresentacionsController#new as HTML
+  Rendered presentacions/_form.html.erb (1.7ms)
+  Rendered presentacions/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 68ms (Views: 66.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/presentacions" for 127.0.0.1 at 2017-05-28 18:20:13 -0600
+Processing by PresentacionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Tl/NWb1QSLkhSFjZ04/PTUbHjvIY7gMEjv7wfPyS/JhS483lQ1gJbDzy0bQX89dSzcRiiqvvlluACEYRlwOlpw==", "presentacion"=>{"descripcion"=>""}, "commit"=>"Create Presentacion"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  Rendered presentacions/_form.html.erb (1.9ms)
+  Rendered presentacions/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 60ms (Views: 55.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:20:13 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:20:13 -0600
+
+
+Started POST "/presentacions" for 127.0.0.1 at 2017-05-28 18:20:21 -0600
+Processing by PresentacionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zdMqc2j2vpUIdMvW6ByTKundafzgai9IaAd4TLcmF5TRbyrPlv7/QBXOQrssYIs1Yt6FhFNruhdm8c4h3LdOqw==", "presentacion"=>{"descripcion"=>"Jarabe"}, "commit"=>"Create Presentacion"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "presentacions" ("descripcion", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["descripcion", "Jarabe"], ["created_at", "2017-05-29 00:20:21.928862"], ["updated_at", "2017-05-29 00:20:21.928862"]]
+  [1m[35m (1.0ms)[0m  COMMIT
+Redirected to http://localhost:3000/presentacions/new
+Completed 302 Found in 5ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/presentacions/new" for 127.0.0.1 at 2017-05-28 18:20:21 -0600
+Processing by PresentacionsController#new as HTML
+  Rendered presentacions/_form.html.erb (1.7ms)
+  Rendered presentacions/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 58ms (Views: 57.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:20:22 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:20:22 -0600
+
+
+Started POST "/presentacions" for 127.0.0.1 at 2017-05-28 18:20:33 -0600
+Processing by PresentacionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sUl1ORKYePQK89SukPGZ1k2Gm2auLYuxXuyyJRbAvm+t9XWF7JA5IRdJXcNUjYHJxoV3Hh0sHu5QGgRIfVHnUA==", "presentacion"=>{"descripcion"=>"Tabletas"}, "commit"=>"Create Presentacion"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "presentacions" ("descripcion", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["descripcion", "Tabletas"], ["created_at", "2017-05-29 00:20:33.473912"], ["updated_at", "2017-05-29 00:20:33.473912"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/presentacions/new
+Completed 302 Found in 5ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/presentacions/new" for 127.0.0.1 at 2017-05-28 18:20:33 -0600
+Processing by PresentacionsController#new as HTML
+  Rendered presentacions/_form.html.erb (1.1ms)
+  Rendered presentacions/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 47ms (Views: 46.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:20:33 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:20:33 -0600
+
+
+Started POST "/presentacions" for 127.0.0.1 at 2017-05-28 18:20:41 -0600
+Processing by PresentacionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AzUBCjc8k+2XebZ1sMBzAyBlSc05AG2omWZ43lt+RTYfiQG2yTTSOIrDPxh0vGscq2altYoB+PeXkM6zMO8cCQ==", "presentacion"=>{"descripcion"=>"Comprimidos"}, "commit"=>"Create Presentacion"}
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "presentacions" ("descripcion", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["descripcion", "Comprimidos"], ["created_at", "2017-05-29 00:20:41.174100"], ["updated_at", "2017-05-29 00:20:41.174100"]]
+  [1m[35m (1.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/presentacions/new
+Completed 302 Found in 7ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/presentacions/new" for 127.0.0.1 at 2017-05-28 18:20:41 -0600
+Processing by PresentacionsController#new as HTML
+  Rendered presentacions/_form.html.erb (1.2ms)
+  Rendered presentacions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 50ms (Views: 49.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:20:41 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:20:41 -0600
+
+
+Started POST "/presentacions" for 127.0.0.1 at 2017-05-28 18:20:55 -0600
+Processing by PresentacionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lJn7rTjDPgeTuUNID3EFAH1ZCexqYN9hOsbEmlwsYeOIJfsRxst/0o4DyiXLDR0f9lrllNlhSj40MHL3N7043A==", "presentacion"=>{"descripcion"=>"Ampollas bebibles"}, "commit"=>"Create Presentacion"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "presentacions" ("descripcion", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["descripcion", "Ampollas bebibles"], ["created_at", "2017-05-29 00:20:55.167384"], ["updated_at", "2017-05-29 00:20:55.167384"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/presentacions/new
+Completed 302 Found in 4ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/presentacions/new" for 127.0.0.1 at 2017-05-28 18:20:55 -0600
+Processing by PresentacionsController#new as HTML
+  Rendered presentacions/_form.html.erb (1.4ms)
+  Rendered presentacions/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 48ms (Views: 46.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:20:55 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:20:55 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:20:59 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.3ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 40ms (Views: 39.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/presentacions/new" for 127.0.0.1 at 2017-05-28 18:21:01 -0600
+Processing by PresentacionsController#new as HTML
+  Rendered presentacions/_form.html.erb (1.5ms)
+  Rendered presentacions/new.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 49ms (Views: 49.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/presentacions" for 127.0.0.1 at 2017-05-28 18:21:03 -0600
+Processing by PresentacionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zKFk7p+YHmLGCnEqpI8Fv0I2lEDWwoB4MFbHOyjoPIbQHWRSYZBft9uw+Edg8x2gyTV4OGXDFSc+oHFWQ3lluQ==", "presentacion"=>{"descripcion"=>"d"}, "commit"=>"Create Presentacion"}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "presentacions" ("descripcion", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"  [["descripcion", "d"], ["created_at", "2017-05-29 00:21:03.793755"], ["updated_at", "2017-05-29 00:21:03.793755"]]
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/presentacions/new
+Completed 302 Found in 5ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/presentacions/new" for 127.0.0.1 at 2017-05-28 18:21:03 -0600
+Processing by PresentacionsController#new as HTML
+  Rendered presentacions/_form.html.erb (3.8ms)
+  Rendered presentacions/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 52ms (Views: 51.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:21:03 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:21:03 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:21:07 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.4ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 42ms (Views: 41.5ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/presentacions/6" for 127.0.0.1 at 2017-05-28 18:21:09 -0600
+Processing by PresentacionsController#destroy as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mPresentacion Load (0.3ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "presentacions" WHERE "presentacions"."id" = $1[0m  [["id", 6]]
+  [1m[35m (1.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/presentacions
+Completed 200 OK in 5ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:21:09 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.7ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 57ms (Views: 55.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/presentacions/5/edit" for 127.0.0.1 at 2017-05-28 18:21:13 -0600
+Processing by PresentacionsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPresentacion Load (0.3ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered presentacions/_form.html.erb (1.4ms)
+  Rendered presentacions/edit.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 41ms (Views: 40.4ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:21:14 -0600
+Processing by PresentacionsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dTYSHcdgsl2YmYv3FcrlRo8IU80v9Izj8+uP/+fXGKhpihKhOWjziIUjAprRtv1ZBAu/tZz1Gbz9HTmSjEZBlw==", "presentacion"=>{"descripcion"=>"Ampollas bebibles"}, "commit"=>"Update Presentacion", "id"=>"5"}
+  [1m[36mPresentacion Load (0.3ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/presentacions
+Completed 302 Found in 3ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:21:14 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.3ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 43ms (Views: 42.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:21:14 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:21:14 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:21:39 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.3ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 36ms (Views: 34.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:21:39 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:21:39 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:21:48 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.3ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 43ms (Views: 42.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:21:49 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:21:49 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:21:53 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.3ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 39ms (Views: 38.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:21:53 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:21:53 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:21:59 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.3ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 44ms (Views: 43.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:21:59 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:21:59 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:22:01 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.4ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 39ms (Views: 38.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:22:01 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:22:01 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:22:02 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:22:08 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.4ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 66ms (Views: 64.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:22:08 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:22:08 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:22:10 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.7ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 62ms (Views: 60.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:22:10 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:22:10 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:22:11 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.4ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 50ms (Views: 48.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:22:11 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:22:11 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:22:13 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (1.6ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 53ms (Views: 50.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:22:13 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:22:13 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:22:15 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:22:29 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.4ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 55ms (Views: 54.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:22:29 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:22:29 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:22:50 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.5ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 57ms (Views: 55.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:22:51 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:22:51 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:23:10 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.4ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 61ms (Views: 59.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:23:10 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:23:10 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:23:37 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.3ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 47ms (Views: 46.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:23:37 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:23:37 -0600
+
+
+Started GET "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:23:44 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPresentacion Load (0.3ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered presentacions/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 41ms (Views: 39.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:24:50 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.3ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 41ms (Views: 40.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:24:50 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:24:50 -0600
+
+
+Started GET "/presentacions/2" for 127.0.0.1 at 2017-05-28 18:24:53 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPresentacion Load (0.2ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered presentacions/show.html.erb within layouts/application (2.5ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <p id="notice"><%= notice %></p>
+    2: <%= bootstrap_form_for(@laboratorio) do |f| %>
+    3: <div class="col-lg-6 col-md-8 col-md-offset-2 col-lg-offset-3  col-xs-12 col-sm-12">
+    4: 	<div class="field">
+    5: 
+  app/views/presentacions/show.html.erb:2:in `_app_views_presentacions_show_html_erb__2774089272264987379_70064443553620'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (19.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (13.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (27.1ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:25:35 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:25:35 -0600
+
+
+Started GET "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:25:37 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPresentacion Load (0.5ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered presentacions/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 43ms (Views: 41.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:26:10 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPresentacion Load (0.3ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered presentacions/show.html.erb within layouts/application (7.4ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (undefined method `nombre' for #<Presentacion:0x007f7250645a18>):
+    3: <div class="col-lg-6 col-md-8 col-md-offset-2 col-lg-offset-3  col-xs-12 col-sm-12">
+    4: 	<div class="field">
+    5: 
+    6:     <%= f.text_field :nombre ,   :readonly => true%>
+    7:   </div>
+    8:   <div class="field">
+    9:     
+  app/views/presentacions/show.html.erb:6:in `block in _app_views_presentacions_show_html_erb__2774089272264987379_70064594747240'
+  app/views/presentacions/show.html.erb:2:in `_app_views_presentacions_show_html_erb__2774089272264987379_70064594747240'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (31.1ms)
+
+
+Started GET "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:26:21 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPresentacion Load (1.2ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered presentacions/show.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 44ms (Views: 40.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:26:21 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:26:21 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:26:24 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.5ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 60ms (Views: 59.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-28 18:26:33 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[36mPlanPaciente Load (0.5ms)[0m  [1mSELECT "plan_pacientes".* FROM "plan_pacientes"[0m
+  [1m[35mLaboratorio Load (0.3ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 14]]
+  [1m[36mLaboratorio Load (0.3ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (24.2ms)
+Completed 200 OK in 70ms (Views: 60.5ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:26:33 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:26:33 -0600
+
+
+Started GET "/plan_pacientes/7" for 127.0.0.1 at 2017-05-28 18:26:35 -0600
+Processing by PlanPacientesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mPlanPaciente Load (0.3ms)[0m  SELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mLaboratorio Load (0.4ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  [1m[35mTipoPlan Load (1.0ms)[0m  SELECT "tipo_plans".* FROM "tipo_plans" WHERE (plan_paciente_id = '7' and tipo = 'Paciente')
+  [1m[36mTipoPlan Load (0.6ms)[0m  [1mSELECT "tipo_plans".* FROM "tipo_plans" WHERE (plan_paciente_id = '7' and tipo = 'Farmacia')[0m
+  Rendered plan_pacientes/show.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 59ms (Views: 46.9ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:27:21 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.4ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 44ms (Views: 43.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:27:21 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:27:21 -0600
+
+
+Started GET "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:27:22 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPresentacion Load (0.4ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered presentacions/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 57ms (Views: 55.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:27:24 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPresentacion Load (0.2ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered presentacions/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 38ms (Views: 36.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:27:24 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:27:24 -0600
+
+
+Started GET "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:27:32 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPresentacion Load (0.3ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered presentacions/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 49ms (Views: 48.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:27:32 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:27:32 -0600
+
+
+Started GET "/presentacions/5/edit" for 127.0.0.1 at 2017-05-28 18:27:35 -0600
+Processing by PresentacionsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPresentacion Load (0.4ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered presentacions/_form.html.erb (1.9ms)
+  Rendered presentacions/edit.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 47ms (Views: 46.0ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:27:36 -0600
+Processing by PresentacionsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zn2kCaqT3H2D5GbVApgMrTeJyX6gSUz0G9DCq1KVaQzSwaS1VJudqJ5e77jG5BSyvIolBhNI2asVJnTGOQQwMw==", "presentacion"=>{"descripcion"=>"Ampollas bebibles"}, "commit"=>"Update Presentacion", "id"=>"5"}
+  [1m[36mPresentacion Load (0.3ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/presentacions
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:27:36 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.4ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 41ms (Views: 40.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:27:36 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:27:36 -0600
+
+
+Started GET "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:27:40 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPresentacion Load (0.3ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered presentacions/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 49ms (Views: 47.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:28:15 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPresentacion Load (0.3ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered presentacions/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 45ms (Views: 44.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:28:15 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:28:15 -0600
+
+
+Started GET "/presentacions/5/edit" for 127.0.0.1 at 2017-05-28 18:28:16 -0600
+Processing by PresentacionsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPresentacion Load (0.5ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered presentacions/_form.html.erb (2.0ms)
+  Rendered presentacions/edit.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 55ms (Views: 53.3ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:28:17 -0600
+Processing by PresentacionsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XogrJbrALiyYoVWoqGehmD2envZjiJos3Lc86LKQ5zRCNCuZRMhv+YUb3MVsG7mHtp1yjtCJD3PSQYqF2QG+Cw==", "presentacion"=>{"descripcion"=>"Ampollas bebibles"}, "commit"=>"Update Presentacion", "id"=>"5"}
+  [1m[35mPresentacion Load (0.2ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/presentacions
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:28:17 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.3ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 44ms (Views: 42.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:28:17 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:28:17 -0600
+
+
+Started GET "/presentacions/5/edit" for 127.0.0.1 at 2017-05-28 18:28:24 -0600
+Processing by PresentacionsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPresentacion Load (0.3ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered presentacions/_form.html.erb (1.2ms)
+  Rendered presentacions/edit.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 49ms (Views: 47.8ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:28:28 -0600
+Processing by PresentacionsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bT5pUwfEV2KaZoarJ8c8NT6iL7K7k4YR44APyTX7mRNxgmnv+cwWt4fcD8bjuyQqtaHDygiSE07tdrmkXmrALA==", "presentacion"=>{"descripcion"=>""}, "commit"=>"Update Presentacion", "id"=>"5"}
+  [1m[36mPresentacion Load (0.3ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  Rendered presentacions/_form.html.erb (1.4ms)
+  Rendered presentacions/edit.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 43ms (Views: 36.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:28:28 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:28:28 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:28:36 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.4ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 60ms (Views: 59.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:29:11 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (1.0ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 44ms (Views: 42.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:29:11 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:29:11 -0600
+
+
+Started GET "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:29:13 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPresentacion Load (0.4ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered presentacions/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 45ms (Views: 43.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:30:05 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPresentacion Load (0.2ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered presentacions/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 40ms (Views: 38.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:30:05 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:30:05 -0600
+
+
+Started GET "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:30:08 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPresentacion Load (0.2ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered presentacions/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 42ms (Views: 40.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:30:08 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:30:08 -0600
+
+
+Started GET "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:31:18 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPresentacion Load (0.2ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered presentacions/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 45ms (Views: 43.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:31:18 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:31:18 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:31:19 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.5ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 41ms (Views: 40.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:31:21 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPresentacion Load (0.3ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered presentacions/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 48ms (Views: 46.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:31:23 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.5ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 49ms (Views: 47.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/presentacions/5/edit" for 127.0.0.1 at 2017-05-28 18:31:39 -0600
+Processing by PresentacionsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPresentacion Load (0.4ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered presentacions/_form.html.erb (1.4ms)
+  Rendered presentacions/edit.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 42ms (Views: 40.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:31:46 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.4ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 39ms (Views: 37.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/presentacions/5/edit" for 127.0.0.1 at 2017-05-28 18:31:48 -0600
+Processing by PresentacionsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPresentacion Load (0.3ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered presentacions/_form.html.erb (2.3ms)
+  Rendered presentacions/edit.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 50ms (Views: 48.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/presentacions/5/edit" for 127.0.0.1 at 2017-05-28 18:32:43 -0600
+Processing by PresentacionsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPresentacion Load (0.2ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered presentacions/_form.html.erb (0.8ms)
+  Rendered presentacions/edit.html.erb within layouts/application (1.3ms)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.2ms)
+
+SyntaxError (/home/diego/App-Medicamentos/app/views/presentacions/_form.html.erb:10: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+...er.append=( f.submit, :class => "btn btn-success"  );@output...
+...                               ^):
+  app/views/presentacions/_form.html.erb:10: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+  app/views/presentacions/edit.html.erb:3:in `_app_views_presentacions_edit_html_erb___1230881550061265738_70064584257420'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (29.7ms)
+
+
+Started GET "/presentacions/5/edit" for 127.0.0.1 at 2017-05-28 18:33:43 -0600
+Processing by PresentacionsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPresentacion Load (0.5ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered presentacions/_form.html.erb (2.3ms)
+  Rendered presentacions/edit.html.erb within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.5ms)
+
+SyntaxError (/home/diego/App-Medicamentos/app/views/presentacions/_form.html.erb:10: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+...er.append=( f.submit, :class => 'btn btn-success' );@output_...
+...                               ^):
+  app/views/presentacions/_form.html.erb:10: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+  app/views/presentacions/edit.html.erb:3:in `_app_views_presentacions_edit_html_erb___1230881550061265738_70064584257420'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (28.4ms)
+
+
+Started GET "/presentacions/5/edit" for 127.0.0.1 at 2017-05-28 18:33:50 -0600
+Processing by PresentacionsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPresentacion Load (0.4ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered presentacions/_form.html.erb (2.4ms)
+  Rendered presentacions/edit.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 45ms (Views: 43.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:33:50 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:33:50 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:34:06 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.5ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 53ms (Views: 52.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:34:08 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPresentacion Load (0.4ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered presentacions/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 40ms (Views: 38.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:34:44 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (1.1ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 45ms (Views: 43.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/presentacions/new" for 127.0.0.1 at 2017-05-28 18:34:45 -0600
+Processing by PresentacionsController#new as HTML
+  Rendered presentacions/_form.html.erb (1.8ms)
+  Rendered presentacions/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 41ms (Views: 40.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:34:55 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.3ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 52ms (Views: 50.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:35:00 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPresentacion Load (0.3ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered presentacions/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 43ms (Views: 41.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:35:02 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.6ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 42ms (Views: 40.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/presentacions/5/edit" for 127.0.0.1 at 2017-05-28 18:35:03 -0600
+Processing by PresentacionsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPresentacion Load (0.4ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  Rendered presentacions/_form.html.erb (1.5ms)
+  Rendered presentacions/edit.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 45ms (Views: 43.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/presentacions/5/edit" for 127.0.0.1 at 2017-05-28 18:35:26 -0600
+Processing by PresentacionsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPresentacion Load (0.2ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered presentacions/_form.html.erb (1.3ms)
+  Rendered presentacions/edit.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 47ms (Views: 46.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:35:26 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:35:26 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:35:29 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.4ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 55ms (Views: 54.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/presentacions/5/edit" for 127.0.0.1 at 2017-05-28 18:35:41 -0600
+Processing by PresentacionsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPresentacion Load (0.3ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered presentacions/_form.html.erb (2.1ms)
+  Rendered presentacions/edit.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 48ms (Views: 47.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:35:43 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (1.0ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 47ms (Views: 45.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/presentacions/5/edit" for 127.0.0.1 at 2017-05-28 18:35:44 -0600
+Processing by PresentacionsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPresentacion Load (0.4ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered presentacions/_form.html.erb (1.7ms)
+  Rendered presentacions/edit.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 44ms (Views: 42.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:35:45 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.5ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 49ms (Views: 47.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:35:46 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPresentacion Load (0.3ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 5]]
+  Rendered presentacions/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 55ms (Views: 53.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:35:48 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.6ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 60ms (Views: 58.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:36:08 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.3ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 45ms (Views: 44.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:36:09 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:36:09 -0600
+
+
+Started DELETE "/presentacions/5" for 127.0.0.1 at 2017-05-28 18:36:19 -0600
+Processing by PresentacionsController#destroy as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mPresentacion Load (0.7ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "presentacions" WHERE "presentacions"."id" = $1[0m  [["id", 5]]
+  [1m[35m (1.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/presentacions
+Completed 200 OK in 6ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:36:19 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.5ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 58ms (Views: 56.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/presentacions/new" for 127.0.0.1 at 2017-05-28 18:36:22 -0600
+Processing by PresentacionsController#new as HTML
+  Rendered presentacions/_form.html.erb (3.0ms)
+  Rendered presentacions/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 46ms (Views: 45.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/presentacions" for 127.0.0.1 at 2017-05-28 18:36:23 -0600
+Processing by PresentacionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NJvQQH9ycEvpQRWBqu1leQIV10LmM6M8sP8URYJ3d5AoJ9D8gXoxnvT7nOxukX1miRY7OlUyNmO+CaIo6eYurw==", "presentacion"=>{"descripcion"=>""}, "commit"=>"Create Presentacion"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  Rendered presentacions/_form.html.erb (1.3ms)
+  Rendered presentacions/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 68ms (Views: 64.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:36:23 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:36:23 -0600
+
+
+Started POST "/presentacions" for 127.0.0.1 at 2017-05-28 18:36:33 -0600
+Processing by PresentacionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w6HjMKMuX1fw8Mgprjpkk4zYEAOvPbueqTr3rlbcsnzfHeOMXSYegu1KQURqRnyMB9v8exw8LsGnzEHDPU3rQw==", "presentacion"=>{"descripcion"=>"Inyectable"}, "commit"=>"Create Presentacion"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "presentacions" ("descripcion", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["descripcion", "Inyectable"], ["created_at", "2017-05-29 00:36:33.748179"], ["updated_at", "2017-05-29 00:36:33.748179"]]
+  [1m[35m (1.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/presentacions/new
+Completed 302 Found in 4ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/presentacions/new" for 127.0.0.1 at 2017-05-28 18:36:33 -0600
+Processing by PresentacionsController#new as HTML
+  Rendered presentacions/_form.html.erb (1.1ms)
+  Rendered presentacions/new.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 37ms (Views: 36.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:36:33 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:36:33 -0600
+
+
+Started GET "/presentacions/new" for 127.0.0.1 at 2017-05-28 18:38:35 -0600
+Processing by PresentacionsController#new as HTML
+  Rendered presentacions/_linkprincipal.html.erb (0.2ms)
+  Rendered presentacions/_form.html.erb (1.1ms)
+  Rendered presentacions/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 43ms (Views: 42.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:38:35 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:38:35 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:38:37 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.4ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 42ms (Views: 41.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/presentacions/7" for 127.0.0.1 at 2017-05-28 18:38:38 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mPresentacion Load (0.3ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 7]]
+  Rendered presentacions/_linkprincipal.html.erb (0.0ms)
+  Rendered presentacions/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 43ms (Views: 42.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:38:39 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.4ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 53ms (Views: 51.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/presentacions/new" for 127.0.0.1 at 2017-05-28 18:38:41 -0600
+Processing by PresentacionsController#new as HTML
+  Rendered presentacions/_linkprincipal.html.erb (0.0ms)
+  Rendered presentacions/_form.html.erb (1.5ms)
+  Rendered presentacions/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 46ms (Views: 44.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:38:42 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.4ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 45ms (Views: 44.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/presentacions/new" for 127.0.0.1 at 2017-05-28 18:38:46 -0600
+Processing by PresentacionsController#new as HTML
+  Rendered presentacions/_linkprincipal.html.erb (0.1ms)
+  Rendered presentacions/_form.html.erb (1.5ms)
+  Rendered presentacions/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 42ms (Views: 41.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/presentacions/new" for 127.0.0.1 at 2017-05-28 18:38:56 -0600
+Processing by PresentacionsController#new as HTML
+  Rendered presentacions/_linkprincipal.html.erb (0.0ms)
+  Rendered presentacions/_form.html.erb (1.1ms)
+  Rendered presentacions/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 44ms (Views: 44.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:38:56 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:38:56 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:38:58 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.5ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 50ms (Views: 48.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/presentacions/2" for 127.0.0.1 at 2017-05-28 18:38:59 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPresentacion Load (0.3ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered presentacions/_linkprincipal.html.erb (0.0ms)
+  Rendered presentacions/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 42ms (Views: 40.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:39:01 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (1.6ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 56ms (Views: 53.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/presentacions/3/edit" for 127.0.0.1 at 2017-05-28 18:39:02 -0600
+Processing by PresentacionsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPresentacion Load (0.3ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 3]]
+  Rendered presentacions/_linkprincipal.html.erb (0.1ms)
+  Rendered presentacions/_form.html.erb (2.3ms)
+  Rendered presentacions/edit.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 56ms (Views: 54.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:39:03 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.4ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 49ms (Views: 48.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/presentacions/7" for 127.0.0.1 at 2017-05-28 18:39:13 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mPresentacion Load (0.3ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 7]]
+  Rendered presentacions/_linkprincipal.html.erb (0.0ms)
+  Rendered presentacions/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 44ms (Views: 42.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/presentacions/7/edit" for 127.0.0.1 at 2017-05-28 18:39:15 -0600
+Processing by PresentacionsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPresentacion Load (0.5ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  Rendered presentacions/_linkprincipal.html.erb (0.0ms)
+  Rendered presentacions/_form.html.erb (1.4ms)
+  Rendered presentacions/edit.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 44ms (Views: 42.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-28 18:41:14 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[35mPlanPaciente Load (0.3ms)[0m  SELECT "plan_pacientes".* FROM "plan_pacientes"
+  [1m[36mLaboratorio Load (0.2ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  [1m[35mLaboratorio Load (0.2ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 40ms (Views: 39.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:41:14 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:41:14 -0600
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-28 18:42:16 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[36mPlanPaciente Load (0.2ms)[0m  [1mSELECT "plan_pacientes".* FROM "plan_pacientes"[0m
+  [1m[35mLaboratorio Load (0.2ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 14]]
+  [1m[36mLaboratorio Load (0.1ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 42ms (Views: 40.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:42:17 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:42:17 -0600
+
+
+Started GET "/plan_pacientes/20" for 127.0.0.1 at 2017-05-28 18:42:18 -0600
+Processing by PlanPacientesController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[35mPlanPaciente Load (0.5ms)[0m  SELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1  [["id", 20]]
+  Rendered plan_pacientes/show.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.5ms)
+
+ActionView::Template::Error (Missing partial plan_pacientes/_linkprincipal, application/_linkprincipal with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/diego/App-Medicamentos/app/views"
+):
+     6: 
+     7: });
+     8: </script>
+     9: <%= render 'linkprincipal' %>
+    10:  <br>
+    11: <form class="form-group">
+    12: <div class="col-lg-5 col-md-5 col-xs-5 col-sm-5">
+  app/views/plan_pacientes/show.html.erb:9:in `_app_views_plan_pacientes_show_html_erb__4367691730185158998_70064582737780'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (19.1ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (13.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (27.1ms)
+
+
+Started GET "/plan_pacientes/20" for 127.0.0.1 at 2017-05-28 18:43:12 -0600
+Processing by PlanPacientesController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mPlanPaciente Load (0.4ms)[0m  [1mSELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1[0m  [["id", 20]]
+  Rendered plan_pacientes/show.html.erb within layouts/application (2.7ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (Missing partial plan_pacientes/_linkprincipal, application/_linkprincipal with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/home/diego/App-Medicamentos/app/views"
+):
+     6: 
+     7: });
+     8: </script>
+     9: <%= render 'linkprincipal' %>
+    10:  <br>
+    11: <form class="form-group">
+    12: <div class="col-lg-5 col-md-5 col-xs-5 col-sm-5">
+  app/views/plan_pacientes/show.html.erb:9:in `_app_views_plan_pacientes_show_html_erb__4367691730185158998_70064440607400'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (14.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (28.8ms)
+
+
+Started GET "/plan_pacientes/20" for 127.0.0.1 at 2017-05-28 18:43:45 -0600
+Processing by PlanPacientesController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[35mPlanPaciente Load (0.3ms)[0m  SELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1  [["id", 20]]
+  Rendered plan_pacientes/_linkprincipal.html.erb (0.2ms)
+  [1m[36mLaboratorio Load (0.2ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  [1m[35mTipoPlan Load (0.4ms)[0m  SELECT "tipo_plans".* FROM "tipo_plans" WHERE (plan_paciente_id = '20' and tipo = 'Paciente')
+  [1m[36mTipoPlan Load (0.5ms)[0m  [1mSELECT "tipo_plans".* FROM "tipo_plans" WHERE (plan_paciente_id = '20' and tipo = 'Farmacia')[0m
+  Rendered plan_pacientes/show.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 47ms (Views: 45.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:43:45 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:43:45 -0600
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-28 18:43:47 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[35mPlanPaciente Load (0.6ms)[0m  SELECT "plan_pacientes".* FROM "plan_pacientes"
+  [1m[36mLaboratorio Load (0.2ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  [1m[35mLaboratorio Load (0.2ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 41ms (Views: 39.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/plan_pacientes/new" for 127.0.0.1 at 2017-05-28 18:43:48 -0600
+Processing by PlanPacientesController#new as HTML
+  Rendered plan_pacientes/_linkprincipal.html.erb (0.0ms)
+  [1m[36mLaboratorio Load (0.8ms)[0m  [1mSELECT "laboratorios".* FROM "laboratorios"[0m
+  Rendered plan_pacientes/_form.html.erb (6.1ms)
+  Rendered plan_pacientes/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 57ms (Views: 55.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-28 18:43:49 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[35mPlanPaciente Load (1.1ms)[0m  SELECT "plan_pacientes".* FROM "plan_pacientes"
+  [1m[36mLaboratorio Load (0.4ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  [1m[35mLaboratorio Load (0.3ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 47ms (Views: 44.1ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/plan_pacientes/20/edit" for 127.0.0.1 at 2017-05-28 18:43:50 -0600
+Processing by PlanPacientesController#edit as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mPlanPaciente Load (0.4ms)[0m  [1mSELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1[0m  [["id", 20]]
+  Rendered plan_pacientes/_linkprincipal.html.erb (0.0ms)
+  [1m[35mLaboratorio Load (0.4ms)[0m  SELECT "laboratorios".* FROM "laboratorios"
+  Rendered plan_pacientes/_form.html.erb (4.2ms)
+  Rendered plan_pacientes/edit.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 64ms (Views: 62.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-28 18:44:01 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[36mPlanPaciente Load (0.8ms)[0m  [1mSELECT "plan_pacientes".* FROM "plan_pacientes"[0m
+  [1m[35mLaboratorio Load (0.7ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 14]]
+  [1m[36mLaboratorio Load (2.7ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 46ms (Views: 41.7ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-28 18:44:13 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[35mPlanPaciente Load (0.3ms)[0m  SELECT "plan_pacientes".* FROM "plan_pacientes"
+  [1m[36mLaboratorio Load (0.3ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  [1m[35mLaboratorio Load (0.2ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 43ms (Views: 42.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:44:13 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:44:13 -0600
+
+
+Started GET "/plan_pacientes/20" for 127.0.0.1 at 2017-05-28 18:44:14 -0600
+Processing by PlanPacientesController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mPlanPaciente Load (0.4ms)[0m  [1mSELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1[0m  [["id", 20]]
+  Rendered plan_pacientes/_linkprincipal.html.erb (0.0ms)
+  [1m[35mLaboratorio Load (0.4ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mTipoPlan Load (0.6ms)[0m  [1mSELECT "tipo_plans".* FROM "tipo_plans" WHERE (plan_paciente_id = '20' and tipo = 'Paciente')[0m
+  [1m[35mTipoPlan Load (0.6ms)[0m  SELECT "tipo_plans".* FROM "tipo_plans" WHERE (plan_paciente_id = '20' and tipo = 'Farmacia')
+  Rendered plan_pacientes/show.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 58ms (Views: 54.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-28 18:44:22 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[36mPlanPaciente Load (0.4ms)[0m  [1mSELECT "plan_pacientes".* FROM "plan_pacientes"[0m
+  [1m[35mLaboratorio Load (0.3ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 14]]
+  [1m[36mLaboratorio Load (0.4ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 49ms (Views: 46.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/plan_pacientes/20" for 127.0.0.1 at 2017-05-28 18:44:23 -0600
+Processing by PlanPacientesController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[35mPlanPaciente Load (0.3ms)[0m  SELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1  [["id", 20]]
+  Rendered plan_pacientes/_linkprincipal.html.erb (0.0ms)
+  [1m[36mLaboratorio Load (0.2ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  [1m[35mTipoPlan Load (2.0ms)[0m  SELECT "tipo_plans".* FROM "tipo_plans" WHERE (plan_paciente_id = '20' and tipo = 'Paciente')
+  [1m[36mTipoPlan Load (5.9ms)[0m  [1mSELECT "tipo_plans".* FROM "tipo_plans" WHERE (plan_paciente_id = '20' and tipo = 'Farmacia')[0m
+  Rendered plan_pacientes/show.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 62ms (Views: 53.0ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-28 18:44:26 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[35mPlanPaciente Load (1.3ms)[0m  SELECT "plan_pacientes".* FROM "plan_pacientes"
+  [1m[36mLaboratorio Load (0.3ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  [1m[35mLaboratorio Load (0.4ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 56ms (Views: 53.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/plan_pacientes/new" for 127.0.0.1 at 2017-05-28 18:44:50 -0600
+Processing by PlanPacientesController#new as HTML
+  Rendered plan_pacientes/_linkprincipal.html.erb (0.0ms)
+  [1m[36mLaboratorio Load (0.4ms)[0m  [1mSELECT "laboratorios".* FROM "laboratorios"[0m
+  Rendered plan_pacientes/_form.html.erb (5.3ms)
+  Rendered plan_pacientes/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 45ms (Views: 44.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-28 18:44:51 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[35mPlanPaciente Load (0.4ms)[0m  SELECT "plan_pacientes".* FROM "plan_pacientes"
+  [1m[36mLaboratorio Load (0.2ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  [1m[35mLaboratorio Load (0.2ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 43ms (Views: 41.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/plan_pacientes/7" for 127.0.0.1 at 2017-05-28 18:44:54 -0600
+Processing by PlanPacientesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mPlanPaciente Load (0.3ms)[0m  [1mSELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  Rendered plan_pacientes/_linkprincipal.html.erb (0.0ms)
+  [1m[35mLaboratorio Load (0.3ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 14]]
+  [1m[36mTipoPlan Load (0.5ms)[0m  [1mSELECT "tipo_plans".* FROM "tipo_plans" WHERE (plan_paciente_id = '7' and tipo = 'Paciente')[0m
+  [1m[35mTipoPlan Load (0.4ms)[0m  SELECT "tipo_plans".* FROM "tipo_plans" WHERE (plan_paciente_id = '7' and tipo = 'Farmacia')
+  Rendered plan_pacientes/show.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 51ms (Views: 48.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-28 18:44:55 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[36mPlanPaciente Load (0.4ms)[0m  [1mSELECT "plan_pacientes".* FROM "plan_pacientes"[0m
+  [1m[35mLaboratorio Load (0.4ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 14]]
+  [1m[36mLaboratorio Load (0.8ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 54ms (Views: 52.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-28 18:45:36 -0600
+Processing by LaboratoriosController#index as HTML
+  [1m[35mLaboratorio Load (1.4ms)[0m  SELECT "laboratorios".* FROM "laboratorios"
+  Rendered laboratorios/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 50ms (Views: 47.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:45:36 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:45:36 -0600
+
+
+Started GET "/laboratorios/15" for 127.0.0.1 at 2017-05-28 18:45:45 -0600
+Processing by LaboratoriosController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mLaboratorio Load (0.4ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  Rendered laboratorios/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 45ms (Views: 43.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/laboratorios/15" for 127.0.0.1 at 2017-05-28 18:46:56 -0600
+Processing by LaboratoriosController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mLaboratorio Load (0.2ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  Rendered laboratorios/_linkprincipal.html.erb (0.2ms)
+  Rendered laboratorios/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 40ms (Views: 39.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:46:56 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:46:56 -0600
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-28 18:47:12 -0600
+Processing by LaboratoriosController#index as HTML
+  [1m[36mLaboratorio Load (0.5ms)[0m  [1mSELECT "laboratorios".* FROM "laboratorios"[0m
+  Rendered laboratorios/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 43ms (Views: 42.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/laboratorios/21" for 127.0.0.1 at 2017-05-28 18:47:13 -0600
+Processing by LaboratoriosController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[35mLaboratorio Load (0.3ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 21]]
+  Rendered laboratorios/_linkprincipal.html.erb (0.0ms)
+  Rendered laboratorios/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 44ms (Views: 42.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-28 18:47:15 -0600
+Processing by LaboratoriosController#index as HTML
+  [1m[36mLaboratorio Load (0.7ms)[0m  [1mSELECT "laboratorios".* FROM "laboratorios"[0m
+  Rendered laboratorios/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 54ms (Views: 52.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/laboratorios/21/edit" for 127.0.0.1 at 2017-05-28 18:47:16 -0600
+Processing by LaboratoriosController#edit as HTML
+  Parameters: {"id"=>"21"}
+  [1m[35mLaboratorio Load (0.3ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 21]]
+  Rendered laboratorios/_linkprincipal.html.erb (0.0ms)
+  Rendered laboratorios/_form.html.erb (2.2ms)
+  Rendered laboratorios/edit.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 44ms (Views: 42.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-28 18:47:17 -0600
+Processing by LaboratoriosController#index as HTML
+  [1m[36mLaboratorio Load (1.1ms)[0m  [1mSELECT "laboratorios".* FROM "laboratorios"[0m
+  Rendered laboratorios/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 45ms (Views: 43.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/laboratorios/new" for 127.0.0.1 at 2017-05-28 18:47:18 -0600
+Processing by LaboratoriosController#new as HTML
+  Rendered laboratorios/_linkprincipal.html.erb (0.0ms)
+  Rendered laboratorios/_form.html.erb (2.7ms)
+  Rendered laboratorios/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 50ms (Views: 49.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-28 18:47:19 -0600
+Processing by LaboratoriosController#index as HTML
+  [1m[35mLaboratorio Load (0.4ms)[0m  SELECT "laboratorios".* FROM "laboratorios"
+  Rendered laboratorios/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 41ms (Views: 39.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:48:48 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.4ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 40ms (Views: 39.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:48:48 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:48:48 -0600
+
+
+Started GET "/presentacions/7" for 127.0.0.1 at 2017-05-28 18:48:50 -0600
+Processing by PresentacionsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mPresentacion Load (0.3ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 7]]
+  Rendered presentacions/_linkprincipal.html.erb (0.1ms)
+  Rendered presentacions/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 48ms (Views: 46.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-28 18:48:58 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.4ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 46ms (Views: 44.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-28 18:49:01 -0600
+Processing by LaboratoriosController#index as HTML
+  [1m[35mLaboratorio Load (0.4ms)[0m  SELECT "laboratorios".* FROM "laboratorios"
+  Rendered laboratorios/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 45ms (Views: 44.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:49:02 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:49:02 -0600
+
+
+Started GET "/laboratorios/21" for 127.0.0.1 at 2017-05-28 18:49:04 -0600
+Processing by LaboratoriosController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mLaboratorio Load (0.3ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 21]]
+  Rendered laboratorios/_linkprincipal.html.erb (0.0ms)
+  Rendered laboratorios/show.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 43ms (Views: 41.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/laboratorios/21" for 127.0.0.1 at 2017-05-28 18:49:15 -0600
+Processing by LaboratoriosController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[35mLaboratorio Load (0.3ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 21]]
+  Rendered laboratorios/_linkprincipal.html.erb (0.0ms)
+  Rendered laboratorios/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 39ms (Views: 37.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:49:15 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:49:15 -0600
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-28 18:49:31 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[36mPlanPaciente Load (0.4ms)[0m  [1mSELECT "plan_pacientes".* FROM "plan_pacientes"[0m
+  [1m[35mLaboratorio Load (0.6ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 14]]
+  [1m[36mLaboratorio Load (0.2ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 42ms (Views: 39.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-28 18:49:31 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-28 18:49:31 -0600
+
+
+Started GET "/plan_pacientes/20" for 127.0.0.1 at 2017-05-28 18:49:33 -0600
+Processing by PlanPacientesController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[35mPlanPaciente Load (0.3ms)[0m  SELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1  [["id", 20]]
+  Rendered plan_pacientes/_linkprincipal.html.erb (0.0ms)
+  [1m[36mLaboratorio Load (0.2ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  [1m[35mTipoPlan Load (0.5ms)[0m  SELECT "tipo_plans".* FROM "tipo_plans" WHERE (plan_paciente_id = '20' and tipo = 'Paciente')
+  [1m[36mTipoPlan Load (0.9ms)[0m  [1mSELECT "tipo_plans".* FROM "tipo_plans" WHERE (plan_paciente_id = '20' and tipo = 'Farmacia')[0m
+  Rendered plan_pacientes/show.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 53ms (Views: 50.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-28 18:49:38 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[35mPlanPaciente Load (1.3ms)[0m  SELECT "plan_pacientes".* FROM "plan_pacientes"
+  [1m[36mLaboratorio Load (2.0ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  [1m[35mLaboratorio Load (0.4ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 56ms (Views: 52.0ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/plan_pacientes/20" for 127.0.0.1 at 2017-05-28 18:49:52 -0600
+Processing by PlanPacientesController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mPlanPaciente Load (0.6ms)[0m  [1mSELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1[0m  [["id", 20]]
+  Rendered plan_pacientes/_linkprincipal.html.erb (0.0ms)
+  [1m[35mLaboratorio Load (0.3ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mTipoPlan Load (0.7ms)[0m  [1mSELECT "tipo_plans".* FROM "tipo_plans" WHERE (plan_paciente_id = '20' and tipo = 'Paciente')[0m
+  [1m[35mTipoPlan Load (1.5ms)[0m  SELECT "tipo_plans".* FROM "tipo_plans" WHERE (plan_paciente_id = '20' and tipo = 'Farmacia')
+  Rendered plan_pacientes/show.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 54ms (Views: 50.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/plan_pacientes/34" for 127.0.0.1 at 2017-05-28 18:49:55 -0600
+Processing by PlanPacientesController#show as HTML
+  Parameters: {"id"=>"34"}
+  [1m[36mPlanPaciente Load (0.3ms)[0m  [1mSELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1[0m  [["id", 34]]
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+
+ActiveRecord::RecordNotFound (Couldn't find PlanPaciente with 'id'=34):
+  app/controllers/plan_pacientes_controller.rb:71:in `set_plan_paciente'
+
+
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (4.9ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.3ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.0ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (31.2ms)
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-28 18:50:02 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[35mPlanPaciente Load (1.5ms)[0m  SELECT "plan_pacientes".* FROM "plan_pacientes"
+  [1m[36mLaboratorio Load (3.1ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  [1m[35mLaboratorio Load (0.3ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 52ms (Views: 46.3ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/plan_pacientes/new" for 127.0.0.1 at 2017-05-28 18:50:04 -0600
+Processing by PlanPacientesController#new as HTML
+  Rendered plan_pacientes/_linkprincipal.html.erb (0.1ms)
+  [1m[36mLaboratorio Load (0.4ms)[0m  [1mSELECT "laboratorios".* FROM "laboratorios"[0m
+  Rendered plan_pacientes/_form.html.erb (3.9ms)
+  Rendered plan_pacientes/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 53ms (Views: 52.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-28 18:52:14 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[35mPlanPaciente Load (1.3ms)[0m  SELECT "plan_pacientes".* FROM "plan_pacientes"
+  [1m[36mLaboratorio Load (0.4ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  [1m[35mLaboratorio Load (0.4ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 49ms (Views: 46.9ms | ActiveRecord: 2.0ms)

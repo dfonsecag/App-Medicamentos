@@ -1,27 +1,44 @@
-<p id="notice"><%= notice %></p>
+<script type="text/javascript">
+var msj = "<%= notice %>";
+  $(document).ready(function() {
+  if(msj!='')
+    swal(msj, "", "success")
 
-<h1>Listing Presentacions</h1>
+});
+</script>
 
-<table>
+<h1 class="text-center">Lista de Presentacion de productos.</h1>
+<div class="col-lg-7 col-md-7 col-md-offset-2 col-lg-offset-2  col-xs-12 col-sm-12">
+<table class="table table-striped table-condensed"">
   <thead>
     <tr>
       <th>Descripcion</th>
-      <th colspan="3"></th>
+      <th>Acciones</th>
     </tr>
   </thead>
 
   <tbody>
     <% @presentacions.each do |presentacion| %>
-      <tr>
-        <td><%= presentacion.descripcion %></td>
-        <td><%= link_to 'Show', presentacion %></td>
-        <td><%= link_to 'Edit', edit_presentacion_path(presentacion) %></td>
-        <td><%= link_to 'Destroy', presentacion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <tr id="<%= presentacion.id %>">
+        <td width="52%"><%= presentacion.descripcion %></td>
+        <td width="35%">
+          <a href="/presentacions/<%= presentacion.id %>" class="btn btn-info">
+         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Mostrar
+          </a>
+          <a href="/presentacions/<%= presentacion.id %>/edit" class="btn btn-success">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar
+          </a>
+           <button class="btn btn-danger" onclick="delete_presentacion(<%= presentacion.id %>)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</button>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
+
+<br>
+<div class="col-md-6 col-md-offset-4  col-xs-12 col-sm-10">
 
 <br>
 
-<%= link_to 'New Presentacion', new_presentacion_path %>
+<%= link_to 'Nueva Presentacion', new_presentacion_path, :class => "btn btn-success" %>
