@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :presentacions
   resources :sustancia
   resources :tipo_plans
   resources :plan_pacientes

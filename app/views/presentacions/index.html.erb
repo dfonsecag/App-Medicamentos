@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Presentacions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @presentacions.each do |presentacion| %>
+      <tr>
+        <td><%= presentacion.descripcion %></td>
+        <td><%= link_to 'Show', presentacion %></td>
+        <td><%= link_to 'Edit', edit_presentacion_path(presentacion) %></td>
+        <td><%= link_to 'Destroy', presentacion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Presentacion', new_presentacion_path %>
