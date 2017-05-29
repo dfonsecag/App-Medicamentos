@@ -28,7 +28,7 @@ class SustanciaController < ApplicationController
 
     respond_to do |format|
       if @sustancium.save
-        format.html { redirect_to @sustancium, notice: 'Sustancium was successfully created.' }
+         format.html { redirect_to "/sustancia/new", notice: 'Sustancia creada con éxito.' }
         format.json { render :show, status: :created, location: @sustancium }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class SustanciaController < ApplicationController
   def update
     respond_to do |format|
       if @sustancium.update(sustancium_params)
-        format.html { redirect_to @sustancium, notice: 'Sustancium was successfully updated.' }
+        format.html { redirect_to "/sustancia", notice: 'Sustancia actualizada con éxito.' }
         format.json { render :show, status: :ok, location: @sustancium }
       else
         format.html { render :edit }
@@ -56,8 +56,8 @@ class SustanciaController < ApplicationController
   def destroy
     @sustancium.destroy
     respond_to do |format|
-      format.html { redirect_to sustancia_url, notice: 'Sustancium was successfully destroyed.' }
-      format.json { head :no_content }
+      msg = { :status => "ok", :message => "Eliminado!" }
+        format.json { render :json => msg }
     end
   end
 

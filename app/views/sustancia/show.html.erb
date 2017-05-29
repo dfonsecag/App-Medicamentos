@@ -1,9 +1,21 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @sustancium.descripcion %>
-</p>
+<%= render 'linkprincipal' %>
+<%= bootstrap_form_for(@sustancium) do |f| %>
+<div class="col-lg-6 col-md-8 col-md-offset-2 col-lg-offset-3  col-xs-12 col-sm-12">
+	
+  <div class="field">
+    
+    <%= f.text_field :descripcion,  :readonly => true %>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_sustancium_path(@sustancium) %> |
-<%= link_to 'Back', sustancia_path %>
+<% end %>
+<div class="col-lg-6 col-md-8 col-md-offset-2 col-lg-offset-5 col-xs-12 col-sm-12">
+
+		 
+          <a href="/sustancia/<%= @sustancium.id %>/edit" class="btn btn-success">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar
+          </a>
+            
+ </div>
+

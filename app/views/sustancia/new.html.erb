@@ -1,5 +1,14 @@
-<h1>New Sustancium</h1>
+<script type="text/javascript">
+var msj = "<%= notice %>";
+	$(document).ready(function() {
+  if(msj!='')
+  	swal(msj, "", "success")
+
+});
+</script>
+<%= render 'linkprincipal' %>
+<h1 class="text-center">Nueva Sustancia de productos</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', sustancia_path %>
+
