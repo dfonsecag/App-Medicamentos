@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170529000011) do
+ActiveRecord::Schema.define(version: 20170529012843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,22 @@ ActiveRecord::Schema.define(version: 20170529000011) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "productos", force: :cascade do |t|
+    t.string   "nombre"
+    t.integer  "sustancium_id"
+    t.integer  "presentacion_id"
+    t.string   "oferta"
+    t.integer  "laboratorio_id"
+    t.integer  "plan_paciente_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "productos", ["laboratorio_id"], name: "index_productos_on_laboratorio_id", using: :btree
+  add_index "productos", ["plan_paciente_id"], name: "index_productos_on_plan_paciente_id", using: :btree
+  add_index "productos", ["presentacion_id"], name: "index_productos_on_presentacion_id", using: :btree
+  add_index "productos", ["sustancium_id"], name: "index_productos_on_sustancium_id", using: :btree
+
   create_table "sustancia", force: :cascade do |t|
     t.string   "descripcion"
     t.datetime "created_at",  null: false
@@ -75,5 +91,9 @@ ActiveRecord::Schema.define(version: 20170529000011) do
   add_index "tipo_plans", ["plan_paciente_id"], name: "index_tipo_plans_on_plan_paciente_id", using: :btree
 
   add_foreign_key "plan_pacientes", "laboratorios"
+  add_foreign_key "productos", "laboratorios"
+  add_foreign_key "productos", "plan_pacientes"
+  add_foreign_key "productos", "presentacions"
+  add_foreign_key "productos", "sustancia"
   add_foreign_key "tipo_plans", "plan_pacientes"
 end

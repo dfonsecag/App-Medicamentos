@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :productos
+  resources :nombres
   resources :presentacions
   resources :sustancia
   resources :tipo_plans

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sustancia_id: 
+  presentacion_id: 
+  oferta: MyString
+  laboratorio_id: 
+  plan_paciente_id: 
+
+two:
+  sustancia_id: 
+  presentacion_id: 
+  oferta: MyString
+  laboratorio_id: 
+  plan_paciente_id: 
