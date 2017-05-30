@@ -31,8 +31,8 @@ class TipoPlansController < ApplicationController
         id=params[:tipo_plan][:plan_paciente_id]
        format.html { redirect_to "/plan_pacientes/#{id}", notice: 'Descripcion plan creado con éxito.' }
       else
-        format.html { render :new }
-        format.json { render json: @tipo_plan.errors, status: :unprocessable_entity }
+       id=params[:tipo_plan][:plan_paciente_id]
+       format.html { redirect_to "/plan_pacientes/#{id}", notice: 'Descripcion no puede estar en blanco.' }
       end
     end
   end

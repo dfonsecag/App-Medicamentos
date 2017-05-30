@@ -1,41 +1,30 @@
-<%= form_for(@producto) do |f| %>
-  <% if @producto.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@producto.errors.count, "error") %> prohibited this producto from being saved:</h2>
-
-      <ul>
-      <% @producto.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= bootstrap_form_for(@producto) do |f| %>
+ 
+<div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3  col-xs-12 col-sm-12">
   <div class="field">
-    <%= f.label :nombre %><br>
     <%= f.text_field :nombre %>
   </div>
   <div class="field">
-    <%= f.label :sustancia_id %><br>
-    <%= f.text_field :sustancia_id %>
+    <%= f.collection_select :sustancium_id, Sustancium.all, :id, :descripcion %>
   </div>
   <div class="field">
-    <%= f.label :presentacion_id %><br>
-    <%= f.text_field :presentacion_id %>
+    <%= f.collection_select :presentacion_id, Presentacion.all, :id, :descripcion %>
+  </div> 
+  <div class="field">    
+    <%= f.collection_select :laboratorio_id, Laboratorio.all, :id, :nombre %>
   </div>
-  <div class="field">
-    <%= f.label :oferta %><br>
+  <div class="field">    
+      <input type="checkbox" id="plan" onclick="Hablilitar();" >Tiene Plan Paciente<br>
+  </div>
+  <br>
+  <div class="field" id="plan_paciente" style="display:none">    
+    <%= f.collection_select :plan_paciente_id, PlanPaciente.all, :id, :nombre, include_blank: true %>
+  </div>
+   <div class="field" id="oferta" style="display:none">
     <%= f.text_field :oferta %>
-  </div>
-  <div class="field">
-    <%= f.label :laboratorio_id %><br>
-    <%= f.text_field :laboratorio_id %>
-  </div>
-  <div class="field">
-    <%= f.label :plan_paciente_id %><br>
-    <%= f.text_field :plan_paciente_id %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div>

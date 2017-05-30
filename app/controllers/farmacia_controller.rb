@@ -28,6 +28,7 @@ class FarmaciaController < ApplicationController
 
     respond_to do |format|
       if @farmacium.save
+        UserNotifier.send_signup_email(@farmacium).deliver
         format.html { redirect_to "/farmacia/new", notice: 'Farmacia creada con éxito.' }
        
       else
