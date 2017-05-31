@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sessions
   resources :productos
   resources :nombres
   resources :presentacions
@@ -7,6 +8,15 @@ Rails.application.routes.draw do
   resources :plan_pacientes
   resources :laboratorios
   resources :farmacia
+  
+   get 'logout' => 'sessions#logout'
+   get 'login' => 'sessions#new'
+  # these routes are for showing users a login form, logging them in, and logging them out.
+
+  
+
+  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

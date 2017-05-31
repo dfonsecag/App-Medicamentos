@@ -1,5 +1,6 @@
 class FarmaciaController < ApplicationController
   before_action :set_farmacium, only: [:show, :edit, :update, :destroy]
+  before_action :autenticacion
 
   # GET /farmacia
   # GET /farmacia.json
@@ -61,7 +62,13 @@ class FarmaciaController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  # Password reset rails
+  #  def send_password_reset
+  #   generate_token(:password_reset_token)
+  #   self.password_reset_sent_at = Time.zone.now
+  #   save!
+  #   UserMailer.password_reset(self).deliver
+  # end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_farmacium
@@ -70,6 +77,6 @@ class FarmaciaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def farmacium_params
-      params.require(:farmacium).permit(:nombre, :cedulaJur, :sucursal, :direccion, :correo, :telefono1, :telefono2, :latitud, :longitud, :cant_lab, :activo, :photo)
+      params.require(:farmacium).permit(:nombre, :cedulaJur, :sucursal, :direccion, :correo, :telefono1, :telefono2, :latitud, :longitud, :cant_lab, :activo, :photo, :password)
     end
 end

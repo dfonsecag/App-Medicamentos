@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170529022325) do
+ActiveRecord::Schema.define(version: 20170531010509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20170529022325) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "password_digest"
   end
 
   create_table "laboratorios", force: :cascade do |t|
@@ -73,6 +74,11 @@ ActiveRecord::Schema.define(version: 20170529022325) do
   add_index "productos", ["plan_paciente_id"], name: "index_productos_on_plan_paciente_id", using: :btree
   add_index "productos", ["presentacion_id"], name: "index_productos_on_presentacion_id", using: :btree
   add_index "productos", ["sustancium_id"], name: "index_productos_on_sustancium_id", using: :btree
+
+  create_table "sessions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "sustancia", force: :cascade do |t|
     t.string   "descripcion"

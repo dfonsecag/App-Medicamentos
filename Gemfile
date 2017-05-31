@@ -14,6 +14,8 @@ gem 'autoprefixer-rails'
 gem 'bootstrap_form'
 #insertar image
 gem "paperclip", "~> 5.0.0"
+# para incriptar contraseña
+gem 'bcrypt', '~> 3.1.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

@@ -1,0 +1,17 @@
+<script type="text/javascript">
+var msj = "<%= notice %>";
+  $(document).ready(function() {
+  if(msj!='')
+    swal(msj, "", "success")
+
+});
+</script>
+<h1>Login</h1>
+
+<%= form_tag '/sessions' do %>
+
+  Email: <%= text_field_tag :correo %>
+  Password: <%= password_field_tag :password %>
+  <%= submit_tag "Submit" %>
+
+<% end %>

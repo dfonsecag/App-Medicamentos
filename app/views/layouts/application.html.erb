@@ -14,7 +14,15 @@
 
     
 </head>
-
+<% if current_user %>
+	<% if current_user.correo == 'ADMIN' %>
+	<h1>es un admin</h1>
+	<% else %>
+	<h1>no es admin</h1>
+	<% end %>
+<% else %>
+  <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+<% end %>
 
 <%= yield %>
 
