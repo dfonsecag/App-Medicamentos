@@ -59467,3 +59467,1093 @@ SyntaxError (/home/diego/App-Medicamentos/app/models/farmacium.rb:11: syntax err
   Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.2ms)
   Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.4ms)
   Rendered /var/lib/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (90.8ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeletecorreoToFarmacia (20170531041011)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.2ms)[0m  [1mALTER TABLE "farmacia" DROP "correo"[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20170531041011"]]
+  [1m[36m (2.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'farmacia'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'laboratorios'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'plan_pacientes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'presentacions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'productos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'sessions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.2ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'sustancia'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.4ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tipo_plans'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddcorreoToFarmacia (20170531041118)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "farmacia" ADD "correo" character varying[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20170531041118"]]
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.7ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'farmacia'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'laboratorios'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'plan_pacientes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.0ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'presentacions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'productos'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'sessions'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'sustancia'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tipo_plans'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+
+
+Started POST "/farmacia" for 127.0.0.1 at 2017-05-30 22:15:10 -0600
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FarmaciaController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jSwsYvEf/i7oraux6JOZjo0jYFMQmLqtb/c834nNHerIF0n3y4p+xJxEwmhg2H7t6yOxcw5jPi4+S8fNlx4Feg==", "farmacium"=>{"nombre"=>"DFD", "cedulaJur"=>"GGTHYH", "sucursal"=>"vgvg", "direccion"=>"gvgvh", "correo"=>"dgf-95@hotmail.com", "telefono1"=>"87654321", "telefono2"=>"87654321", "latitud"=>"", "longitud"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Farmacium"}
+Unpermitted parameter: password_confirmation
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mFarmacium Exists (1.9ms)[0m  [1mSELECT  1 AS one FROM "farmacia" WHERE "farmacia"."correo" = 'dgf-95@hotmail.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "farmacia" ("nombre", "cedulaJur", "sucursal", "direccion", "correo", "telefono1", "telefono2", "latitud", "longitud", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["nombre", "DFD"], ["cedulaJur", "GGTHYH"], ["sucursal", "vgvg"], ["direccion", "gvgvh"], ["correo", "dgf-95@hotmail.com"], ["telefono1", 87654321], ["telefono2", 87654321], ["latitud", ""], ["longitud", ""], ["password_digest", "$2a$10$jeyuBe.lvcZknAVTFTA7MOywccDczAOTnCZM55BZDJg/qPxFaYuLG"], ["created_at", "2017-05-31 04:15:11.212970"], ["updated_at", "2017-05-31 04:15:11.212970"]]
+  [1m[36m (1.3ms)[0m  [1mCOMMIT[0m
+DEPRECATION WARNING: `#deliver` is deprecated and will be removed in Rails 5. Use `#deliver_now` to deliver immediately or `#deliver_later` to deliver through Active Job. (called from block in create at /home/diego/App-Medicamentos/app/controllers/farmacia_controller.rb:32)
+  Rendered user_notifier/send_signup_email.html.erb within layouts/mailer (1.9ms)
+
+UserNotifier#send_signup_email: processed outbound mail in 205.7ms
+
+Sent mail to dgf-95@hotmail.com (2546.8ms)
+Date: Tue, 30 May 2017 22:15:11 -0600
+From: App Medicamentos
+To: dgf-95@hotmail.com
+Message-ID: <592e434f6e11a_2d6312ae6c079697@diego-Aspire-E5-471.mail>
+Subject: Mensaje bienvenida, registro App Medicamentos
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<html>
+  <body>
+    <!DOCTYPE html>
+<html>
+  <head>
+    <meta content=3D'text/html; charset=3DUTF-8' http-equiv=3D'Content-Ty=
+pe' />
+  </head>
+  <body>
+    <h1>Gracias por registrarse a la aplicaci=C3=B3n, Farmacia DFD!</h1>
+    <p>Pronto le notificaremos, que su registro fue aprobado.</p>
+  </body>
+</html>
+  </body>
+</html>
+
+Redirected to http://localhost:3000/farmacia/new
+Completed 302 Found in 2902ms (ActiveRecord: 6.8ms)
+
+
+Started GET "/farmacia/new" for 127.0.0.1 at 2017-05-30 22:15:14 -0600
+Processing by FarmaciaController#new as HTML
+  Rendered farmacia/_form.html.erb (30.5ms)
+  Rendered farmacia/new.html.erb within layouts/application (34.2ms)
+  [1m[35mFarmacium Load (0.5ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1  [["id", 58]]
+Completed 200 OK in 566ms (Views: 564.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:15:14 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:15:14 -0600
+
+
+Started POST "/farmacia" for 127.0.0.1 at 2017-05-30 22:15:29 -0600
+Processing by FarmaciaController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mn4Qe/ahkC0V+Bq6BnZiwPFvo5yzv6LgYFs87dKRaTvfRXXuzDQQx2ERc2OOPYWjl29yvK1EJmMx58f/zEJxqw==", "farmacium"=>{"nombre"=>"DFD", "cedulaJur"=>"GGTHYH", "sucursal"=>"vgvg", "direccion"=>"gvgvh", "correo"=>"dgf-95@hotmail.com", "telefono1"=>"87654321", "telefono2"=>"87654321", "latitud"=>"", "longitud"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Farmacium"}
+Unpermitted parameter: password_confirmation
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFarmacium Exists (0.3ms)[0m  SELECT  1 AS one FROM "farmacia" WHERE "farmacia"."correo" = 'dgf-95@hotmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  Rendered farmacia/_form.html.erb (5.3ms)
+  Rendered farmacia/new.html.erb within layouts/application (5.9ms)
+  [1m[35mFarmacium Load (0.4ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1  [["id", 58]]
+Completed 200 OK in 134ms (Views: 46.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:15:29 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:15:29 -0600
+
+
+Started POST "/farmacia" for 127.0.0.1 at 2017-05-30 22:15:50 -0600
+Processing by FarmaciaController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M5/JiKMVJBqKwpFCW+dnLRInUsvqEoj7pm/VdmF26Op2pKwdmYCk8P4r+JvTrIBOdCeD6/TpDHj30y5kf6Xweg==", "farmacium"=>{"nombre"=>"DFD", "cedulaJur"=>"GGTHYH", "sucursal"=>"vgvg", "direccion"=>"gvgvh", "correo"=>"dgf-95@hotmail.com", "telefono1"=>"87654321", "telefono2"=>"87654321", "latitud"=>"", "longitud"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Farmacium"}
+Unpermitted parameter: password_confirmation
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFarmacium Exists (0.3ms)[0m  SELECT  1 AS one FROM "farmacia" WHERE "farmacia"."correo" = 'dgf-95@hotmail.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  Rendered farmacia/_form.html.erb (8.0ms)
+  Rendered farmacia/new.html.erb within layouts/application (8.7ms)
+  [1m[35mFarmacium Load (0.4ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1  [["id", 58]]
+Completed 200 OK in 140ms (Views: 50.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:15:50 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:15:50 -0600
+
+
+Started POST "/farmacia" for 127.0.0.1 at 2017-05-30 22:17:10 -0600
+Processing by FarmaciaController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DJW0fRRrfttTx7KVHMbtlJXt3zyoD8eEbjkJ04yr3epJrtHoLv7+MScu20yUjQr38+0OHLb0Qwc/hfLBknjFeg==", "farmacium"=>{"nombre"=>"DFD", "cedulaJur"=>"GGTHYH", "sucursal"=>"vgvg", "direccion"=>"gvgvh", "correo"=>"dgf@hotmail.com", "telefono1"=>"87654321", "telefono2"=>"87654321", "latitud"=>"", "longitud"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create Farmacium"}
+Unpermitted parameter: password_confirmation
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mFarmacium Exists (0.3ms)[0m  SELECT  1 AS one FROM "farmacia" WHERE "farmacia"."correo" = 'dgf@hotmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "farmacia" ("nombre", "cedulaJur", "sucursal", "direccion", "correo", "telefono1", "telefono2", "latitud", "longitud", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["nombre", "DFD"], ["cedulaJur", "GGTHYH"], ["sucursal", "vgvg"], ["direccion", "gvgvh"], ["correo", "dgf@hotmail.com"], ["telefono1", 87654321], ["telefono2", 87654321], ["latitud", ""], ["longitud", ""], ["password_digest", "$2a$10$TE0gjFnRWfWAz31HCSEIge8Zsz6obPXLfWwcXlVKabkWw53QfMEJK"], ["created_at", "2017-05-31 04:17:10.462396"], ["updated_at", "2017-05-31 04:17:10.462396"]]
+  [1m[35m (1.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/farmacia/new
+Completed 302 Found in 99ms (ActiveRecord: 4.8ms)
+
+
+Started GET "/farmacia/new" for 127.0.0.1 at 2017-05-30 22:17:10 -0600
+Processing by FarmaciaController#new as HTML
+  Rendered farmacia/_form.html.erb (5.4ms)
+  Rendered farmacia/new.html.erb within layouts/application (6.0ms)
+  [1m[36mFarmacium Load (0.4ms)[0m  [1mSELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1[0m  [["id", 58]]
+Completed 200 OK in 56ms (Views: 54.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:17:10 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:17:10 -0600
+
+
+Started GET "/login" for 127.0.0.1 at 2017-05-30 22:17:19 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+  [1m[35mFarmacium Load (0.3ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1  [["id", 58]]
+Completed 200 OK in 41ms (Views: 40.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:17:19 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:17:19 -0600
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-05-30 22:17:30 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TVdCEVqKPfmmCuUpEbmxVbwF+qtMt1kmYBzom2x1bscIbCeEYB+9E9LjjPCZ8lY22gUri1JM3aUxoBOJcqZ2Vw==", "correo"=>"dgf-95@hotmail.com", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mFarmacium Load (0.3ms)[0m  [1mSELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."correo" = $1  ORDER BY "farmacia"."id" ASC LIMIT 1[0m  [["correo", "dgf-95@hotmail.com"]]
+Redirected to http://localhost:3000/laboratorios
+Completed 302 Found in 83ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-30 22:17:30 -0600
+Processing by LaboratoriosController#index as HTML
+  [1m[35mLaboratorio Load (0.5ms)[0m  SELECT "laboratorios".* FROM "laboratorios"
+  Rendered laboratorios/index.html.erb within layouts/application (6.1ms)
+  [1m[36mFarmacium Load (0.3ms)[0m  [1mSELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1[0m  [["id", 60]]
+Completed 200 OK in 48ms (Views: 44.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:17:30 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:17:30 -0600
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-05-30 22:17:37 -0600
+Processing by SessionsController#logout as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-05-30 22:17:37 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 39ms (Views: 38.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:17:37 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:17:37 -0600
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-05-30 22:17:45 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5BLjJSGWjXCP9z5InRjzdbsJ/kf2RS7Fbyeykhsios+hKYawGwMNmvseV5EVUxQW3QkvZ+i+qkY+m0mABfG6Xw==", "correo"=>"ADMIN", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[35mFarmacium Load (0.4ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."correo" = $1  ORDER BY "farmacia"."id" ASC LIMIT 1  [["correo", "ADMIN"]]
+Redirected to http://localhost:3000/laboratorios
+Completed 302 Found in 82ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-30 22:17:45 -0600
+Processing by LaboratoriosController#index as HTML
+  [1m[36mLaboratorio Load (0.3ms)[0m  [1mSELECT "laboratorios".* FROM "laboratorios"[0m
+  Rendered laboratorios/index.html.erb within layouts/application (1.0ms)
+  [1m[35mFarmacium Load (0.2ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1  [["id", 58]]
+Completed 200 OK in 41ms (Views: 40.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:17:45 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:17:45 -0600
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-05-30 22:20:28 -0600
+Processing by SessionsController#logout as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-05-30 22:20:28 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 43ms (Views: 42.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:20:28 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:20:28 -0600
+
+
+Started GET "/login" for 127.0.0.1 at 2017-05-30 22:22:08 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 44ms (Views: 43.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:22:08 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:22:08 -0600
+
+
+Started GET "/login" for 127.0.0.1 at 2017-05-30 22:22:10 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 41ms (Views: 40.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-05-30 22:22:11 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 39ms (Views: 38.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-05-30 22:22:14 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 43ms (Views: 42.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-05-30 22:22:44 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 40ms (Views: 39.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:22:44 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:22:44 -0600
+
+
+Started GET "/login" for 127.0.0.1 at 2017-05-30 22:23:11 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 37ms (Views: 36.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:23:11 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:23:11 -0600
+
+
+Started GET "/login" for 127.0.0.1 at 2017-05-30 22:23:14 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 38ms (Views: 38.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-30 22:24:19 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[36mPlanPaciente Load (0.5ms)[0m  [1mSELECT "plan_pacientes".* FROM "plan_pacientes"[0m
+  [1m[35mLaboratorio Load (0.3ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mLaboratorio Load (0.3ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 90ms (Views: 82.2ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:24:19 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:24:19 -0600
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-30 22:24:35 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (29.9ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (37.4ms)
+Completed 200 OK in 97ms (Views: 61.3ms | ActiveRecord: 31.8ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:24:35 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:24:35 -0600
+
+
+Started GET "/sustancia" for 127.0.0.1 at 2017-05-30 22:24:50 -0600
+Processing by SustanciaController#index as HTML
+  [1m[35mSustancium Load (0.4ms)[0m  SELECT "sustancia".* FROM "sustancia"
+  Rendered sustancia/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 59ms (Views: 54.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:24:50 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:24:50 -0600
+
+
+Started GET "/sustancia" for 127.0.0.1 at 2017-05-30 22:25:33 -0600
+Processing by SustanciaController#index as HTML
+  [1m[36mSustancium Load (0.4ms)[0m  [1mSELECT "sustancia".* FROM "sustancia"[0m
+  Rendered sustancia/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 66ms (Views: 64.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:25:33 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:25:33 -0600
+
+
+Started GET "/productos" for 127.0.0.1 at 2017-05-30 22:25:48 -0600
+Processing by ProductosController#index as HTML
+  [1m[35mProducto Load (5.3ms)[0m  SELECT "productos".* FROM "productos"
+  [1m[36mSustancium Load (0.7ms)[0m  [1mSELECT  "sustancia".* FROM "sustancia" WHERE "sustancia"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mPresentacion Load (0.2ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mLaboratorio Load (0.2ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  [1m[35mPlanPaciente Load (0.2ms)[0m  SELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "sustancia".* FROM "sustancia" WHERE "sustancia"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mPresentacion Load (0.2ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "sustancia".* FROM "sustancia" WHERE "sustancia"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1  [["id", 7]]
+  Rendered productos/index.html.erb within layouts/application (30.1ms)
+Completed 200 OK in 77ms (Views: 64.5ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/sustancia" for 127.0.0.1 at 2017-05-30 22:25:50 -0600
+Processing by SustanciaController#index as HTML
+  [1m[36mSustancium Load (0.3ms)[0m  [1mSELECT "sustancia".* FROM "sustancia"[0m
+  Rendered sustancia/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 53ms (Views: 52.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-30 22:25:50 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[35mPresentacion Load (0.4ms)[0m  SELECT "presentacions".* FROM "presentacions"
+  Rendered presentacions/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 48ms (Views: 46.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-30 22:25:51 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[36mPlanPaciente Load (0.4ms)[0m  [1mSELECT "plan_pacientes".* FROM "plan_pacientes"[0m
+  [1m[35mLaboratorio Load (1.3ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mLaboratorio Load (0.5ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 50ms (Views: 47.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-30 22:25:51 -0600
+Processing by LaboratoriosController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :autenticacion rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-05-30 22:25:51 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 42ms (Views: 40.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-30 22:26:10 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[36mPlanPaciente Load (0.4ms)[0m  [1mSELECT "plan_pacientes".* FROM "plan_pacientes"[0m
+  [1m[35mLaboratorio Load (0.3ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mLaboratorio Load (0.3ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 55ms (Views: 53.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-30 22:26:11 -0600
+Processing by LaboratoriosController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :autenticacion rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-05-30 22:26:11 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 39ms (Views: 38.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-30 22:26:44 -0600
+Processing by LaboratoriosController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :autenticacion rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-05-30 22:26:44 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 39ms (Views: 38.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-30 22:26:45 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[36mPlanPaciente Load (0.4ms)[0m  [1mSELECT "plan_pacientes".* FROM "plan_pacientes"[0m
+  [1m[35mLaboratorio Load (0.5ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mLaboratorio Load (0.2ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 92ms (Views: 90.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-30 22:26:46 -0600
+Processing by LaboratoriosController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :autenticacion rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-05-30 22:26:46 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 44ms (Views: 43.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-05-30 22:27:02 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"j2AP977r5ux8hBR/4OqkyelnPFTmOAaKAvPaKzvPblDKW2pihH5mBghtfaZooUOqj2ftdPjDgglTTyE5JRx2wA==", "correo"=>"ADMIN", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mFarmacium Load (0.4ms)[0m  [1mSELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."correo" = $1  ORDER BY "farmacia"."id" ASC LIMIT 1[0m  [["correo", "ADMIN"]]
+Redirected to http://localhost:3000/laboratorios
+Completed 302 Found in 80ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-30 22:27:02 -0600
+Processing by LaboratoriosController#index as HTML
+  [1m[35mLaboratorio Load (0.3ms)[0m  SELECT "laboratorios".* FROM "laboratorios"
+  Rendered laboratorios/index.html.erb within layouts/application (0.9ms)
+  [1m[36mFarmacium Load (0.3ms)[0m  [1mSELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1[0m  [["id", 58]]
+Completed 200 OK in 36ms (Views: 35.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:27:02 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:27:02 -0600
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-30 22:27:05 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[35mPlanPaciente Load (0.4ms)[0m  SELECT "plan_pacientes".* FROM "plan_pacientes"
+  [1m[36mLaboratorio Load (0.2ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  [1m[35mLaboratorio Load (0.2ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (3.2ms)
+  [1m[35mFarmacium Load (0.2ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1  [["id", 58]]
+Completed 200 OK in 41ms (Views: 39.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-30 22:27:07 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.5ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.9ms)
+  [1m[35mFarmacium Load (0.3ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1  [["id", 58]]
+Completed 200 OK in 44ms (Views: 42.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/sustancia" for 127.0.0.1 at 2017-05-30 22:27:07 -0600
+Processing by SustanciaController#index as HTML
+  [1m[36mSustancium Load (0.4ms)[0m  [1mSELECT "sustancia".* FROM "sustancia"[0m
+  Rendered sustancia/index.html.erb within layouts/application (1.2ms)
+  [1m[35mFarmacium Load (0.2ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1  [["id", 58]]
+Completed 200 OK in 37ms (Views: 35.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-05-30 22:27:08 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /var/lib/gems/2.3.0/gems/railties-4.2.6/lib/rails/templates/rails/welcome/index.html.erb (0.9ms)
+Completed 200 OK in 25ms (Views: 24.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/productos" for 127.0.0.1 at 2017-05-30 22:27:11 -0600
+Processing by ProductosController#index as HTML
+  [1m[36mProducto Load (0.5ms)[0m  [1mSELECT "productos".* FROM "productos"[0m
+  [1m[35mSustancium Load (0.4ms)[0m  SELECT  "sustancia".* FROM "sustancia" WHERE "sustancia"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mPresentacion Load (0.3ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mLaboratorio Load (0.4ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mPlanPaciente Load (0.4ms)[0m  [1mSELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "sustancia".* FROM "sustancia" WHERE "sustancia"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mPresentacion Load (0.4ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "sustancia".* FROM "sustancia" WHERE "sustancia"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  Rendered productos/index.html.erb within layouts/application (12.0ms)
+  [1m[35mFarmacium Load (0.3ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1  [["id", 58]]
+Completed 200 OK in 45ms (Views: 41.8ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/productos" for 127.0.0.1 at 2017-05-30 22:28:21 -0600
+Processing by ProductosController#index as HTML
+  [1m[36mProducto Load (0.4ms)[0m  [1mSELECT "productos".* FROM "productos"[0m
+  [1m[35mSustancium Load (0.2ms)[0m  SELECT  "sustancia".* FROM "sustancia" WHERE "sustancia"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mPresentacion Load (0.2ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mLaboratorio Load (0.2ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mPlanPaciente Load (0.3ms)[0m  [1mSELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "sustancia".* FROM "sustancia" WHERE "sustancia"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mPresentacion Load (0.2ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "sustancia".* FROM "sustancia" WHERE "sustancia"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  Rendered productos/index.html.erb within layouts/application (7.9ms)
+  [1m[35mFarmacium Load (1.2ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1  [["id", 58]]
+Completed 200 OK in 51ms (Views: 47.8ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:28:21 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:28:21 -0600
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-05-30 22:28:27 -0600
+Processing by SessionsController#logout as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-05-30 22:28:27 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 36ms (Views: 35.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:28:28 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:28:28 -0600
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-05-30 22:28:47 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8WqvmRiqkEbUQelUM0klg1Fb9w0AhgbQIQiE5AnZN6i0UcoMIj8QrKCogI27AsLgN1smLR59glNwtH/2FwovOA==", "correo"=>"dgf-95@hotmail.com", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mFarmacium Load (0.3ms)[0m  [1mSELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."correo" = $1  ORDER BY "farmacia"."id" ASC LIMIT 1[0m  [["correo", "dgf-95@hotmail.com"]]
+Redirected to http://localhost:3000/laboratorios
+Completed 302 Found in 82ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-30 22:28:47 -0600
+Processing by LaboratoriosController#index as HTML
+  [1m[35mLaboratorio Load (0.3ms)[0m  SELECT "laboratorios".* FROM "laboratorios"
+  Rendered laboratorios/index.html.erb within layouts/application (1.0ms)
+  [1m[36mFarmacium Load (0.3ms)[0m  [1mSELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1[0m  [["id", 60]]
+Completed 200 OK in 46ms (Views: 45.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:28:47 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:28:48 -0600
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-05-30 22:33:31 -0600
+Processing by SessionsController#logout as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-05-30 22:33:31 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 40ms (Views: 39.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:33:31 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:33:31 -0600
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-05-30 22:33:42 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NlxxNLT+ey8gRT1mAYeJ3rVXQCinvfC9Sy5BAxnN29VzZxShjmv7xVSsVL+JzG6901eRCLlGdD4akroRBx7DRQ==", "correo"=>"ADMIN", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[35mFarmacium Load (0.9ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."correo" = $1  ORDER BY "farmacia"."id" ASC LIMIT 1  [["correo", "ADMIN"]]
+Redirected to http://localhost:3000/login
+Completed 302 Found in 81ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-05-30 22:33:42 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 41ms (Views: 39.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:33:42 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:33:42 -0600
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-05-30 22:33:49 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G2trpLfErkG/9rrMZXWcEjtnXYORpf0Z5jKqGtSBpqFeUA4xjVEuq8sf0xXtPntxXWeMo49eeZq3jlEIylK+MQ==", "correo"=>"ADMIN", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[36mFarmacium Load (0.4ms)[0m  [1mSELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."correo" = $1  ORDER BY "farmacia"."id" ASC LIMIT 1[0m  [["correo", "ADMIN"]]
+Redirected to http://localhost:3000/laboratorios
+Completed 302 Found in 82ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-30 22:33:49 -0600
+Processing by LaboratoriosController#index as HTML
+  [1m[35mLaboratorio Load (0.2ms)[0m  SELECT "laboratorios".* FROM "laboratorios"
+  Rendered laboratorios/index.html.erb within layouts/application (0.9ms)
+  [1m[36mFarmacium Load (1.0ms)[0m  [1mSELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1[0m  [["id", 58]]
+Completed 200 OK in 43ms (Views: 41.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:33:49 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:33:49 -0600
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-30 22:35:33 -0600
+Processing by LaboratoriosController#index as HTML
+  [1m[35mLaboratorio Load (0.5ms)[0m  SELECT "laboratorios".* FROM "laboratorios"
+  Rendered laboratorios/index.html.erb within layouts/application (2.0ms)
+  [1m[36mFarmacium Load (0.3ms)[0m  [1mSELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1[0m  [["id", 58]]
+Completed 200 OK in 42ms (Views: 41.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:35:33 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:35:33 -0600
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-30 22:36:02 -0600
+Processing by LaboratoriosController#index as HTML
+  [1m[35mLaboratorio Load (0.3ms)[0m  SELECT "laboratorios".* FROM "laboratorios"
+  Rendered laboratorios/index.html.erb within layouts/application (1.2ms)
+  [1m[36mFarmacium Load (0.2ms)[0m  [1mSELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1[0m  [["id", 58]]
+Completed 200 OK in 42ms (Views: 40.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:36:02 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:36:03 -0600
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-30 22:36:24 -0600
+Processing by LaboratoriosController#index as HTML
+  [1m[35mLaboratorio Load (0.3ms)[0m  SELECT "laboratorios".* FROM "laboratorios"
+  Rendered laboratorios/index.html.erb within layouts/application (1.0ms)
+  [1m[36mFarmacium Load (0.2ms)[0m  [1mSELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1[0m  [["id", 58]]
+Completed 200 OK in 41ms (Views: 39.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:36:24 -0600
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:36:24 -0600
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-30 22:36:39 -0600
+Processing by LaboratoriosController#index as HTML
+  [1m[35mLaboratorio Load (0.3ms)[0m  SELECT "laboratorios".* FROM "laboratorios"
+  Rendered laboratorios/index.html.erb within layouts/application (1.1ms)
+  [1m[36mFarmacium Load (0.3ms)[0m  [1mSELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1[0m  [["id", 58]]
+Completed 200 OK in 37ms (Views: 36.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-30 22:36:40 -0600
+Processing by LaboratoriosController#index as HTML
+  [1m[35mLaboratorio Load (0.4ms)[0m  SELECT "laboratorios".* FROM "laboratorios"
+  Rendered laboratorios/index.html.erb within layouts/application (1.5ms)
+  [1m[36mFarmacium Load (0.2ms)[0m  [1mSELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1[0m  [["id", 58]]
+Completed 200 OK in 42ms (Views: 40.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-30 22:36:41 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[35mPlanPaciente Load (0.3ms)[0m  SELECT "plan_pacientes".* FROM "plan_pacientes"
+  [1m[36mLaboratorio Load (0.2ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  [1m[35mLaboratorio Load (0.2ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (3.4ms)
+  [1m[35mFarmacium Load (0.2ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1  [["id", 58]]
+Completed 200 OK in 47ms (Views: 45.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/presentacions" for 127.0.0.1 at 2017-05-30 22:36:42 -0600
+Processing by PresentacionsController#index as HTML
+  [1m[36mPresentacion Load (0.4ms)[0m  [1mSELECT "presentacions".* FROM "presentacions"[0m
+  Rendered presentacions/index.html.erb within layouts/application (1.5ms)
+  [1m[35mFarmacium Load (0.3ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1  [["id", 58]]
+Completed 200 OK in 48ms (Views: 46.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/sustancia" for 127.0.0.1 at 2017-05-30 22:36:43 -0600
+Processing by SustanciaController#index as HTML
+  [1m[36mSustancium Load (0.4ms)[0m  [1mSELECT "sustancia".* FROM "sustancia"[0m
+  Rendered sustancia/index.html.erb within layouts/application (1.2ms)
+  [1m[35mFarmacium Load (0.2ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1  [["id", 58]]
+Completed 200 OK in 44ms (Views: 43.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/productos" for 127.0.0.1 at 2017-05-30 22:36:44 -0600
+Processing by ProductosController#index as HTML
+  [1m[36mProducto Load (0.5ms)[0m  [1mSELECT "productos".* FROM "productos"[0m
+  [1m[35mSustancium Load (0.4ms)[0m  SELECT  "sustancia".* FROM "sustancia" WHERE "sustancia"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mPresentacion Load (0.3ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mLaboratorio Load (0.4ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mPlanPaciente Load (1.0ms)[0m  [1mSELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "sustancia".* FROM "sustancia" WHERE "sustancia"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mPresentacion Load (0.2ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "sustancia".* FROM "sustancia" WHERE "sustancia"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "presentacions".* FROM "presentacions" WHERE "presentacions"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1[0m  [["id", 7]]
+  Rendered productos/index.html.erb within layouts/application (11.9ms)
+  [1m[35mFarmacium Load (0.2ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1  [["id", 58]]
+Completed 200 OK in 47ms (Views: 43.4ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-30 22:36:49 -0600
+Processing by LaboratoriosController#index as HTML
+  [1m[36mLaboratorio Load (0.4ms)[0m  [1mSELECT "laboratorios".* FROM "laboratorios"[0m
+  Rendered laboratorios/index.html.erb within layouts/application (1.4ms)
+  [1m[35mFarmacium Load (0.2ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1  [["id", 58]]
+Completed 200 OK in 49ms (Views: 48.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/laboratorios/15" for 127.0.0.1 at 2017-05-30 22:36:51 -0600
+Processing by LaboratoriosController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[36mLaboratorio Load (0.3ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  Rendered laboratorios/_linkprincipal.html.erb (0.5ms)
+  Rendered laboratorios/show.html.erb within layouts/application (4.9ms)
+  [1m[35mFarmacium Load (0.2ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1  [["id", 58]]
+Completed 200 OK in 45ms (Views: 42.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-30 22:36:53 -0600
+Processing by LaboratoriosController#index as HTML
+  [1m[36mLaboratorio Load (0.5ms)[0m  [1mSELECT "laboratorios".* FROM "laboratorios"[0m
+  Rendered laboratorios/index.html.erb within layouts/application (1.7ms)
+  [1m[35mFarmacium Load (0.3ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1  [["id", 58]]
+Completed 200 OK in 43ms (Views: 41.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/plan_pacientes" for 127.0.0.1 at 2017-05-30 22:36:54 -0600
+Processing by PlanPacientesController#index as HTML
+  [1m[36mPlanPaciente Load (0.4ms)[0m  [1mSELECT "plan_pacientes".* FROM "plan_pacientes"[0m
+  [1m[35mLaboratorio Load (0.3ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mLaboratorio Load (0.3ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 14]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  Rendered plan_pacientes/index.html.erb within layouts/application (5.0ms)
+  [1m[36mFarmacium Load (0.4ms)[0m  [1mSELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1[0m  [["id", 58]]
+Completed 200 OK in 47ms (Views: 45.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/plan_pacientes/42" for 127.0.0.1 at 2017-05-30 22:36:56 -0600
+Processing by PlanPacientesController#show as HTML
+  Parameters: {"id"=>"42"}
+  [1m[35mPlanPaciente Load (0.4ms)[0m  SELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1  [["id", 42]]
+  Rendered plan_pacientes/_linkprincipal.html.erb (0.3ms)
+  [1m[36mLaboratorio Load (0.3ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  [1m[35mTipoPlan Load (0.5ms)[0m  SELECT "tipo_plans".* FROM "tipo_plans" WHERE (plan_paciente_id = '42' and tipo = 'Paciente')
+  [1m[36mTipoPlan Load (0.3ms)[0m  [1mSELECT "tipo_plans".* FROM "tipo_plans" WHERE (plan_paciente_id = '42' and tipo = 'Farmacia')[0m
+  Rendered plan_pacientes/show.html.erb within layouts/application (9.0ms)
+  [1m[35mFarmacium Load (0.3ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1  [["id", 58]]
+Completed 200 OK in 56ms (Views: 44.3ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/tipo_plans" for 127.0.0.1 at 2017-05-30 22:37:17 -0600
+Processing by TipoPlansController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"U6KztPTqfbz30h58eM7HtvTjmpy6vRvtMYBYpcs7K3UWmdYhzn/9VoM7d6XwhSDVkuNLvKRGn25gPKO31egz5Q==", "tipo_plan"=>{"tipo"=>"Farmacia", "descripcion"=>"registrar farmacia", "plan_paciente_id"=>"42"}, "commit"=>"Create Tipo plan"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (30.6ms)[0m  INSERT INTO "tipo_plans" ("tipo", "descripcion", "plan_paciente_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["tipo", "Farmacia"], ["descripcion", "registrar farmacia"], ["plan_paciente_id", 42], ["created_at", "2017-05-31 04:37:17.251445"], ["updated_at", "2017-05-31 04:37:17.251445"]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/plan_pacientes/42
+Completed 302 Found in 35ms (ActiveRecord: 32.3ms)
+
+
+Started GET "/plan_pacientes/42" for 127.0.0.1 at 2017-05-30 22:37:17 -0600
+Processing by PlanPacientesController#show as HTML
+  Parameters: {"id"=>"42"}
+  [1m[35mPlanPaciente Load (0.3ms)[0m  SELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1  [["id", 42]]
+  Rendered plan_pacientes/_linkprincipal.html.erb (0.0ms)
+  [1m[36mLaboratorio Load (0.2ms)[0m  [1mSELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1[0m  [["id", 15]]
+  [1m[35mTipoPlan Load (1.3ms)[0m  SELECT "tipo_plans".* FROM "tipo_plans" WHERE (plan_paciente_id = '42' and tipo = 'Paciente')
+  [1m[36mTipoPlan Load (1.3ms)[0m  [1mSELECT "tipo_plans".* FROM "tipo_plans" WHERE (plan_paciente_id = '42' and tipo = 'Farmacia')[0m
+  Rendered plan_pacientes/show.html.erb within layouts/application (8.6ms)
+  [1m[35mFarmacium Load (0.3ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1  [["id", 58]]
+Completed 200 OK in 47ms (Views: 43.2ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:37:17 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:37:17 -0600
+
+
+Started GET "/plan_pacientes/42" for 127.0.0.1 at 2017-05-30 22:37:54 -0600
+Processing by PlanPacientesController#show as HTML
+  Parameters: {"id"=>"42"}
+  [1m[36mPlanPaciente Load (0.2ms)[0m  [1mSELECT  "plan_pacientes".* FROM "plan_pacientes" WHERE "plan_pacientes"."id" = $1 LIMIT 1[0m  [["id", 42]]
+  Rendered plan_pacientes/_linkprincipal.html.erb (0.0ms)
+  [1m[35mLaboratorio Load (0.2ms)[0m  SELECT  "laboratorios".* FROM "laboratorios" WHERE "laboratorios"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36mTipoPlan Load (0.4ms)[0m  [1mSELECT "tipo_plans".* FROM "tipo_plans" WHERE (plan_paciente_id = '42' and tipo = 'Paciente')[0m
+  [1m[35mTipoPlan Load (0.9ms)[0m  SELECT "tipo_plans".* FROM "tipo_plans" WHERE (plan_paciente_id = '42' and tipo = 'Farmacia')
+  Rendered plan_pacientes/show.html.erb within layouts/application (6.7ms)
+  [1m[36mFarmacium Load (0.3ms)[0m  [1mSELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1[0m  [["id", 58]]
+Completed 200 OK in 44ms (Views: 41.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:37:54 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:37:54 -0600
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-05-30 22:37:56 -0600
+Processing by SessionsController#logout as HTML
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-05-30 22:37:56 -0600
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 42ms (Views: 41.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2017-05-30 22:38:04 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JaQV+/nPdVg/JECbMwvwQtIWB4ogEp1ygI9Xt3KDrkVgn3Buw1r1skvNKUK7QBchtBbWqj7pGfHRM6ylbFC21Q==", "correo"=>"ADMIN", "password"=>"[FILTERED]", "commit"=>"Submit"}
+  [1m[35mFarmacium Load (0.3ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."correo" = $1  ORDER BY "farmacia"."id" ASC LIMIT 1  [["correo", "ADMIN"]]
+Redirected to http://localhost:3000/laboratorios
+Completed 302 Found in 80ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/laboratorios" for 127.0.0.1 at 2017-05-30 22:38:04 -0600
+Processing by LaboratoriosController#index as HTML
+  [1m[36mLaboratorio Load (0.3ms)[0m  [1mSELECT "laboratorios".* FROM "laboratorios"[0m
+  Rendered laboratorios/index.html.erb within layouts/application (1.0ms)
+  [1m[35mFarmacium Load (0.3ms)[0m  SELECT  "farmacia".* FROM "farmacia" WHERE "farmacia"."id" = $1 LIMIT 1  [["id", 58]]
+Completed 200 OK in 43ms (Views: 42.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/sweetalert2.min.js" for 127.0.0.1 at 2017-05-30 22:38:04 -0600
+
+
+Started GET "/assets/sweetalert2.css" for 127.0.0.1 at 2017-05-30 22:38:04 -0600

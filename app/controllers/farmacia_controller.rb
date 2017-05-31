@@ -1,6 +1,6 @@
 class FarmaciaController < ApplicationController
   before_action :set_farmacium, only: [:show, :edit, :update, :destroy]
-  before_action :autenticacion
+
 
   # GET /farmacia
   # GET /farmacia.json
@@ -29,7 +29,8 @@ class FarmaciaController < ApplicationController
 
     respond_to do |format|
       if @farmacium.save
-        UserNotifier.send_signup_email(@farmacium).deliver
+        # notificar a la farmacia por correo
+        # UserNotifier.send_signup_email(@farmacium).deliver
         format.html { redirect_to "/farmacia/new", notice: 'Farmacia creada con éxito.' }
        
       else

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170531010509) do
+ActiveRecord::Schema.define(version: 20170531041118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20170531010509) do
     t.string   "cedulaJur"
     t.string   "sucursal"
     t.string   "direccion"
-    t.string   "correo"
     t.integer  "telefono1"
     t.integer  "telefono2"
     t.string   "latitud"
@@ -35,6 +34,7 @@ ActiveRecord::Schema.define(version: 20170531010509) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.string   "password_digest"
+    t.string   "correo"
   end
 
   create_table "laboratorios", force: :cascade do |t|
