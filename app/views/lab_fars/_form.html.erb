@@ -1,0 +1,29 @@
+<%= form_for(@lab_far) do |f| %>
+  <% if @lab_far.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lab_far.errors.count, "error") %> prohibited this lab_far from being saved:</h2>
+
+      <ul>
+      <% @lab_far.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :farmacia_id %><br>
+    <%= f.text_field :farmacia_id %>
+  </div>
+  <div class="field">
+    <%= f.label :laboratorio_id %><br>
+    <%= f.text_field :laboratorio_id %>
+  </div>
+  <div class="field">
+    <%= f.label :activo %><br>
+    <%= f.check_box :activo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

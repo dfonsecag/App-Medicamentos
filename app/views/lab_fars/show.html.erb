@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Farmacia:</strong>
+  <%= @lab_far.farmacia %>
+</p>
+
+<p>
+  <strong>Laboratorio:</strong>
+  <%= @lab_far.laboratorio %>
+</p>
+
+<p>
+  <strong>Activo:</strong>
+  <%= @lab_far.activo %>
+</p>
+
+<%= link_to 'Edit', edit_lab_far_path(@lab_far) %> |
+<%= link_to 'Back', lab_fars_path %>

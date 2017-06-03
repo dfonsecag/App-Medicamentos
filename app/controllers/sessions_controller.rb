@@ -19,7 +19,11 @@ class SessionsController < ApplicationController
      # Save the farmacia id inside the browser cookie. This is how we keep the farmacia 
       # logged in when tey navigate arund our website.
       session[:farmacia_id] = user.id
-      redirect_to '/laboratorios'
+      if user.correo == 'ADMIN'
+         redirect_to '/laboratorios'
+      else
+          redirect_to '/lab_fars'
+      end
     else
    # If farmacia's login doesn't work, send them back to the login form.
         redirect_to "/login", notice: 'Error de autenticacion' 
