@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170603034503) do
+ActiveRecord::Schema.define(version: 20170603041640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,19 @@ ActiveRecord::Schema.define(version: 20170603034503) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "pro_fars", force: :cascade do |t|
+    t.integer  "farmacium_id"
+    t.integer  "producto_id"
+    t.integer  "disponibilidad_id"
+    t.boolean  "activo"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "pro_fars", ["disponibilidad_id"], name: "index_pro_fars_on_disponibilidad_id", using: :btree
+  add_index "pro_fars", ["farmacium_id"], name: "index_pro_fars_on_farmacium_id", using: :btree
+  add_index "pro_fars", ["producto_id"], name: "index_pro_fars_on_producto_id", using: :btree
+
   create_table "productos", force: :cascade do |t|
     t.string   "nombre"
     t.integer  "presentacion_id"
@@ -116,6 +129,9 @@ ActiveRecord::Schema.define(version: 20170603034503) do
   add_foreign_key "lab_fars", "farmacia"
   add_foreign_key "lab_fars", "laboratorios"
   add_foreign_key "plan_pacientes", "laboratorios"
+  add_foreign_key "pro_fars", "disponibilidads"
+  add_foreign_key "pro_fars", "farmacia"
+  add_foreign_key "pro_fars", "productos"
   add_foreign_key "productos", "laboratorios"
   add_foreign_key "productos", "plan_pacientes"
   add_foreign_key "productos", "presentacions"

@@ -1,5 +1,14 @@
-<h1>New Disponibilidad</h1>
+<script type="text/javascript">
+var msj = "<%= notice %>";
+	$(document).ready(function() {
+  if(msj!='')
+  	swal(msj, "", "success")
+
+});
+</script>
+<%= render 'linkprincipal' %>
+<h1 class="text-center">Disponibilidades Producto en Farmacia</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', disponibilidads_path %>
+

@@ -1,0 +1,33 @@
+<%= form_for(@pro_far) do |f| %>
+  <% if @pro_far.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pro_far.errors.count, "error") %> prohibited this pro_far from being saved:</h2>
+
+      <ul>
+      <% @pro_far.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :farmacia_id %><br>
+    <%= f.text_field :farmacia_id %>
+  </div>
+  <div class="field">
+    <%= f.label :producto_id %><br>
+    <%= f.text_field :producto_id %>
+  </div>
+  <div class="field">
+    <%= f.label :disponibiliad_id %><br>
+    <%= f.text_field :disponibiliad_id %>
+  </div>
+  <div class="field">
+    <%= f.label :activo %><br>
+    <%= f.check_box :activo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

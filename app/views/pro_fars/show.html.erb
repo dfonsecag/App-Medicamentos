@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Farmacia:</strong>
+  <%= @pro_far.farmacia %>
+</p>
+
+<p>
+  <strong>Producto:</strong>
+  <%= @pro_far.producto %>
+</p>
+
+<p>
+  <strong>Disponibiliad:</strong>
+  <%= @pro_far.disponibiliad %>
+</p>
+
+<p>
+  <strong>Activo:</strong>
+  <%= @pro_far.activo %>
+</p>
+
+<%= link_to 'Edit', edit_pro_far_path(@pro_far) %> |
+<%= link_to 'Back', pro_fars_path %>

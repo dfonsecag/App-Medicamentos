@@ -4,19 +4,19 @@ class LabFarsController < ApplicationController
   # GET /lab_fars
   # GET /lab_fars.json
   def index
-    # @laboratorios = Laboratorio.all
+    id =  session[:farmacia_id]
     @laboratorios = 
-Laboratorio.find_by_sql("Select * from laboratorios where not exists (select 1 from lab_fars where lab_fars.laboratorio_id = laboratorios.id)")
+Laboratorio.find_by_sql("Select * from laboratorios where not exists (select * from lab_fars where lab_fars.laboratorio_id = laboratorios.id and lab_fars.farmacium_id = #{id} )")
   end
   # GET /lab_fars
   # laboratorios farmacia agregados
   def lab_farm
-    @laboratorios = LabFar.all
+    @laboratorios = LabFar.where(["farmacium_id = ? ",session[:farmacia_id]])
     render :template => "lab_fars/laboratoriosfarmacia"
   end
   # vista de productos anadir la farmacia
     def labAddProduct
-    @laboratorios = LabFar.all
+    @productos = Producto.all
     render :template => "lab_fars/productoadd"
   end
 
@@ -27,7 +27,7 @@ Laboratorio.find_by_sql("Select * from laboratorios where not exists (select 1 f
     @farmacia_id =  session[:farmacia_id]
     @laboratorio_id = params[:id]
     @activo = true
-      @lab_far = LabFar.new(farmacium_id: @farmacia_id, laboratorio_id: @laboratorio_id, activo: @activo)
+    @lab_far = LabFar.new(farmacium_id: @farmacia_id, laboratorio_id: @laboratorio_id, activo: @activo)
 
     respond_to do |format|
       if @lab_far.save

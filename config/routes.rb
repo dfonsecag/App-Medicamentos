@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pro_fars
   resources :disponibilidads
   resources :lab_fars
   resources :sessions
@@ -14,6 +15,8 @@ Rails.application.routes.draw do
    get 'logout' => 'sessions#logout'
    get 'login' => 'sessions#new'
    get 'lab_farmacia' => 'lab_fars#lab_farm'
+
+   root 'sessions#logout'
   # these routes are for showing users a login form, logging them in, and logging them out.
 
   

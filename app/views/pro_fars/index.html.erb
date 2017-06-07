@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Pro Fars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Farmacia</th>
+      <th>Producto</th>
+      <th>Disponibiliad</th>
+      <th>Activo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pro_fars.each do |pro_far| %>
+      <tr>
+        <td><%= pro_far.farmacia %></td>
+        <td><%= pro_far.producto %></td>
+        <td><%= pro_far.disponibiliad %></td>
+        <td><%= pro_far.activo %></td>
+        <td><%= link_to 'Show', pro_far %></td>
+        <td><%= link_to 'Edit', edit_pro_far_path(pro_far) %></td>
+        <td><%= link_to 'Destroy', pro_far, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pro far', new_pro_far_path %>

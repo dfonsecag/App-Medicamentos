@@ -28,8 +28,7 @@ class DisponibilidadsController < ApplicationController
 
     respond_to do |format|
       if @disponibilidad.save
-        format.html { redirect_to @disponibilidad, notice: 'Disponibilidad was successfully created.' }
-        format.json { render :show, status: :created, location: @disponibilidad }
+         format.html { redirect_to "/disponibilidads/new", notice: 'Disponibilidad creada con éxito.' }
       else
         format.html { render :new }
         format.json { render json: @disponibilidad.errors, status: :unprocessable_entity }
@@ -42,8 +41,7 @@ class DisponibilidadsController < ApplicationController
   def update
     respond_to do |format|
       if @disponibilidad.update(disponibilidad_params)
-        format.html { redirect_to @disponibilidad, notice: 'Disponibilidad was successfully updated.' }
-        format.json { render :show, status: :ok, location: @disponibilidad }
+        format.html { redirect_to "/disponibilidads", notice: 'Disponibilidad actualizada con éxito.' }
       else
         format.html { render :edit }
         format.json { render json: @disponibilidad.errors, status: :unprocessable_entity }
@@ -56,8 +54,8 @@ class DisponibilidadsController < ApplicationController
   def destroy
     @disponibilidad.destroy
     respond_to do |format|
-      format.html { redirect_to disponibilidads_url, notice: 'Disponibilidad was successfully destroyed.' }
-      format.json { head :no_content }
+      msg = { :status => "ok", :message => "Eliminado!" }
+        format.json { render :json => msg }
     end
   end
 

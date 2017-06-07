@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  farmacia_id: 
+  producto_id: 
+  disponibiliad_id: 
+  activo: false
+
+two:
+  farmacia_id: 
+  producto_id: 
+  disponibiliad_id: 
+  activo: false
