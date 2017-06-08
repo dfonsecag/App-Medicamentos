@@ -16,6 +16,13 @@ Rails.application.routes.draw do
    get 'login' => 'sessions#new'
    get 'lab_farmacia' => 'lab_fars#lab_farm'
 
+   get '/pro_farmacia/:id', to: 'pro_fars#pro_farm'
+   
+   # ruta para editar productos farmacia
+   get '/pro_farmacia_edit/:id', to: 'pro_fars#pro_farm_edit'
+   # actualizar activo producto farmacia
+   put '/pro_farmacia_update/:id', to: 'pro_fars#pro_farm_update'
+
    root 'sessions#logout'
   # these routes are for showing users a login form, logging them in, and logging them out.
 

@@ -1,0 +1,70 @@
+<script type="text/javascript">
+var msj = "<%= notice %>";
+ $(document).ready(function() {
+    $("[name='my-checkbox']").bootstrapSwitch();
+      $("[name='my-checkbox']").on('switchChange.bootstrapSwitch', function (event, state) {
+        
+    id = $(this).attr('id');
+    var aler = update(id, state); 
+      
+});
+
+  if(msj!='')
+    swal(msj, "", "success")
+
+});
+
+</script>
+
+<h1 class="text-center">Lista de Productos</h1>
+
+<table class="table table-striped table-condensed">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Sustancia</th>
+      <th>Presentacion</th>     
+      <th>Laboratorio</th>
+      <th>Plan paciente</th>
+       <th>Oferta</th>
+       <th>Disponibilidad</th>
+       <th>Actualizar Disponibilidad</th>
+      <th>Actualizar Estado Producto</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @productos.each do |producto| %>
+      <tr>
+        <td width="9%"><%= producto.producto.nombre %></td>
+        <td width="9%"><%= producto.producto.sustancium.descripcion %></td>
+        <td width="9%"><%= producto.producto.presentacion.descripcion %></td>       
+        <td width="9%"><%= producto.producto.laboratorio.nombre %></td>
+        <% if producto.producto.plan_paciente != nil %> 
+           <td width="9%"><%= producto.producto.plan_paciente.nombre %></td>
+         <% else producto.producto.plan_paciente != nil %> 
+           <td width="9%"></td>
+        <% end %>
+        
+        <td width="9%"><%= producto.producto.oferta %></td>
+        <td width="9%"><%= producto.nombre %></td>
+        <td width="0%">
+         <% if producto.activo == true %> 
+             <input type="checkbox" id="<%= producto.producto.id %>" name="my-checkbox" checked  data-on-text="Activado" data-off-text="Desactivado" data-on-color="success" data-off-color="danger">
+         <% else %> 
+            <input type="checkbox" id="<%= producto.producto.id %>" name="my-checkbox"  data-on-text="Activado" data-off-text="Desactivado" data-on-color="success" data-off-color="danger">
+        <% end %>
+        <td width="12%"> <a href="/pro_farmacia_edit/<%= producto.producto.id %>" class="btn btn-success">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar Estado
+          </a></td>
+         
+          
+
+
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

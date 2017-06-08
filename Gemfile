@@ -6,8 +6,8 @@ gem 'rails', '4.2.6'
 #usar base datos PG
 gem 'pg'
 
-#usar swealert
-
+#usar paginate
+gem 'will_paginate'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'autoprefixer-rails'

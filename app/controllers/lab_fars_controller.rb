@@ -69,13 +69,12 @@ Laboratorio.find_by_sql("Select * from laboratorios where not exists (select * f
   # PATCH/PUT /lab_fars/1.json
   def update
     respond_to do |format|
-      if @lab_far.update(lab_far_params)
-        format.html { redirect_to @lab_far, notice: 'Lab far was successfully updated.' }
-        format.json { render :show, status: :ok, location: @lab_far }
-      else
-        format.html { render :edit }
-        format.json { render json: @lab_far.errors, status: :unprocessable_entity }
-      end
+       activo = params[:lab_far][:activo]
+       farmacia_id = session[:farmacia_id]
+        id = params[:id]
+        LabFar.where(laboratorio_id: id, farmacium_id:farmacia_id).update_all(activo: activo )
+       msg = { :status => "ok", :message => "Actualizado!" }
+        format.json { render :json => msg }
     end
   end
 

@@ -1,33 +1,20 @@
-<%= form_for(@pro_far) do |f| %>
-  <% if @pro_far.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@pro_far.errors.count, "error") %> prohibited this pro_far from being saved:</h2>
+<%= bootstrap_form_for(@pro_far) do |f| %>
+ <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3  col-xs-12 col-sm-10">
+   <div class="form-group">
+    <label for="exampleInputEmail1">Nombre Producto</label>
+    <input type="text" class="form-control"  value="<%= @pro_far.producto.nombre %>" disabled >
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Nombre Laboratorio</label>
+    <input type="text" class="form-control" value="<%= @pro_far.producto.laboratorio.nombre %>" disabled >
+  </div>
+  <div class="field">
+   <%= f.collection_select :disponibilidad_id, Disponibilidad.all, :id, :nombre %>
+  </div>
 
-      <ul>
-      <% @pro_far.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :farmacia_id %><br>
-    <%= f.text_field :farmacia_id %>
-  </div>
-  <div class="field">
-    <%= f.label :producto_id %><br>
-    <%= f.text_field :producto_id %>
-  </div>
-  <div class="field">
-    <%= f.label :disponibiliad_id %><br>
-    <%= f.text_field :disponibiliad_id %>
-  </div>
-  <div class="field">
-    <%= f.label :activo %><br>
-    <%= f.check_box :activo %>
-  </div>
+ <%= f.hidden_field :producto_id, :value => @pro_far.producto.laboratorio.id %>
   <div class="actions">
-    <%= f.submit %>
+    <input type="submit" name="commit" value="Actualizar Producto Farmacia" class="btn btn-success">
   </div>
 <% end %>
+</div>
