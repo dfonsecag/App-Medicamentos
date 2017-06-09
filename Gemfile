@@ -8,6 +8,7 @@ gem 'pg'
 
 #usar paginate
 gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'autoprefixer-rails'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170603041640) do
+ActiveRecord::Schema.define(version: 20170609043716) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,16 +31,17 @@ ActiveRecord::Schema.define(version: 20170603041640) do
     t.integer  "telefono2"
     t.string   "latitud"
     t.string   "longitud"
-    t.integer  "cant_lab"
-    t.boolean  "activo"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.string   "password_digest"
     t.string   "correo"
+    t.boolean  "verificado",         default: false
+    t.integer  "cant_lab",           default: 0
+    t.boolean  "activo",             default: true
   end
 
   create_table "lab_fars", force: :cascade do |t|

@@ -21,23 +21,31 @@ Laboratorio.find_by_sql("Select * from laboratorios where not exists (select * f
   end
 
   # GET /lab_fars/1
-  # GET /lab_fars/1.json
+  #Metodo usado para a;adir laboratorio a farmacia
   def show
 
-    @farmacia_id =  session[:farmacia_id]
-    @laboratorio_id = params[:id]
-    @activo = true
-    @lab_far = LabFar.new(farmacium_id: @farmacia_id, laboratorio_id: @laboratorio_id, activo: @activo)
-
+    farmacia_id =  session[:farmacia_id]
+    laboratorio_id = params[:id]
+    activo = true    
+    farmaciaCant = Farmacium.where(id: farmacia_id).first
+   
     respond_to do |format|
+      if farmaciaCant.cant_lab >=2
+       format.html { redirect_to "/lab_fars", notice: 'Laboratorio cantidad maxima' }
+    else
+       
+    @lab_far = LabFar.new(farmacium_id: farmacia_id, laboratorio_id: laboratorio_id, activo: activo)
       if @lab_far.save
+       
+         cant = farmaciaCant.cant_lab + 1 
+         Farmacium.where(id:farmacia_id).update_all(cant_lab: cant )
         format.html { redirect_to "/lab_fars", notice: 'Laboratorio agregado con éxito.' }
       else
         
         format.json { render json: @lab_far.errors, status: :unprocessable_entity }
       end
     end
-      
+   end   
   end
 
   # GET /lab_fars/new

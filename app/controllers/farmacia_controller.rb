@@ -44,13 +44,11 @@ class FarmaciaController < ApplicationController
   # PATCH/PUT /farmacia/1.json
   def update
     respond_to do |format|
-      if @farmacium.update(farmacium_params)
-        format.html { redirect_to @farmacium, notice: 'Farmacia se actualizó con éxito.' }
-        format.json { render :show, status: :ok, location: @farmacium }
-      else
-        format.html { render :edit }
-        format.json { render json: @farmacium.errors, status: :unprocessable_entity }
-      end
+       activo = params[:farmacium][:activo]
+        id = params[:id]
+        Farmacium.where(id:id).update_all(verificado: activo )
+       msg = { :status => "ok", :message => "Actualizado!" }
+        format.json { render :json => msg }
     end
   end
 
@@ -73,7 +71,7 @@ class FarmaciaController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_farmacium
-      @farmacium = Farmacium.find(params[:id])
+      # @farmacium = Farmacium.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

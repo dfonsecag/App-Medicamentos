@@ -1,8 +1,22 @@
+<script type="text/javascript">
+var msj = "<%= notice %>";
+  $(document).ready(function() {
+     $("[name='my-checkbox']").bootstrapSwitch();
+      $("[name='my-checkbox']").on('switchChange.bootstrapSwitch', function (event, state) {
+        
+    id = $(this).attr('id');
+    var aler = updatefarmacia(id, state); 
+      
+});
+  if(msj!='')
+    swal(msj, "", "success")
 
+});
+</script>
 
-<h1>Listing Farmacia</h1>
+<h1 class="text-center">Lista de Farmacias por verificar</h1>
 
-<table class="table">
+<table class="table table-striped table-condensed">
   <thead>
     <tr>
       <th>Nombre</th>
@@ -12,11 +26,8 @@
       <th>Correo</th>
       <th>Telefono1</th>
       <th>Telefono2</th>
-      <th>Latitud</th>
-      <th>Longitud</th>
       <th>Cant lab</th>
-      <th>Activo</th>
-      <th colspan="3"></th>
+      <th>Verificado</th>
     </tr>
   </thead>
 
@@ -30,13 +41,12 @@
         <td><%= farmacium.correo %></td>
         <td><%= farmacium.telefono1 %></td>
         <td><%= farmacium.telefono2 %></td>
-        <td><%= farmacium.latitud %></td>
-        <td><%= farmacium.longitud %></td>
         <td><%= farmacium.cant_lab %></td>
-        <td><%= farmacium.activo %></td>
-        <td><%= link_to 'Show', farmacium %></td>
-        <td><%= link_to 'Edit', edit_farmacium_path(farmacium) %></td>
-        <td><%= link_to 'Destroy', farmacium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td> <% if farmacium.verificado == true %> 
+             <input type="checkbox" id="<%= farmacium.id %>" name="my-checkbox" checked  data-on-text="Activado" data-off-text="Desactivado" data-on-color="success" data-off-color="danger">
+         <% else %> 
+            <input type="checkbox" id="<%= farmacium.id %>" name="my-checkbox"  data-on-text="Activado" data-off-text="Desactivado" data-on-color="success" data-off-color="danger">
+        <% end %></td>
       </tr>
     <% end %>
   </tbody>
@@ -44,4 +54,4 @@
 
 <br>
 
-<%= link_to 'New Farmacium', new_farmacium_path %>
+

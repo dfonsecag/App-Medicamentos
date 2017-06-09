@@ -21,7 +21,7 @@ function Seleccion_Articulo(id,laboratorio) {
   )
         },
         error:function(data){
-            alert('erro');
+            alert('error');
         }
     });
  }

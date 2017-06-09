@@ -15,6 +15,9 @@ class SessionsController < ApplicationController
   def create
   
   user = Farmacium.where(correo: params[:correo]).first
+  if(user.verificado==false)
+     redirect_to "/login", notice: 'usuario no verificado' 
+  else
     if user && user.authenticate(params[:password])
      # Save the farmacia id inside the browser cookie. This is how we keep the farmacia 
       # logged in when tey navigate arund our website.
@@ -28,6 +31,7 @@ class SessionsController < ApplicationController
    # If farmacia's login doesn't work, send them back to the login form.
         redirect_to "/login", notice: 'Error de autenticacion' 
     end
+   end
   end
 
 
