@@ -10,6 +10,13 @@ class ApplicationController < ActionController::Base
    
     end
   end
+  def verificarUsuario
+    if current_user.correo != 'ADMIN'
+      redirect_to '/lab_fars'
+    else
+   
+    end
+  end
 
   def current_user
     @current_user ||= Farmacium.find(session[:farmacia_id]) if session[:farmacia_id]

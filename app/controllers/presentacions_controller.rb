@@ -1,5 +1,8 @@
 class PresentacionsController < ApplicationController
   before_action :set_presentacion, only: [:show, :edit, :update, :destroy]
+   before_action :autenticacion
+   before_action :verificarUsuario
+  # GET /laboratorios
 
   # GET /presentacions
   # GET /presentacions.json

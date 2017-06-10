@@ -1,6 +1,8 @@
 class PlanPacientesController < ApplicationController
   before_action :set_plan_paciente, only: [:show, :edit, :update, :destroy]
-
+   before_action :autenticacion
+   before_action :verificarUsuario
+  # GET /laboratorios
   # GET /plan_pacientes
   # GET /plan_pacientes.json
   def index

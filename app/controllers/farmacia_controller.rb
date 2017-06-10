@@ -1,6 +1,6 @@
 class FarmaciaController < ApplicationController
   before_action :set_farmacium, only: [:show, :edit, :update, :destroy]
-
+  before_action :verificarUsuario, only: [:new, :create]
 
   # GET /farmacia
   # GET /farmacia.json

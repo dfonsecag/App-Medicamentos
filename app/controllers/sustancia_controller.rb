@@ -1,5 +1,7 @@
 class SustanciaController < ApplicationController
   before_action :set_sustancium, only: [:show, :edit, :update, :destroy]
+   before_action :autenticacion
+   before_action :verificarUsuario
 
   # GET /sustancia
   # GET /sustancia.json

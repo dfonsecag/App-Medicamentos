@@ -99,7 +99,7 @@ class ProFarsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pro_far
-       @pro_far = ProFar.find(params[:id])
+       # @pro_far = ProFar.find(params[:id])
        
     end
 
