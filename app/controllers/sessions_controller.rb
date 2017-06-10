@@ -4,11 +4,16 @@ class SessionsController < ApplicationController
   
   # GET /sessions/new
   def new    
+    session[:farmacia_id] = nil
   end
 
   def new_password
       render :template => "sessions/new_password"
   end
+    def reset_password
+      render :template => "sessions/reset_password"
+  end
+
 
   # GET /sessions/1/edit
   def edit
@@ -41,7 +46,20 @@ class SessionsController < ApplicationController
    end
   end
 end
-
+ # Password reset rails
+   def reset_password_update
+     user = Farmacium.where(correo: params[:correo]).first
+     if(user != nil)
+    password_new = p SecureRandom.hex(10)
+    password_reset = BCrypt::Password.create(password_new)
+    Farmacium.where(correo: 'dgf-95@hotmail.com').update_all(password_digest: password_reset )
+    # notificar a la farmacia por correo
+      UserMailer.password_reset(user, password_new).deliver
+     redirect_to "/reset_password", notice: 'Su contraseña fue enviada a su correo eléctronico.' 
+     else
+      redirect_to "/reset_password", notice: 'Este correo no se encuentra registrado' 
+     end
+  end
 
   def logout
     session[:farmacia_id] = nil

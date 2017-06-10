@@ -16,6 +16,10 @@ Rails.application.routes.draw do
    get 'login' => 'sessions#new'
    # ingresar vista cambio de contrasena
    get 'change_password' => 'sessions#new_password'
+   # abrir html resetear password
+    get 'reset_password' => 'sessions#reset_password'
+    # reset coontraseña farmacia.
+   post '/reset_password_update', to: 'sessions#reset_password_update'
    # actualizar coontraseña farmacia.
    post '/change_password_update', to: 'sessions#update_contrasena'
    get 'lab_farmacia' => 'lab_fars#lab_farm'
