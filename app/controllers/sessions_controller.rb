@@ -6,6 +6,10 @@ class SessionsController < ApplicationController
   def new    
   end
 
+  def new_password
+      render :template => "sessions/new_password"
+  end
+
   # GET /sessions/1/edit
   def edit
   end
@@ -15,8 +19,11 @@ class SessionsController < ApplicationController
   def create
   
   user = Farmacium.where(correo: params[:correo]).first
+  if user==nil
+    redirect_to "/login", notice: 'Correo no se encuentra Registrado' 
+  else
   if(user.verificado==false)
-     redirect_to "/login", notice: 'usuario no verificado' 
+     redirect_to "/login", notice: 'Usuario no verificado' 
   else
     if user && user.authenticate(params[:password])
      # Save the farmacia id inside the browser cookie. This is how we keep the farmacia 
@@ -33,11 +40,27 @@ class SessionsController < ApplicationController
     end
    end
   end
+end
 
 
   def logout
     session[:farmacia_id] = nil
     redirect_to '/login'
+  end
+   # PATCH/PUT /farmacia/1
+  # PATCH/PUT /farmacia/1.json
+  def update_contrasena
+     respond_to do |format|
+    correo = current_user.correo
+       user = Farmacium.where(correo: correo).first
+     if user && user.authenticate(params[:password])
+      new_password = BCrypt::Password.create(params[:new_password])     
+       Farmacium.where(correo: current_user.correo).update_all(password_digest: new_password )       
+        format.html { redirect_to "/change_password", notice: 'Contrasena actualizado con éxito.' }
+    else
+      format.html { redirect_to "/change_password", notice: 'Contrasena NO actualizado con éxito.' }
+    end
+    end
   end
 
   private
@@ -45,6 +68,6 @@ class SessionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def session_params
-       params.require(:sessions).permit(:correo, :password)
+       params.require(:sessions).permit(:correo, :password, :new_password)
     end
 end

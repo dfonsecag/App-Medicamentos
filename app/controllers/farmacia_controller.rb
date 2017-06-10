@@ -1,6 +1,6 @@
 class FarmaciaController < ApplicationController
   before_action :set_farmacium, only: [:show, :edit, :update, :destroy]
-  before_action :verificarUsuario, only: [:new, :create]
+  
 
   # GET /farmacia
   # GET /farmacia.json
@@ -42,16 +42,30 @@ class FarmaciaController < ApplicationController
 
   # PATCH/PUT /farmacia/1
   # PATCH/PUT /farmacia/1.json
-  def update
+   def update
     respond_to do |format|
-       activo = params[:farmacium][:activo]
+      if @farmacium.update(farmacium_params)
+        format.html { redirect_to "/lab_fars", notice: 'Farmacia actualizada con éxito.' }
+        format.json { render :show, status: :ok, location: @laboratorio }
+      else
+        format.html { render :edit }
+        format.json { render json: @laboratorio.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+# PATCH/PUT /farmacia/1
+  # PATCH/PUT /farmacia/1.json
+  def update_verificado
+    respond_to do |format|
+        activo = params[:farmacium][:activo]
         id = params[:id]
         Farmacium.where(id:id).update_all(verificado: activo )
        msg = { :status => "ok", :message => "Actualizado!" }
         format.json { render :json => msg }
     end
   end
-
+ 
   # DELETE /farmacia/1
   # DELETE /farmacia/1.json
   def destroy
@@ -61,17 +75,11 @@ class FarmaciaController < ApplicationController
       format.json { head :no_content }
     end
   end
-  # Password reset rails
-  #  def send_password_reset
-  #   generate_token(:password_reset_token)
-  #   self.password_reset_sent_at = Time.zone.now
-  #   save!
-  #   UserMailer.password_reset(self).deliver
-  # end
+ 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_farmacium
-      # @farmacium = Farmacium.find(params[:id])
+       @farmacium = Farmacium.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

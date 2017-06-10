@@ -2,7 +2,7 @@
 
  function updatefarmacia (id, activo) {
  	 $.ajax({
-       url: '/farmacia/'+id,
+       url: '/farmacia_verificado/'+id,
       method: 'put',
       data: JSON.stringify({ 
         activo: activo

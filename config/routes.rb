@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   
    get 'logout' => 'sessions#logout'
    get 'login' => 'sessions#new'
+   # ingresar vista cambio de contrasena
+   get 'change_password' => 'sessions#new_password'
+   # actualizar coontraseña farmacia.
+   post '/change_password_update', to: 'sessions#update_contrasena'
    get 'lab_farmacia' => 'lab_fars#lab_farm'
 
    get '/pro_farmacia/:id', to: 'pro_fars#pro_farm'
@@ -22,6 +26,9 @@ Rails.application.routes.draw do
    get '/pro_farmacia_edit/:id', to: 'pro_fars#pro_farm_edit'
    # actualizar activo producto farmacia
    put '/pro_farmacia_update/:id', to: 'pro_fars#pro_farm_update'
+   # actualizar verificado farmacia por parte del administrador
+   put '/farmacia_verificado/:id', to: 'farmacia#update_verificado'
+   
 
    root 'sessions#logout'
   # these routes are for showing users a login form, logging them in, and logging them out.
