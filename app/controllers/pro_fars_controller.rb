@@ -1,5 +1,6 @@
 class ProFarsController < ApplicationController
   before_action :set_pro_far, only: [:show, :edit, :update, :destroy]
+  before_action :autenticacion
 
   # GET /pro_fars
   # GET /pro_fars.json

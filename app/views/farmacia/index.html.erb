@@ -43,9 +43,9 @@ var msj = "<%= notice %>";
         <td><%= farmacium.telefono2 %></td>
         <td><%= farmacium.cant_lab %></td>
         <td> <% if farmacium.verificado == true %> 
-             <input type="checkbox" id="<%= farmacium.id %>" name="my-checkbox" checked  data-on-text="Activado" data-off-text="Desactivado" data-on-color="success" data-off-color="danger">
+             <input type="checkbox" id="<%= farmacium.id %>" name="my-checkbox" checked  data-on-text="Verificada" data-off-text="No Verificada" data-on-color="success" data-off-color="danger">
          <% else %> 
-            <input type="checkbox" id="<%= farmacium.id %>" name="my-checkbox"  data-on-text="Activado" data-off-text="Desactivado" data-on-color="success" data-off-color="danger">
+            <input type="checkbox" id="<%= farmacium.id %>" name="my-checkbox"  data-on-text="Verificada" data-off-text="No Verificada" data-on-color="success" data-off-color="danger">
         <% end %></td>
       </tr>
     <% end %>
@@ -53,5 +53,8 @@ var msj = "<%= notice %>";
 </table>
 
 <br>
+<div class="col-lg-8 col-md-8 col-md-offset-4 col-lg-offset-4 col-xs-offset-4 col-sm-offset-4 col-xs-8 col-sm-8 paginate" >
+        <%= will_paginate @productos, renderer: BootstrapPagination::Rails %>
+    </div>
 
 

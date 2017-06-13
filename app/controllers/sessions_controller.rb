@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   before_action :set_session, only: [:show, :edit, :update, :destroy]
-
+  before_action :autenticacion, only: [:update_contrasena]
   
   # GET /sessions/new
   def new    

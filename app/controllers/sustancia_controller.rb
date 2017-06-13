@@ -6,7 +6,7 @@ class SustanciaController < ApplicationController
   # GET /sustancia
   # GET /sustancia.json
   def index
-    @sustancia = Sustancium.all
+    @sustancia = Sustancium.paginate(:page => params[:page], :per_page => 8)
   end
 
   # GET /sustancia/1

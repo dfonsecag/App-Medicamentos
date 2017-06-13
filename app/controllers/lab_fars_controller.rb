@@ -1,17 +1,20 @@
 class LabFarsController < ApplicationController
   before_action :set_lab_far, only: [:show, :edit, :update, :destroy]
+  before_action :autenticacion
 
   # GET /lab_fars
   # GET /lab_fars.json
   def index
     id =  session[:farmacia_id]
-    @laboratorios = 
-Laboratorio.find_by_sql("Select * from laboratorios where not exists (select * from lab_fars where lab_fars.laboratorio_id = laboratorios.id and lab_fars.farmacium_id = #{id} )")
+    
+    sql = "Select * from laboratorios where not exists (select * from lab_fars where lab_fars.laboratorio_id = laboratorios.id and lab_fars.farmacium_id = #{id} )"
+    @laboratorios =  Laboratorio.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+
   end
   # GET /lab_fars
   # laboratorios farmacia agregados
   def lab_farm
-    @laboratorios = LabFar.where(["farmacium_id = ? ",session[:farmacia_id]])
+    @laboratorios = LabFar.where(["farmacium_id = ? ",session[:farmacia_id]]).paginate(:page => params[:page], :per_page => 1)
     render :template => "lab_fars/laboratoriosfarmacia"
   end
   # vista de productos anadir la farmacia

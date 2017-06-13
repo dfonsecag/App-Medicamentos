@@ -7,7 +7,7 @@ class PresentacionsController < ApplicationController
   # GET /presentacions
   # GET /presentacions.json
   def index
-    @presentacions = Presentacion.all
+    @presentacions = Presentacion.paginate(:page => params[:page], :per_page => 8)
   end
 
   # GET /presentacions/1

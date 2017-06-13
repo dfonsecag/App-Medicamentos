@@ -6,7 +6,7 @@ class PlanPacientesController < ApplicationController
   # GET /plan_pacientes
   # GET /plan_pacientes.json
   def index
-    @plan_pacientes = PlanPaciente.all
+    @plan_pacientes = PlanPaciente.paginate(:page => params[:page], :per_page => 8)
   end
 
   # GET /plan_pacientes/1

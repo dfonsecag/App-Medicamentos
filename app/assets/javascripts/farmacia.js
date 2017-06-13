@@ -1,7 +1,16 @@
 
 
  function updatefarmacia (id, activo) {
- 	 $.ajax({
+
+  swal.queue([{
+  title: 'Verificar Farmacia',
+  confirmButtonText: 'Verificar',
+  text:
+    'Se le notificará por medio correo eléctronico a la Farmacia.',
+  showLoaderOnConfirm: true,
+  preConfirm: function () {
+    return new Promise(function (resolve) {
+     $.ajax({
        url: '/farmacia_verificado/'+id,
       method: 'put',
       data: JSON.stringify({ 
@@ -10,14 +19,14 @@
     }),
     contentType: "application/json; charset=utf-8",
         success:function(data){
-              swal(
-    'Estado Producto',
-    'Actualizado.',
-    'success'
-  )
-        },
-        error:function(data){
-            alert('error');
+              swal.insertQueueStep("Famacia Verificada")
+          resolve()
         }
     });
- }
+
+    })
+  }
+}])
+
+}
+
