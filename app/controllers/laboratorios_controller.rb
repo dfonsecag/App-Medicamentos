@@ -5,8 +5,17 @@ class LaboratoriosController < ApplicationController
   # GET /laboratorios
   # GET /laboratorios.json
   def index
-    # @laboratorios = Laboratorio.all
+     @laboratorios = Laboratorio.all
+      # render json: @laboratorios
+      
     @laboratorios = Laboratorio.paginate(:page => params[:page], :per_page => 8)
+  end
+   def busqueda
+    nombre = params[:nombre]
+      
+   sql = "select * from laboratorios where LOWER(nombre) like LOWER('%#{nombre}%')"
+    @laboratorios =  Laboratorio.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+    render :template => "laboratorios/index"
   end
 
   # GET /laboratorios/1

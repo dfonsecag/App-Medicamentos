@@ -6,7 +6,7 @@ class LabFarsController < ApplicationController
   # GET /lab_fars.json
   def index
     id =  session[:farmacia_id]
-    
+    @cant_lab =  Farmacium.find_by_sql("select cant_lab from farmacia where id = #{id} ").first
     sql = "Select * from laboratorios where not exists (select * from lab_fars where lab_fars.laboratorio_id = laboratorios.id and lab_fars.farmacium_id = #{id} )"
     @laboratorios =  Laboratorio.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
 
@@ -14,7 +14,7 @@ class LabFarsController < ApplicationController
   # GET /lab_fars
   # laboratorios farmacia agregados
   def lab_farm
-    @laboratorios = LabFar.where(["farmacium_id = ? ",session[:farmacia_id]]).paginate(:page => params[:page], :per_page => 1)
+    @laboratorios = LabFar.where(["farmacium_id = ? ",session[:farmacia_id]]).paginate(:page => params[:page], :per_page => 8)
     render :template => "lab_fars/laboratoriosfarmacia"
   end
   # vista de productos anadir la farmacia
@@ -33,14 +33,14 @@ class LabFarsController < ApplicationController
     farmaciaCant = Farmacium.where(id: farmacia_id).first
    
     respond_to do |format|
-      if farmaciaCant.cant_lab >=2
+      if farmaciaCant.cant_lab ==0
        format.html { redirect_to "/lab_fars", notice: 'Laboratorio cantidad maxima' }
     else
        
     @lab_far = LabFar.new(farmacium_id: farmacia_id, laboratorio_id: laboratorio_id, activo: activo)
       if @lab_far.save
        
-         cant = farmaciaCant.cant_lab + 1 
+         cant = farmaciaCant.cant_lab - 1 
          Farmacium.where(id:farmacia_id).update_all(cant_lab: cant )
         format.html { redirect_to "/lab_fars", notice: 'Laboratorio agregado con éxito.' }
       else

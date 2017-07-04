@@ -1,35 +1,40 @@
-<p id="notice"><%= notice %></p>
+<%= render 'linkprincipal' %>
+<%= bootstrap_form_for(@producto) do |f| %>
+ 
+<div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3  col-xs-12 col-sm-12">
+  <div class="form-group">
+    <%= f.text_field :nombre ,:readonly => true%>
+  </div>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @producto.nombre %>
-</p>
+  <div class="form-group">
+  <label class="control-label required" for="producto_nombre">Sustancia</label>
+    <input readonly="readonly" class="form-control" type="text" value=" <%= @producto.sustancium.descripcion%>">
+  </div> 
+   <div class="form-group">
+   <label class="control-label required" for="producto_nombre">Presentación</label>
+    <input readonly="readonly" class="form-control" type="text" value=" <%= @producto.presentacion.descripcion%>">
+  </div> 
+  <div class="form-group">
+  <label class="control-label required" for="producto_nombre">Laboratorio</label>
+    <input readonly="readonly" class="form-control" type="text" value=" <%= @producto.laboratorio.nombre%>">
+  </div> 
+  
+<% if @producto.plan_paciente != nil %>
+ <div class="form-group">
+  <label class="control-label required" for="producto_nombre">Plan Paciente</label>
+    <input readonly="readonly" class="form-control" type="text" value=" <%= @producto.plan_paciente.nombre%>">
+  </div>
+  <div class="form-group">
+  <label class="control-label required" for="producto_nombre">Oferta</label>
+    <input readonly="readonly" class="form-control" type="text" value=" <%= @producto.oferta%>">
+  </div>
+ <% end %>
+ </div>
+<% end %>
 
-<p>
-  <strong>Sustancia:</strong>
-  <%= @producto.sustancium.descripcion
- %>
-</p>
+<div class="col-lg-6 col-md-8 col-md-offset-5 col-lg-offset-5 col-xs-12 col-sm-12">
 
-<p>
-  <strong>Presentacion:</strong>
-  <%= @producto.presentacion.descripcion %>
-</p>
-
-<p>
-  <strong>Oferta:</strong>
-  <%= @producto.oferta %>
-</p>
-
-<p>
-  <strong>Laboratorio:</strong>
-  <%= @producto.laboratorio.descripcion %>
-</p>
-
-<p>
-  <strong>Plan paciente:</strong>
-  <%= @producto.plan_paciente.nombre %>
-</p>
-
-<%= link_to 'Edit', edit_producto_path(@producto) %> |
-<%= link_to 'Back', productos_path %>
+          <a href="/productos/<%= @producto.id %>/edit" class="btn btn-success">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar
+          </a>
+ </div>

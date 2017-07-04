@@ -8,6 +8,13 @@ class ProductosController < ApplicationController
   def index
     @productos = Producto.paginate(:page => params[:page], :per_page => 8)
   end
+  def busqueda
+    nombre = params[:nombre]
+      
+   sql = "select * from productos where LOWER(nombre) like LOWER('%#{nombre}%')"
+    @productos =  Producto.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+    render :template => "productos/index"
+  end
 
   # GET /productos/1
   # GET /productos/1.json

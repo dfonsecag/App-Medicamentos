@@ -1,13 +1,20 @@
 class FarmaciaController < ApplicationController
   before_action :set_farmacium, only: [:show, :edit, :update, :destroy]
-  before_action :autenticacion
-  before_action :verificarUsuario, only: [:index, :update, :update_verificado, ]
+  before_action :autenticacion, except:[:new, :create]
+  before_action :verificarUsuario, only: [:index, :update_verificado ]
   
 
   # GET /farmacia
   # GET /farmacia.json
   def index
-    @farmacia = Farmacium.paginate(:page => params[:page], :per_page => 2)
+    @farmacia = Farmacium.paginate(:page => params[:page], :per_page => 8)
+  end
+ # para las farmacias verificadas
+  def farmacias_verificadas
+    @farmacia = Farmacium.paginate(:page => params[:page], :per_page => 8)
+     sql = 'SELECT id, nombre,"cedulaJur", sucursal, direccion,cant_lab, telefono1, telefono2, correo, cant_lab from Farmacia where verificado = false'
+    @farmacia =  Farmacium.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+    render :template => "farmacia/verificada"
   end
 
   # GET /farmacia/1
@@ -65,7 +72,7 @@ class FarmaciaController < ApplicationController
         Farmacium.where(id:id).update_all(verificado: activo )
          @farmacium = Farmacium.find(params[:id])
          # Envio de correo electronico de confirmacion de verificacion farmacia
-        FarmaciaVerificator.send_email(@farmacium).deliver
+        # FarmaciaVerificator.send_email(@farmacium).deliver
 
        msg = { :status => "ok", :message => "Actualizado!" }
         format.json { render :json => msg }

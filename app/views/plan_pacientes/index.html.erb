@@ -8,6 +8,15 @@ var msj = "<%= notice %>";
 </script>
 <h1 class="text-center">Lista de Plan Pacientes</h1>
 <div class="col-lg-8 col-md-8 col-md-offset-2 col-lg-offset-2  col-xs-12 col-sm-12">
+<%=  form_tag '/plan_pacientes/busqueda' , :class => 'form-inline' do %>
+<div class="form-group">
+    <label for="exampleInputEmail1">Búsqueda</label>
+    <input type="text" class="form-control"  placeholder="Nombre" name="nombre">
+  </div>
+  <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
+<% end %>
+</div>
+<div class="col-lg-8 col-md-8 col-md-offset-2 col-lg-offset-2  col-xs-12 col-sm-12">
 <table class="table table-striped table-condensed"">
   <thead>
     <tr>

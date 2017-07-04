@@ -32,7 +32,19 @@ Rails.application.routes.draw do
    put '/pro_farmacia_update/:id', to: 'pro_fars#pro_farm_update'
    # actualizar verificado farmacia por parte del administrador
    put '/farmacia_verificado/:id', to: 'farmacia#update_verificado'
-   
+    # ruta para farmacias verificadas
+   get '/farmacias_verificadas', to: 'farmacia#farmacias_verificadas'  
+    #busqueda de producto
+  post '/producto/busqueda', to: 'productos#busqueda'
+  #busqueda de laboatorio
+  post '/laboratorio/busqueda', to: 'laboratorios#busqueda'
+   #busqueda de plan paciente
+  post '/plan_pacientes/busqueda', to: 'plan_pacientes#busqueda'
+  #busqueda de presentaciones
+  post '/presentaciones/busqueda', to: 'presentacions#busqueda'
+  #busqueda de sustancias
+  post '/sustancias/busqueda', to: 'sustancia#busqueda'
+     
 
    root 'sessions#logout'
   # these routes are for showing users a login form, logging them in, and logging them out.

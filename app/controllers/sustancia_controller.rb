@@ -8,7 +8,13 @@ class SustanciaController < ApplicationController
   def index
     @sustancia = Sustancium.paginate(:page => params[:page], :per_page => 8)
   end
-
+def busqueda
+    nombre = params[:nombre]
+      
+   sql = "select * from sustancia where LOWER(descripcion) like LOWER('%#{nombre}%')"
+    @sustancia =  Sustancium.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+    render :template => "sustancia/index"
+  end
   # GET /sustancia/1
   # GET /sustancia/1.json
   def show

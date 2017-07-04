@@ -20,13 +20,12 @@ var msj = "<%= notice %>";
   <thead>
     <tr>
       <th>Nombre</th>
-      <th>Cedulajur</th>
+      <th>Cedula Jurídica</th>
       <th>Sucursal</th>
       <th>Direccion</th>
       <th>Correo</th>
       <th>Telefono1</th>
       <th>Telefono2</th>
-      <th>Cant lab</th>
       <th>Verificado</th>
     </tr>
   </thead>
@@ -41,7 +40,6 @@ var msj = "<%= notice %>";
         <td><%= farmacium.correo %></td>
         <td><%= farmacium.telefono1 %></td>
         <td><%= farmacium.telefono2 %></td>
-        <td><%= farmacium.cant_lab %></td>
         <td> <% if farmacium.verificado == true %> 
              <input type="checkbox" id="<%= farmacium.id %>" name="my-checkbox" checked  data-on-text="Verificada" data-off-text="No Verificada" data-on-color="success" data-off-color="danger">
          <% else %> 

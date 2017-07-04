@@ -24,6 +24,7 @@ class ProFarsController < ApplicationController
   def pro_farm
        id =  session[:farmacia_id]
      laboratorio = params[:id]
+     @lab =  Laboratorio.find_by_sql("select nombre from laboratorios where id = #{laboratorio} ").first
    @productos = ProFar.find_by_sql("select * from pro_fars, productos, disponibilidads where pro_fars.producto_id = productos.id and disponibilidads.id =pro_fars.disponibilidad_id and productos.laboratorio_id = #{laboratorio} and pro_fars.farmacium_id = #{id}")
     render :template => "pro_fars/productosfarmacia"
   end

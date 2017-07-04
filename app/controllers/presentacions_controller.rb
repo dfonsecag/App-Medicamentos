@@ -9,6 +9,13 @@ class PresentacionsController < ApplicationController
   def index
     @presentacions = Presentacion.paginate(:page => params[:page], :per_page => 8)
   end
+   def busqueda
+    nombre = params[:nombre]
+      
+   sql = "select * from presentacions where LOWER(descripcion) like LOWER('%#{nombre}%')"
+    @presentacions =  Presentacion.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+    render :template => "presentacions/index"
+  end
 
   # GET /presentacions/1
   # GET /presentacions/1.json
