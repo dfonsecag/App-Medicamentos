@@ -1,6 +1,13 @@
 <script type="text/javascript">
 var msj = "<%= notice %>";
   $(document).ready(function() {
+    $("[name='my-checkbox']").bootstrapSwitch();
+      $("[name='my-checkbox']").on('switchChange.bootstrapSwitch', function (event, state) {
+        
+    id = $(this).attr('id');
+    var aler = Activo(id, state, 'producto'); 
+      
+});
   if(msj!='')
     swal(msj, "", "success")
 
@@ -26,6 +33,7 @@ var msj = "<%= notice %>";
       <th>Laboratorio</th>
       <th>Plan paciente</th>
        <th>Oferta</th>
+       <th>Activo</th>
       <th>Acciones</th>
     </tr>
   </thead>
@@ -33,25 +41,30 @@ var msj = "<%= notice %>";
   <tbody>
     <% @productos.each do |producto| %>
       <tr>
-        <td width="12%"><%= producto.nombre %></td>
-        <td width="12%"><%= producto.sustancium.descripcion %></td>
-        <td width="12%"><%= producto.presentacion.descripcion %></td>       
-        <td width="12%"><%= producto.laboratorio.nombre %></td>
+        <td width="10%"><%= producto.nombre %></td>
+        <td width="10%"><%= producto.sustancium.descripcion %></td>
+        <td width="10%"><%= producto.presentacion.descripcion %></td>       
+        <td width="10%"><%= producto.laboratorio.nombre %></td>
         <% if producto.plan_paciente != nil %> 
-           <td width="12%"><%= producto.plan_paciente.nombre %></td>
+           <td width="10%"><%= producto.plan_paciente.nombre %></td>
          <% else producto.plan_paciente != nil %> 
-           <td width="12%"></td>
+           <td width="10%"></td>
         <% end %>
         
-        <td width="11%"><%= producto.oferta %></td>
-        <td width="35%">
+        <td width="10%"><%= producto.oferta %></td>
+         <td width="26%"> <% if producto.activo == true %> 
+             <input type="checkbox" id="<%= producto.id %>" name="my-checkbox" checked  data-on-text="Activo" data-off-text="Desactivo" data-on-color="success" data-off-color="danger">
+         <% else %> 
+            <input type="checkbox" id="<%= producto.id %>" name="my-checkbox"  data-on-text="Activo" data-off-text="Desactivo" data-on-color="success" data-off-color="danger">
+        <% end %></td>
+        <td width="20%">
           <a href="/productos/<%= producto.id %>" class="btn btn-info">
-         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Mostrar
+         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> 
           </a>
           <a href="/productos/<%= producto.id %>/edit" class="btn btn-success">
-            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 
           </a>
-           <button class="btn btn-danger" onclick="delete_producto(<%= producto.id %>)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</button>
+           <button class="btn btn-danger" onclick="delete_producto(<%= producto.id %>)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> </button>
         </td>
       </tr>
     <% end %>
@@ -60,6 +73,6 @@ var msj = "<%= notice %>";
 <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12  ">
 <%= link_to 'Nuevo producto', new_producto_path, :class => "btn btn-success"%>
 </div>
- <div class="col-lg-8 col-md-8 col-md-offset-4 col-lg-offset-4 col-xs-offset-4 col-sm-offset-4 col-xs-8 col-sm-8 paginate" >
+ <div class="col-lg-8 col-md-8 col-md-offset-4 col-lg-offset-4 col-xs-offset-4 col-sm-offset-4 col-xs-8 col-sm-8 " >
         <%= will_paginate @productos, renderer: BootstrapPagination::Rails %>
     </div>

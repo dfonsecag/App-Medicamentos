@@ -46,6 +46,17 @@ Rails.application.routes.draw do
   post '/sustancias/busqueda', to: 'sustancia#busqueda'
   #busqueda de sustancias
   post '/farmacias/busqueda', to: 'farmacia#busqueda'
+  # actualizar activo laboratorio
+   put '/laboratorio_activo/:id', to: 'laboratorios#activo_update'
+   # actualizar activo plan paciente
+   put '/planpaciente_activo/:id', to: 'plan_pacientes#activo_update'
+   # actualizar activo presentacion
+   put '/presentacion_activo/:id', to: 'presentacions#activo_update'
+   # actualizar activo sustancia
+   put '/sustancia_activo/:id', to: 'sustancia#activo_update'
+   # actualizar activo sustancia
+   put '/producto_activo/:id', to: 'productos#activo_update'
+
      
 
    root 'sessions#logout'

@@ -1,6 +1,13 @@
 <script type="text/javascript">
 var msj = "<%= notice %>";
   $(document).ready(function() {
+     $("[name='my-checkbox']").bootstrapSwitch();
+      $("[name='my-checkbox']").on('switchChange.bootstrapSwitch', function (event, state) {
+        
+    id = $(this).attr('id');
+    var aler = Activo(id, state, 'planpaciente'); 
+      
+});
   if(msj!='')
     swal(msj, "", "success")
 
@@ -22,6 +29,7 @@ var msj = "<%= notice %>";
     <tr>
       <th>Nombre Plan Paciente</th>
       <th>Laboratorio</th>
+      <th>Activo</th>
       <th>Acciones</th>
     </tr>
   </thead>
@@ -29,16 +37,21 @@ var msj = "<%= notice %>";
   <tbody>
     <% @plan_pacientes.each do |plan| %>
       <tr id="<%= plan.id %>">
-        <td width="24%"><%= plan.nombre %></td>
-        <td width="40%"><%= plan.laboratorio.nombre %></td>
-        <td width="40%">
+        <td width="20%"><%= plan.nombre %></td>
+        <td width="25%"><%= plan.laboratorio.nombre %></td>
+         <td width="35%"> <% if plan.activo == true %> 
+             <input type="checkbox" id="<%= plan.id %>" name="my-checkbox" checked  data-on-text="Activo" data-off-text="Desactivo" data-on-color="success" data-off-color="danger">
+         <% else %> 
+            <input type="checkbox" id="<%= plan.id %>" name="my-checkbox"  data-on-text="Activo" data-off-text="Desactivo" data-on-color="success" data-off-color="danger">
+        <% end %></td>
+        <td width="20%">
           <a href="/plan_pacientes/<%= plan.id %>" class="btn btn-info">
-         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Mostrar
+         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
           </a>
           <a href="/plan_pacientes/<%= plan.id %>/edit" class="btn btn-success">
-            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 
           </a>
-           <button class="btn btn-danger" onclick="deletePlanPaciente(<%= plan.id %>)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</button>
+           <button class="btn btn-danger" onclick="deletePlanPaciente(<%= plan.id %>)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> </button>
         </td>
       </tr>
     <% end %>

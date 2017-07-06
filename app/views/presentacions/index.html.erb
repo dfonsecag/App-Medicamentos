@@ -1,6 +1,13 @@
 <script type="text/javascript">
 var msj = "<%= notice %>";
   $(document).ready(function() {
+     $("[name='my-checkbox']").bootstrapSwitch();
+      $("[name='my-checkbox']").on('switchChange.bootstrapSwitch', function (event, state) {
+        
+    id = $(this).attr('id');
+    var aler = Activo(id, state, 'presentacion'); 
+      
+});
   if(msj!='')
     swal(msj, "", "success")
 
@@ -22,6 +29,7 @@ var msj = "<%= notice %>";
   <thead>
     <tr>
       <th>Descripción</th>
+      <th>Activo</th>
       <th>Acciones</th>
     </tr>
   </thead>
@@ -29,15 +37,20 @@ var msj = "<%= notice %>";
   <tbody>
     <% @presentacions.each do |presentacion| %>
       <tr id="<%= presentacion.id %>">
-        <td width="52%"><%= presentacion.descripcion %></td>
-        <td width="35%">
+        <td width="36%"><%= presentacion.descripcion %></td>
+        <td width="34%"> <% if presentacion.activo == true %> 
+             <input type="checkbox" id="<%= presentacion.id %>" name="my-checkbox" checked  data-on-text="Activo" data-off-text="Desactivo" data-on-color="success" data-off-color="danger">
+         <% else %> 
+            <input type="checkbox" id="<%= presentacion.id %>" name="my-checkbox"  data-on-text="Activo" data-off-text="Desactivo" data-on-color="success" data-off-color="danger">
+        <% end %></td>
+        <td width="20%">
           <a href="/presentacions/<%= presentacion.id %>" class="btn btn-info">
-         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Mostrar
+         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
           </a>
           <a href="/presentacions/<%= presentacion.id %>/edit" class="btn btn-success">
-            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
           </a>
-           <button class="btn btn-danger" onclick="delete_presentacion(<%= presentacion.id %>)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Eliminar</button>
+           <button class="btn btn-danger" onclick="delete_presentacion(<%= presentacion.id %>)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
         </td>
       </tr>
     <% end %>

@@ -58,6 +58,16 @@ class ProductosController < ApplicationController
       end
     end
   end
+   # Metodo para actualizar activo de producto
+  def activo_update
+      respond_to do |format|
+       activo = params[:producto][:activo]
+        id = params[:id]
+        Producto.where(id: id).update_all(activo: activo )
+       msg = { :status => "ok", :message => "Actualizado!" }
+        format.json { render :json => msg }
+    end
+  end
 
   # DELETE /productos/1
   # DELETE /productos/1.json

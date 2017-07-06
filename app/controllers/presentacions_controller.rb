@@ -59,7 +59,16 @@ class PresentacionsController < ApplicationController
       end
     end
   end
-
+  # Metodo para actualizar activo de Presentacion
+  def activo_update
+      respond_to do |format|
+       activo = params[:presentacion][:activo]
+        id = params[:id]
+        Presentacion.where(id: id).update_all(activo: activo )
+       msg = { :status => "ok", :message => "Actualizado!" }
+        format.json { render :json => msg }
+    end
+  end
   # DELETE /presentacions/1
   # DELETE /presentacions/1.json
   def destroy

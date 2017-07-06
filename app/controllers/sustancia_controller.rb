@@ -58,6 +58,16 @@ def busqueda
       end
     end
   end
+   # Metodo para actualizar activo de sustancia
+  def activo_update
+      respond_to do |format|
+       activo = params[:sustancium][:activo]
+        id = params[:id]
+        Sustancium.where(id: id).update_all(activo: activo )
+       msg = { :status => "ok", :message => "Actualizado!" }
+        format.json { render :json => msg }
+    end
+  end
 
   # DELETE /sustancia/1
   # DELETE /sustancia/1.json

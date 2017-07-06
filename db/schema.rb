@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614003405) do
+ActiveRecord::Schema.define(version: 20170706035846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,23 +58,26 @@ ActiveRecord::Schema.define(version: 20170614003405) do
   create_table "laboratorios", force: :cascade do |t|
     t.string   "nombre"
     t.string   "descripcion"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "activo",      default: true
   end
 
   create_table "plan_pacientes", force: :cascade do |t|
     t.string   "nombre"
     t.integer  "laboratorio_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.boolean  "activo",         default: true
   end
 
   add_index "plan_pacientes", ["laboratorio_id"], name: "index_plan_pacientes_on_laboratorio_id", using: :btree
 
   create_table "presentacions", force: :cascade do |t|
     t.string   "descripcion"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "activo",      default: true
   end
 
   create_table "pro_fars", force: :cascade do |t|
@@ -96,9 +99,10 @@ ActiveRecord::Schema.define(version: 20170614003405) do
     t.string   "oferta"
     t.integer  "laboratorio_id"
     t.integer  "plan_paciente_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.integer  "sustancium_id"
+    t.boolean  "activo",           default: true
   end
 
   add_index "productos", ["laboratorio_id"], name: "index_productos_on_laboratorio_id", using: :btree
@@ -113,8 +117,9 @@ ActiveRecord::Schema.define(version: 20170614003405) do
 
   create_table "sustancia", force: :cascade do |t|
     t.string   "descripcion"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "activo",      default: true
   end
 
   create_table "tipo_plans", force: :cascade do |t|

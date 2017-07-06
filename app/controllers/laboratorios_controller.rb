@@ -60,6 +60,16 @@ class LaboratoriosController < ApplicationController
       end
     end
   end
+  # Metodo para actualizar activo de laboratorio
+  def activo_update
+      respond_to do |format|
+       activo = params[:laboratorio][:activo]
+        id = params[:id]
+        Laboratorio.where(id: id).update_all(activo: activo )
+       msg = { :status => "ok", :message => "Actualizado!" }
+        format.json { render :json => msg }
+    end
+  end
 
   # DELETE /laboratorios/1
   # DELETE /laboratorios/1.json

@@ -63,6 +63,16 @@ class PlanPacientesController < ApplicationController
       end
     end
   end
+  # Metodo para actualizar activo de Plan Paciente
+  def activo_update
+      respond_to do |format|
+       activo = params[:plan_paciente][:activo]
+        id = params[:id]
+        PlanPaciente.where(id: id).update_all(activo: activo )
+       msg = { :status => "ok", :message => "Actualizado!" }
+        format.json { render :json => msg }
+    end
+  end
 
   # DELETE /plan_pacientes/1
   # DELETE /plan_pacientes/1.json
