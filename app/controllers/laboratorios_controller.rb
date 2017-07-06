@@ -64,6 +64,7 @@ class LaboratoriosController < ApplicationController
   # DELETE /laboratorios/1
   # DELETE /laboratorios/1.json
   def destroy
+   
     @laboratorio.destroy
     respond_to do |format|
       msg = { :status => "ok", :message => "Eliminado!" }

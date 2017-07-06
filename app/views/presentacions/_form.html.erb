@@ -4,13 +4,11 @@
 <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-xs-12 col-sm-10">
   <div class="field">
     
-    <%= f.text_field :descripcion %>
+    <%= f.text_field :descripcion , label: "Descripción"%>
   </div>
   <div class="actions">
-    <%= f.submit %>
-    <a href="/presentacions" class="btn btn-info">
-         <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>Cancelar
-          </a>
+    <%= f.submit class: 'btn btn-success' %>
+   
   </div>
 <% end %>
  </div>

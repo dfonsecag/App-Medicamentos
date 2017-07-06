@@ -48,11 +48,11 @@ var msj = "<%= notice %>";
         
         <td width="9%"><%= producto.producto.oferta %></td>
         <td width="9%"><%= producto.nombre %></td>
-        <td width="0%">
+        <td width="30%">
          <% if producto.activo == true %> 
-             <input type="checkbox" id="<%= producto.producto.id %>" name="my-checkbox" checked  data-on-text="Activado" data-off-text="Desactivado" data-on-color="success" data-off-color="danger">
+             <input type="checkbox" id="<%= producto.producto.id %>" name="my-checkbox" checked  data-on-text="Disponible" data-off-text="No Disponible" data-on-color="success" data-off-color="danger">
          <% else %> 
-            <input type="checkbox" id="<%= producto.producto.id %>" name="my-checkbox"  data-on-text="Activado" data-off-text="Desactivado" data-on-color="success" data-off-color="danger">
+            <input type="checkbox" id="<%= producto.producto.id %>" name="my-checkbox"  data-on-text="Disponible" data-off-text="No Disponible" data-on-color="success" data-off-color="danger">
         <% end %>
         <td width="12%"> <a href="/pro_farmacia_edit/<%= producto.producto.id %>" class="btn btn-success">
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar Estado

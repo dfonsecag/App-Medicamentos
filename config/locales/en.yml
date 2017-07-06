@@ -20,19 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 
-en:  
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            nombre:
-              blank: "can't be blank"
-es:
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            nombre:
-              blank: "no puede estar en blanco"
+en:
+  helpers:
+    submit:
+      create: "Guardar"
+      update: "Actualizar"

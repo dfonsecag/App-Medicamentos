@@ -23,7 +23,11 @@ function delete_sustancia(id) {
   )
     },
      error: function(data) {
-     alert('No fue eliminado');
+       swal(
+  'Existen productos relacionados a esta Sustancia',
+  '',
+  'error'
+)
    }
 });
 })

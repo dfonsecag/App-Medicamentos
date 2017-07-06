@@ -24,8 +24,8 @@ var msj = "<%= notice %>";
       <th>Sucursal</th>
       <th>Direccion</th>
       <th>Correo</th>
-      <th>Telefono1</th>
-      <th>Telefono2</th>
+      <th>Teléfono 1</th>
+      <th>Acciones</th>
       <th>Verificado</th>
     </tr>
   </thead>
@@ -39,7 +39,9 @@ var msj = "<%= notice %>";
         <td><%= farmacium.direccion %></td>
         <td><%= farmacium.correo %></td>
         <td><%= farmacium.telefono1 %></td>
-        <td><%= farmacium.telefono2 %></td>
+        <td><a href="/farmacia/<%= farmacium.id %>" class="btn btn-info">
+         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Mostrar
+          </a></td>
         <td> <% if farmacium.verificado == true %> 
              <input type="checkbox" id="<%= farmacium.id %>" name="my-checkbox" checked  data-on-text="Verificada" data-off-text="No Verificada" data-on-color="success" data-off-color="danger">
          <% else %> 

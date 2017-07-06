@@ -74,9 +74,9 @@ end
      if user && user.authenticate(params[:password])
       new_password = BCrypt::Password.create(params[:new_password])     
        Farmacium.where(correo: current_user.correo).update_all(password_digest: new_password )       
-        format.html { redirect_to "/change_password", notice: 'Contrasena actualizado con éxito.' }
+        format.html { redirect_to "/change_password", notice: 'Contrasena actualizada con éxito.' }
     else
-      format.html { redirect_to "/change_password", notice: 'Contrasena NO actualizado con éxito.' }
+      format.html { redirect_to "/change_password", notice: 'Contrasena no actualizada, verifique los datos.' }
     end
     end
   end

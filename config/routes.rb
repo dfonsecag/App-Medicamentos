@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   post '/presentaciones/busqueda', to: 'presentacions#busqueda'
   #busqueda de sustancias
   post '/sustancias/busqueda', to: 'sustancia#busqueda'
+  #busqueda de sustancias
+  post '/farmacias/busqueda', to: 'farmacia#busqueda'
      
 
    root 'sessions#logout'

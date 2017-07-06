@@ -5,10 +5,10 @@
     <%= f.text_field :nombre %>
   </div>
   <div class="field">
-    <%= f.collection_select :sustancium_id, Sustancium.all, :id, :descripcion %>
+    <%= f.collection_select :sustancium_id, Sustancium.all, :id, :descripcion, label: "Sustancia" %>
   </div>
   <div class="field">
-    <%= f.collection_select :presentacion_id, Presentacion.all, :id, :descripcion %>
+    <%= f.collection_select :presentacion_id, Presentacion.all, :id, :descripcion, label: "Presentación" %>
   </div> 
   <div class="field">    
     <%= f.collection_select :laboratorio_id, Laboratorio.all, :id, :nombre %>
@@ -18,13 +18,13 @@
   </div>
   <br>
   <div class="field" id="plan_paciente" style="display:none">    
-    <%= f.collection_select :plan_paciente_id, PlanPaciente.all, :id, :nombre, include_blank: true %>
+    <%= f.collection_select :plan_paciente_id, PlanPaciente.all, :id, :nombre, include_blank: true , label: "Plan Paciente"%>
   </div>
    <div class="field" id="oferta" style="display:none">
     <%= f.text_field :oferta %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-success' %>
   </div>
 <% end %>
 </div>

@@ -1,13 +1,10 @@
 <%= bootstrap_form_for(@sustancium) do |f| %>
 <div class="col-md-8 col-md-offset-2  col-xs-12 col-sm-10">
   <div class="field">
-    <%= f.text_field :descripcion %>
+    <%= f.text_field :descripcion , label: "Descripción"%>
   </div>
   <div class="actions">
-    <%= f.submit %>
-    <a href="/sustancia" class="btn btn-info">
-         <span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span>Cancelar
-          </a>
+     <%= f.submit class: 'btn btn-success' %>
   </div>
   </div>
 <% end %>

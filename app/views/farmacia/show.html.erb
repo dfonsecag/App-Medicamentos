@@ -1,0 +1,119 @@
+<style>
+      #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+<%= bootstrap_form_for(@farmacium) do |f| %>
+  <div class="col-md-3 col-lg-3 col-xs-6 col-sm-6">
+<div class="field">
+    <%= image_tag @farmacium.photo.url , :class => "imgShow img-rounded"%>
+     
+  </div>
+  </div>
+<div class="col-md-3 col-lg-3 col-xs-6 col-sm-6">
+  <div class="field">
+    <%= f.text_field :nombre,  :readonly => true %>
+  </div>
+</div>
+<div class="col-md-3 col-lg-3 col-xs-6 col-sm-6">
+   <div class="form-group">
+  <label class="control-label required" for="producto_nombre">Cedula Jurídica</label>
+  <input readonly="readonly" class="form-control" type="text" value=" <%= @farmacium.cedulaJur%>">
+  </div> 
+</div>
+
+
+<div class="col-md-3 col-lg-3 col-xs-6 col-sm-6">
+ <div class="field">
+    <%= f.text_field :sucursal ,  :readonly => true%>
+  </div>
+</div>
+
+<div class="col-md-9   col-lg-9 col-xs-12 col-sm-12">
+   <div class="field">
+    <label class="control-label required" for="producto_nombre">Dirección</label>
+  <input readonly="readonly" class="form-control" type="text" value=" <%= @farmacium.direccion%>">
+  </div>
+</div>  
+ <div class="col-md-3 col-lg-3 col-xs-5 col-sm-5">
+ <div class="field">  
+    <%= f.text_field :correo ,  :readonly => true%>
+  </div>
+ </div>
+ 
+ 
+  <div class="col-md-2 col-lg-2 col-xs-2 col-sm-2">
+  <div class="field">
+     <label class="control-label required" for="producto_nombre">Teléfono 1</label>
+  <input readonly="readonly" class="form-control" type="text" value=" <%= @farmacium.telefono1%>">
+  </div>
+  </div>
+  <div class="col-md-2 col-lg-2 col-xs-2 col-sm-2">
+  <div class="field">
+    <label class="control-label required" for="producto_nombre">Teléfono 2</label>
+  <input readonly="readonly" class="form-control" type="text" value=" <%= @farmacium.telefono2%>">
+  </div>
+  </div>
+   <div class="col-md-1 col-lg-1 col-xs-3 col-sm-3">
+  <div class="field">
+    <label class="control-label required" for="producto_nombre"> Laboratorios</label>
+  <input readonly="readonly" class="form-control" type="text" value=" <%= @farmacium.cant_lab%>">
+  </div>
+  </div>
+  <div class="field">
+    <%= f.hidden_field  :latitud,  :readonly => true%>
+  </div>
+  <div class="field">
+    <%= f.hidden_field  :longitud ,  :readonly => true %>
+  </div>
+   
+  <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+  <h1 class="text-center">Ubicación de la Farmacia en el Mapa</h1>
+  </div>
+ <div id="map"></div>
+ <div class="col-md-3 col-lg-3 col-xs-6 col-sm-6">
+ 
+  
+<% end %>
+
+
+       <script>
+       
+        var marker;
+        
+         latitud= Number($("#farmacium_latitud").val());
+          longitud=Number($("#farmacium_longitud").val());
+        
+        function initMap() {
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 18,
+            center: {lat: latitud, lng: longitud}
+          });
+
+          marker = new google.maps.Marker({
+            map: map,
+            draggable: true,
+            animation: google.maps.Animation.DROP,
+            position: {lat: latitud, lng: longitud}
+          });
+          google.maps.event.addListener(marker, 'dragend', function(a) {
+              $("#farmacium_latitud").val(this.position.lat());
+              $("#farmacium_longitud").val(this.position.lng());
+              // bingo!
+              // a.latLng contains the co-ordinates where the marker was dropped
+          });
+          marker.addListener('click', toggleBounce);
+        }
+
+ 
+        function toggleBounce() {
+          if (marker.getAnimation() !== null) {
+            marker.setAnimation(null);
+          } else {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+          }
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZJ05COskGvwxls_hwwKz-xHSwQhT1l7Y&callback=initMap"
+    async defer></script>

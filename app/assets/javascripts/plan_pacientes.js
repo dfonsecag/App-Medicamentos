@@ -21,7 +21,11 @@ function deletePlanPaciente(id) {
   )
     },
      error: function(data) {
-     alert('No fue eliminado');
+       swal(
+  'Existen productos relacionados a este Plan Paciente',
+  '',
+  'error'
+)
    }
 });
 })

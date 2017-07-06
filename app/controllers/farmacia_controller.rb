@@ -12,7 +12,14 @@ class FarmaciaController < ApplicationController
  # para las farmacias verificadas
   def farmacias_verificadas
     @farmacia = Farmacium.paginate(:page => params[:page], :per_page => 8)
-     sql = 'SELECT id, nombre,"cedulaJur", sucursal, direccion,cant_lab, telefono1, telefono2, correo, cant_lab from Farmacia where verificado = false'
+     sql = 'SELECT id, nombre,"cedulaJur", sucursal, direccion,cant_lab, telefono1, telefono2, correo, cant_lab from Farmacia where verificado = true'
+    @farmacia =  Farmacium.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+    render :template => "farmacia/verificada"
+  end
+  def busqueda
+    nombre = params[:nombre]
+      
+   sql = "SELECT * from Farmacia where verificado = true and LOWER(nombre) like LOWER('%#{nombre}%')"
     @farmacia =  Farmacium.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
     render :template => "farmacia/verificada"
   end
