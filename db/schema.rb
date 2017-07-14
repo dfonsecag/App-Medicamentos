@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170706035846) do
+ActiveRecord::Schema.define(version: 20170714023039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,9 +84,9 @@ ActiveRecord::Schema.define(version: 20170706035846) do
     t.integer  "farmacium_id"
     t.integer  "producto_id"
     t.integer  "disponibilidad_id"
-    t.boolean  "activo"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.boolean  "activo_produc",     default: true
   end
 
   add_index "pro_fars", ["disponibilidad_id"], name: "index_pro_fars_on_disponibilidad_id", using: :btree

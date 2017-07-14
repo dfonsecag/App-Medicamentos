@@ -9,7 +9,7 @@ function Seleccion_Articulo(id,laboratorio) {
        url: '/pro_farmacia_update/'+id,
       method: 'put',
       data: JSON.stringify({ 
-        activo: activo,
+        activo_produc: activo,
 
     }),
     contentType: "application/json; charset=utf-8",

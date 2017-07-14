@@ -7,7 +7,7 @@
   
     <div class="field">
     <br>
-    <%= f.collection_select :laboratorio_id, Laboratorio.all, :id, :nombre %>
+    <%= f.collection_select :laboratorio_id, @laboratorios, :id, :nombre %>
   </div>
 
   <div class="actions">

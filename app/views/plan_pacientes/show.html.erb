@@ -23,13 +23,7 @@ var msj = "<%= notice %>";
     <input type="text" class="form-control" id="exampleInputEmail2" value="<%=@plan_paciente.laboratorio.nombre %>" readonly>
   </div>
   </div>
-  <div class="col-lg-2 col-md-2 col-xs-2 col-sm-2">
-  <div class="form-group">
-   <a href="/plan_pacientes/<%= @plan_paciente.id %>/edit" class="btn btn-success">
-            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar
-          </a>
-  </div>
-  </div>
+ 
   
 </form>
 
@@ -50,7 +44,7 @@ var msj = "<%= notice %>";
   <%= f.hidden_field :plan_paciente_id, :value => @plan_paciente.id %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-success'%>
   </div>
 <% end %>
 
@@ -88,7 +82,7 @@ var msj = "<%= notice %>";
   <%= f.hidden_field :plan_paciente_id, :value => @plan_paciente.id %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-success'%>
   </div>
 <% end %>
 <table class="table table-striped table-condensed"">

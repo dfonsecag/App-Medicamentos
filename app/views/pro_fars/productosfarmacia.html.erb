@@ -41,15 +41,16 @@ var msj = "<%= notice %>";
         <td width="9%"><%= producto.producto.presentacion.descripcion %></td>       
         <td width="9%"><%= producto.producto.laboratorio.nombre %></td>
         <% if producto.producto.plan_paciente != nil %> 
-           <td width="9%"><%= producto.producto.plan_paciente.nombre %></td>
+           <td td width="9%"><a href="/farmacia_plan_paciente/<%= producto.producto.plan_paciente.id %>" class="btn btn-info"><%= producto.producto.plan_paciente.nombre %>
+          </a></td>
          <% else producto.producto.plan_paciente != nil %> 
-           <td width="9%"></td>
+           <td width="9%">No presenta Plan Paciente</td>
         <% end %>
         
         <td width="9%"><%= producto.producto.oferta %></td>
         <td width="9%"><%= producto.nombre %></td>
         <td width="30%">
-         <% if producto.activo == true %> 
+         <% if producto.activo_produc == true %> 
              <input type="checkbox" id="<%= producto.producto.id %>" name="my-checkbox" checked  data-on-text="Disponible" data-off-text="No Disponible" data-on-color="success" data-off-color="danger">
          <% else %> 
             <input type="checkbox" id="<%= producto.producto.id %>" name="my-checkbox"  data-on-text="Disponible" data-off-text="No Disponible" data-on-color="success" data-off-color="danger">

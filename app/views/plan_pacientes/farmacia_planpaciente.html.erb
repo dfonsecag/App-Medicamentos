@@ -1,0 +1,18 @@
+<h1 class="text-center">Pasos para registrar la farmacia al plan paciente: <%= @plan_Paciente.nombre %></h1>
+<div class="col-lg-5 col-md-5 col-xs-6 col-sm-6 col-md-offset-3 col-lg-offset-3">
+<table class="table table-striped table-condensed"">
+  <thead>
+    <tr>
+      <th>Pasos a seguir:</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plan_Paciente_Farmacia.each do |plan| %>
+      <tr id="<%= plan.id %>">
+        <td width="80%"><%= plan.descripcion   %></td>       
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

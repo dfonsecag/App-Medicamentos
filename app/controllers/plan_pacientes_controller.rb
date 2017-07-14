@@ -1,7 +1,7 @@
 class PlanPacientesController < ApplicationController
   before_action :set_plan_paciente, only: [:show, :edit, :update, :destroy]
    before_action :autenticacion
-   before_action :verificarUsuario
+   before_action :verificarUsuario, except: [:farmacia_plan_paciente]
   # GET /laboratorios
   # GET /plan_pacientes
   # GET /plan_pacientes.json
@@ -23,16 +23,25 @@ class PlanPacientesController < ApplicationController
        @plan_Paciente_Paciente = TipoPlan.where(["plan_paciente_id = ? and tipo = ?", params[:id], "Paciente"])
        @plan_Paciente_Farmacia = TipoPlan.where(["plan_paciente_id = ? and tipo = ?", params[:id], "Farmacia"])
   end
+   # GET /plan_pacientes_farmacia/1
+  # Metodo para que la farmacia vea la lista de los requisitos del plan
+  def farmacia_plan_paciente
+     @plan_Paciente =  PlanPaciente.find(params[:id])
+      @plan_Paciente_Farmacia = TipoPlan.where(["plan_paciente_id = ? and tipo = ?", params[:id], "Farmacia"])
+      render :template => "plan_pacientes/farmacia_planpaciente"
+  end
 
   # GET /plan_pacientes/new
-  def new
-    @laboratorios = Laboratorio.all
+  def new    
+    @laboratorios =  Laboratorio.find_by_sql("Select id, nombre from laboratorios where  not exists (select * from plan_pacientes where plan_pacientes.laboratorio_id = laboratorios.id )")    
     @plan_paciente = PlanPaciente.new
   end
 
   # GET /plan_pacientes/1/edit
   def edit
-    @laboratorios = Laboratorio.all
+    id =  PlanPaciente.where(["id = ? ", params[:id]]).first
+    id = id.laboratorio_id
+    @laboratorios =  Laboratorio.find_by_sql("Select id, nombre from laboratorios where not exists (select * from plan_pacientes where plan_pacientes.laboratorio_id = laboratorios.id and laboratorios.id <> #{id} )  ")
   end
 
   # POST /plan_pacientes

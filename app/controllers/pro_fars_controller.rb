@@ -79,10 +79,10 @@ class ProFarsController < ApplicationController
   # Metodo para actualizar activo de productos farmacia
   def pro_farm_update
       respond_to do |format|
-       activo = params[:pro_far][:activo]
+       activo = params[:pro_far][:activo_produc]
        farmacia_id = session[:farmacia_id]
         id = params[:id]
-        ProFar.where(producto_id: id, farmacium_id:farmacia_id).update_all(activo: activo )
+        ProFar.where(producto_id: id, farmacium_id:farmacia_id).update_all(activo_produc: activo )
        msg = { :status => "ok", :message => "Actualizado!" }
         format.json { render :json => msg }
     end
@@ -107,6 +107,6 @@ class ProFarsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pro_far_params
-      params.require(:pro_far).permit(:farmacium_id, :producto_id, :disponibilidad_id, :activo, :laboratorio)
+      params.require(:pro_far).permit(:farmacium_id, :producto_id, :disponibilidad_id, :activo_produc, :laboratorio)
     end
 end
