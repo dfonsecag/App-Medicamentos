@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170714023039) do
     t.integer  "telefono2"
     t.string   "latitud"
     t.string   "longitud"
+    t.boolean  "activo"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
     t.string   "photo_file_name"
@@ -40,7 +41,6 @@ ActiveRecord::Schema.define(version: 20170714023039) do
     t.string   "password_digest"
     t.string   "correo"
     t.boolean  "verificado",         default: false
-    t.boolean  "activo",             default: true
     t.integer  "cant_lab",           default: 5
   end
 
