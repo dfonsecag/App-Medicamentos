@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.6'
 #usar base datos PG
 gem 'pg'
+gem 'rack-cors', :require => 'rack/cors'
 
 #usar paginate
 gem 'will_paginate'

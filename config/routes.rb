@@ -63,6 +63,25 @@ Rails.application.routes.draw do
      
 
    root 'sessions#logout'
+
+
+   # RUTAS PARA EL API ******farmacias_cercanas
+   namespace :api do
+    namespace :v1 do
+      get '/laboratorio_consulta', to: 'consultas#index'
+      get '/farmacias_cercanas', to: 'consultas#FarmaciasCercanas'
+      get '/infoFarmacia/:id', to: 'consultas#InfoFarmacia'
+      get '/searchProducto/:nombre', to: 'consultas#SearchProducto'
+      get '/infoProducto/:id', to: 'consultas#InfoProducto'
+      get '/infoPlanPaciente/:id', to: 'consultas#InfoPlanPaciente'
+      get '/FarmaciasCercanaSearch/:id', to: 'consultas#FarmaciasCercanaSearch'
+      get '/FarmaciaProductoSearch/:id', to: 'consultas#infoFarmaciaProducto'
+    end
+  end
+
+
+
+
   # these routes are for showing users a login form, logging them in, and logging them out.
 
   
