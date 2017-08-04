@@ -46,7 +46,7 @@ class FarmaciaController < ApplicationController
     respond_to do |format|
       if @farmacium.save
         # notificar a la farmacia por correo
-        UserNotifier.send_signup_email(@farmacium).deliver
+        # UserNotifier.send_signup_email(@farmacium).deliver
         format.html { redirect_to "/farmacia/new", notice: 'Farmacia creada con éxito.' }
        
       else
@@ -79,7 +79,7 @@ class FarmaciaController < ApplicationController
         Farmacium.where(id:id).update_all(verificado: activo )
          @farmacium = Farmacium.find(params[:id])
          # Envio de correo electronico de confirmacion de verificacion farmacia
-        FarmaciaVerificator.send_email(@farmacium).deliver
+        # FarmaciaVerificator.send_email(@farmacium).deliver
 
        msg = { :status => "ok", :message => "Actualizado!" }
         format.json { render :json => msg }
