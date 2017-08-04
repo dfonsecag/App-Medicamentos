@@ -48,7 +48,7 @@ class ProFarsController < ApplicationController
     @pro_far.farmacium_id = session[:farmacia_id]
     @pro_far.producto_id = params[:pro_far][:producto_id]
     @pro_far.disponibilidad_id = params[:pro_far][:disponibilidad_id]
-    @pro_far.activo = true
+    @pro_far.activo_produc = true
 
 
     respond_to do |format|
