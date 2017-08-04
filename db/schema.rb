@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170714023039) do
+ActiveRecord::Schema.define(version: 20170804013617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170714023039) do
     t.string   "correo"
     t.boolean  "verificado",         default: false
     t.integer  "cant_lab",           default: 5
+    t.boolean  "administrador",      default: false
   end
 
   create_table "lab_fars", force: :cascade do |t|

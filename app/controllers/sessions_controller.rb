@@ -27,10 +27,8 @@ class SessionsController < ApplicationController
   if user==nil
     redirect_to "/login", notice: 'Correo no se encuentra Registrado' 
   else
-  if(user.verificado==false)
-     redirect_to "/login", notice: 'Usuario no verificado' 
-  else
-    if user && user.authenticate(params[:password])
+  if(user.verificado==true or user.correo=='ADMIN')
+     if user && user.authenticate(params[:password])
      # Save the farmacia id inside the browser cookie. This is how we keep the farmacia 
       # logged in when tey navigate arund our website.
       session[:farmacia_id] = user.id
@@ -43,6 +41,10 @@ class SessionsController < ApplicationController
    # If farmacia's login doesn't work, send them back to the login form.
         redirect_to "/login", notice: 'Error de autenticacion' 
     end
+     
+  else
+    redirect_to "/login", notice: 'Usuario no verificado' 
+   
    end
   end
 end
