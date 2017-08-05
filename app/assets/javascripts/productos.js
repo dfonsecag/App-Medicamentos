@@ -1,9 +1,9 @@
 
 
 // funcion para eliminar producto
-function delete_producto(id) {
+function delete_producto_id(id) {
     swal({
-  title: 'Desea eliminar este producto ?',
+  title: 'Desea eliminar este  ?',
   text: "",
   type: 'warning',
   showCancelButton: true,
@@ -23,20 +23,50 @@ function delete_producto(id) {
   )
     },
      error: function(data) {
-     alert('No fue eliminado');
+     swal(
+  'Existen farmacias con este productos relacionado.',
+  '',
+  'error'
+)
    }
 });
 })
 }
+function Verificar() {
+  alert($("#producto_laboratorio_id").val());
+}
 function Hablilitar() {
+      $("#producto_plan_paciente_id option").remove();
   if( $('#plan').prop('checked') ) {    
-    $('#plan_paciente').show();
-    $('#oferta').show();
+       $.ajax({
+    url:  "/plan_paciente/"+$("#producto_laboratorio_id").val(),
+    method: "get",
+    success: function(data) {
+    if(data=='')  {
+      swal('Laboratorio seleccionado no dispone plan paciente','','error')       
+    } 
+      else   
+      {
+         $("#producto_oferta1").val(1);
+        $("#producto_oferta2").val(1);
+        $('#plan_paciente').show();
+        $('#divoferta1').show();
+        $('#divoferta2').show();
+      $("#producto_plan_paciente_id").append('<option value='+data[0].laboratorio_id+'>'+data[0].nombre+'</option>');      
+      }
+    },
+     error: function(data) {
+   
+   }
+});
+   
 }
 else{
   $('#plan_paciente').hide();
-    $('#oferta').hide();
-    $("#producto_plan_paciente_id").val("");
-    $("#producto_oferta").val("");
+     $("#producto_oferta1").val(0);
+    $("#producto_oferta2").val(0);
+    $('#plan_paciente').hide();
+    $('#divoferta1').hide();
+    $('#divoferta2').hide();
 }
 }

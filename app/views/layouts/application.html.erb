@@ -15,7 +15,7 @@
 
 <% if current_user %>
 	<% if current_user.correo == 'ADMIN' %>
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default" style="background-color: #88FF88">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -30,7 +30,9 @@
       <a class="navbar-brand" href="/presentacions">Presentaciones</a>
       <a class="navbar-brand" href="/sustancia">Sustancias</a>
       <a class="navbar-brand" href="/productos">Productos</a>
-      <a class="navbar-brand" href="/farmacia">Farmacias</a>
+      <a class="navbar-brand" href="/farmacia">Farmacias </a>
+      <a class="navbar-brand" href="/disponibilidads">Disponibilidades</a>
+      
       <a class="navbar-brand" href="/"></a>
     </div>
 
@@ -41,9 +43,8 @@
         
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.nombre %> <span class="caret"></span></a>
-          <ul class="dropdown-menu">            
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+          <ul class="dropdown-menu">
+          <li><a href="/change_password">Cambiar Contraseña</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="/logout">Cerrar Sesión</a></li>
           </ul>
@@ -53,7 +54,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 	<% else %>
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default" style="background-color: #88FF88">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -96,3 +97,5 @@
 
 </body>
 </html>
+
+

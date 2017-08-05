@@ -23,8 +23,12 @@ function delete_disponibilidad(id) {
     'success'
   )
     },
-     error: function(data) {
-     alert('No fue eliminado');
+      error: function(data) {
+     swal(
+  'Existen productos de farmacias relacionados con esta disponibilidad',
+  '',
+  'error'
+)
    }
 });
 })

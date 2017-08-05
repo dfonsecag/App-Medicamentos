@@ -1,7 +1,7 @@
 class ProductosController < ApplicationController
   before_action :set_producto, only: [:show, :edit, :update, :destroy]
-     before_action :autenticacion
-     before_action :verificarUsuario
+     # before_action :autenticacion
+     # before_action :verificarUsuario
 
   # GET /productos
   # GET /productos.json
@@ -45,6 +45,13 @@ class ProductosController < ApplicationController
     end
   end
 
+  # Encontrar el plan paciente con un laboratorio
+   def Plan_Paciente
+    id = params[:id]
+      plan_paciente = PlanPaciente.find_by_sql("SELECT nombre, laboratorio_id FROM plan_pacientes where laboratorio_id= #{id}")
+      render json: plan_paciente
+    end
+
   # PATCH/PUT /productos/1
   # PATCH/PUT /productos/1.json
   def update
@@ -74,8 +81,8 @@ class ProductosController < ApplicationController
   def destroy
     @producto.destroy
     respond_to do |format|
-      format.html { redirect_to productos_url, notice: 'Producto was successfully destroyed.' }
-      format.json { head :no_content }
+       msg = { :status => "ok", :message => "Eliminado!" }
+        format.json { render :json => msg }
     end
   end
 
@@ -87,6 +94,6 @@ class ProductosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def producto_params
-      params.require(:producto).permit(:nombre, :sustancium_id, :presentacion_id, :oferta, :laboratorio_id, :plan_paciente_id)
+      params.require(:producto).permit(:nombre, :sustancium_id, :presentacion_id, :oferta1, :oferta2, :laboratorio_id, :plan_paciente_id)
     end
 end

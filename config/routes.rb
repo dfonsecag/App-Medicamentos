@@ -59,6 +59,8 @@ Rails.application.routes.draw do
 
    # ruta para que la farmacia vea la lista de requisitos del plan paciente
    get '/farmacia_plan_paciente/:id', to: 'plan_pacientes#farmacia_plan_paciente'
+   # ruta para encontrar el plan paciente de un laboratorio
+   get '/plan_paciente/:id', to: 'productos#Plan_Paciente'
 
      
 
