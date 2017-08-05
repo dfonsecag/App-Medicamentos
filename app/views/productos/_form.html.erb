@@ -11,7 +11,7 @@
     <%= f.collection_select :presentacion_id, Presentacion.all, :id, :descripcion, label: "Presentación" %>
   </div> 
   <div class="field">    
-    <%= f.collection_select :laboratorio_id, Laboratorio.all, :id, :nombre,{:onchange => "Verificar();" } %>
+    <%= f.collection_select :laboratorio_id, Laboratorio.all, :id, :nombre} %>
   </div>
   <div class="field">    
       <input type="checkbox" id="plan" onclick="Hablilitar();" >Tiene Plan Paciente<br>
@@ -32,7 +32,6 @@
 
   <div class="col-md-2 col-lg-2  col-xs-2 col-sm-2">
     <div class="field" id="divoferta2" style="display:none">
-
     <%= f.number_field :oferta2  ,label: "Regalía", :value =>0%>
   </div>
   </div>
