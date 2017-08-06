@@ -18,21 +18,21 @@
   </div>
   </div>
   <br>
-  <div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3  col-xs-12 col-sm-12">
+  <div class="col-md-12 col-lg-12  col-xs-12 col-sm-12">
   <div class="col-md-5 col-lg-5  col-xs-5 col-sm-5">
-  <div class="field" id="plan_paciente">    
+  <div class="field" id="plan_paciente" style="display:none">    
     <%= f.select :plan_paciente_id,[]%>
   </div>
   </div>
     <div class="col-md-2 col-lg-2  col-xs-2 col-sm-2 ">
-   <div class="field" id="divoferta1" >
-    <%= f.number_field :oferta1, label: "Compra" , :value =>0%>
+   <div class="field" id="divoferta1" style="display:none" >
+    <%= f.number_field :compra, label: "Compra" , :value =>0%>
   </div>
   </div>
 
   <div class="col-md-2 col-lg-2  col-xs-2 col-sm-2">
     <div class="field" id="divoferta2" style="display:none">
-    <%= f.number_field :oferta2  ,label: "Regalía", :value =>0%>
+    <%= f.number_field :oferta  ,label: "Regalía", :value =>0%>
   </div>
   </div>
   </div>

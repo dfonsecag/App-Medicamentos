@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170805015442) do
+ActiveRecord::Schema.define(version: 20170806124149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,8 +103,8 @@ ActiveRecord::Schema.define(version: 20170805015442) do
     t.datetime "updated_at",                      null: false
     t.integer  "sustancium_id"
     t.boolean  "activo",           default: true
-    t.integer  "oferta1"
-    t.integer  "oferta2"
+    t.integer  "compra"
+    t.integer  "oferta"
   end
 
   add_index "productos", ["laboratorio_id"], name: "index_productos_on_laboratorio_id", using: :btree

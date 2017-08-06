@@ -47,8 +47,8 @@ function Hablilitar() {
     } 
       else   
       {
-         $("#producto_oferta1").val(1);
-        $("#producto_oferta2").val(1);
+         $("#producto_compra").val(1);
+        $("#producto_oferta").val(1);
         $('#plan_paciente').show();
         $('#divoferta1').show();
         $('#divoferta2').show();
@@ -63,8 +63,8 @@ function Hablilitar() {
 }
 else{
   $('#plan_paciente').hide();
-     $("#producto_oferta1").val(0);
-    $("#producto_oferta2").val(0);
+     $("#producto_compra").val(0);
+    $("#producto_oferta").val(0);
     $('#plan_paciente').hide();
     $('#divoferta1').hide();
     $('#divoferta2').hide();
