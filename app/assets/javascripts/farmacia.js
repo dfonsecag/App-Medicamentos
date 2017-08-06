@@ -1,3 +1,35 @@
+// funcion para eliminar laboratorio
+function delete_farmacia(id,nombre) {
+    swal({
+  title: 'Desea eliminar la farmacia '+nombre+'?',
+  text: "",
+  type: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Si, eliminar.'
+}).then(function () {
+    $.ajax({
+    url:  "/farmacia/"+id,
+    method: "delete",
+    success: function(data) { 
+        $("#"+id).remove();
+          swal(
+    'Eliminado!',
+    'Farmacia eliminada.',
+    'success'
+  )
+    },
+     error: function(data) {
+     swal(
+  'Existen productos relacionados a este laboratorio',
+  '',
+  'error'
+)
+   }
+});
+})
+}
 
 
  function updatefarmacia (id, activo) {

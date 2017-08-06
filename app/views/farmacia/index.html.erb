@@ -9,6 +9,14 @@ var msj = "<%= notice %>";
 </script>
 
 <h1 class="text-center">Lista de Farmacias por verificar</h1>
+<div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+<%=  form_tag '/farmacia/busqueda' , :class => 'form-inline' do %>
+<div class="form-group">
+    <input type="text" class="form-control"  placeholder="Nombre" name="nombre">
+  </div>
+  <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
+<% end %>
+</div>
 
 <table class="table table-striped table-condensed">
   <thead>
@@ -26,16 +34,20 @@ var msj = "<%= notice %>";
 
   <tbody>
     <% @farmacia.each do |farmacium| %>
-      <tr>
+      <tr id="<%= farmacium.id %>">
         <td><%= farmacium.nombre %></td>
         <td><%= farmacium.cedulaJur %></td>
         <td><%= farmacium.sucursal %></td>
         <td><%= farmacium.direccion %></td>
         <td><%= farmacium.correo %></td>
         <td><%= farmacium.telefono1 %></td>
-        <td><a href="/farmacia/<%= farmacium.id %>" class="btn btn-info">
-         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Mostrar
-          </a></td>
+        <td>
+
+        <a href="/farmacia/<%= farmacium.id %>" class="btn btn-info">
+         <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+          </a>
+           <button class="btn btn-danger" onclick="delete_farmacia(<%= farmacium.id %>,'<%= farmacium.nombre %>')"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> </button>
+          </td>
         <td> <% if farmacium.verificado == true %> 
 
             <label><input type="checkbox" value="" onclick="updatefarmacia(<%= farmacium.id %>, <%= farmacium.verificado %>);" checked>Verificada</label>

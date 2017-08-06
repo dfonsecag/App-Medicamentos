@@ -19,8 +19,7 @@ class FarmaciaController < ApplicationController
     render :template => "farmacia/verificada"
   end
   def busqueda
-    nombre = params[:nombre]
-      
+    nombre = params[:nombre]      
    sql = "SELECT * from Farmacia where verificado = true and LOWER(nombre) like LOWER('%#{nombre}%')"
     @farmacia =  Farmacium.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
     render :template => "farmacia/verificada"
@@ -93,8 +92,8 @@ class FarmaciaController < ApplicationController
   def destroy
     @farmacium.destroy
     respond_to do |format|
-      format.html { redirect_to farmacia_url, notice: 'Farmacium was successfully destroyed.' }
-      format.json { head :no_content }
+      msg = { :status => "ok", :message => "Eliminado!" }
+        format.json { render :json => msg }
     end
   end
  
