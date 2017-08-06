@@ -39,7 +39,7 @@ var msj = "<%= notice %>";
 
   <tbody>
     <% @productos.each do |producto| %>
-      <tr>
+      <tr id="<%= producto.id %>">
         <td width="10%"><%= producto.nombre %></td>
         <td width="10%"><%= producto.sustancium.descripcion %></td>
         <td width="10%"><%= producto.presentacion.descripcion %></td>       
