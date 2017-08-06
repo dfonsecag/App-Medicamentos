@@ -1,13 +1,6 @@
 <script type="text/javascript">
 var msj = "<%= notice %>";
   $(document).ready(function() {
-     $("[name='my-checkbox']").bootstrapSwitch();
-      $("[name='my-checkbox']").on('switchChange.bootstrapSwitch', function (event, state) {
-        
-    id = $(this).attr('id');
-    var aler = Activo(id, state, 'presentacion'); 
-      
-});
   if(msj!='')
     swal(msj, "", "success")
 
@@ -38,10 +31,12 @@ var msj = "<%= notice %>";
     <% @presentacions.each do |presentacion| %>
       <tr id="<%= presentacion.id %>">
         <td width="36%"><%= presentacion.descripcion %></td>
-        <td width="34%"> <% if presentacion.activo == true %> 
-             <input type="checkbox" id="<%= presentacion.id %>" name="my-checkbox" checked  data-on-text="Activo" data-off-text="Desactivo" data-on-color="success" data-off-color="danger">
+        <td width="15%"> <% if presentacion.activo == true %> 
+
+            <label><input type="checkbox" value="" onclick="Activo(<%= presentacion.id %>, <%= presentacion.activo %>, 'presentacion');" checked>Activo</label>
          <% else %> 
-            <input type="checkbox" id="<%= presentacion.id %>" name="my-checkbox"  data-on-text="Activo" data-off-text="Desactivo" data-on-color="success" data-off-color="danger">
+
+             <label><input type="checkbox" value="" onclick="Activo(<%= presentacion.id %>, <%= presentacion.activo %>,'presentacion');">Activo</label>
         <% end %></td>
         <td width="20%">
           <a href="/presentacions/<%= presentacion.id %>" class="btn btn-info">

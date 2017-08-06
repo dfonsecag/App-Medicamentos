@@ -38,19 +38,21 @@ var msj = "<%= notice %>";
          <span class="glyphicon glyphicon-check" aria-hidden="true"></span> Añadir Productos
           </a>
         </td>
-         <td width="20%">
-         <% if laboratorio.activo == true %> 
-             <input type="checkbox" id="<%= laboratorio.laboratorio.id %>" name="my-checkbox" checked  data-on-text="Activado" data-off-text="Desactivado" data-on-color="success" data-off-color="danger">
+         <td width="15%"> <% if laboratorio.activo == true %> 
+
+            <label><input type="checkbox" value="" onclick="updateLaboratorio(<%= laboratorio.laboratorio.id %> , <%= laboratorio.activo %>);" checked>Activo</label>
          <% else %> 
-            <input type="checkbox" id="<%= laboratorio.laboratorio.id %>" name="my-checkbox"  data-on-text="Activado" data-off-text="Desactivado" data-on-color="success" data-off-color="danger">
-        <% end %>
-        </td>
+
+             <label><input type="checkbox" value="" onclick="updateLaboratorio(<%= laboratorio.laboratorio.id %> , <%= laboratorio.activo %>);">Activo</label>
+        <% end %></td>
+
+
       </tr>
     <% end %>
   </tbody>
 </table>
 </div>
- <div class="col-lg-8 col-md-8 col-md-offset-4 col-lg-offset-4 col-xs-offset-4 col-sm-offset-4 col-xs-12 col-sm-12" >
+ <div class="col-lg-8 col-md-8 col-md-offset-4 col-lg-offset-4 col-xs-offset-4 col-sm-offset-4 col-xs-8 col-sm-8" >
         <%= will_paginate @laboratorios, renderer: BootstrapPagination::Rails %>
     </div>
 

@@ -1,6 +1,11 @@
 
 // actualizar activo
 function Activo (id, activo, elemento) {
+  if(activo==false)
+    activo=true
+  else
+    activo= false
+  
    $.ajax({
        url: '/'+elemento+'_activo/'+id,
       method: 'put',

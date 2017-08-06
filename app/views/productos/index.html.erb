@@ -1,13 +1,7 @@
 <script type="text/javascript">
 var msj = "<%= notice %>";
   $(document).ready(function() {
-    $("[name='my-checkbox']").bootstrapSwitch();
-      $("[name='my-checkbox']").on('switchChange.bootstrapSwitch', function (event, state) {
-        
-    id = $(this).attr('id');
-    var aler = Activo(id, state, 'producto'); 
-      
-});
+   
   if(msj!='')
     swal(msj, "", "success")
 
@@ -53,10 +47,12 @@ var msj = "<%= notice %>";
         <% end %>
         
         
-         <td width="26%"> <% if producto.activo == true %> 
-             <input type="checkbox" id="<%= producto.id %>" name="my-checkbox" checked  data-on-text="Activo" data-off-text="Desactivo" data-on-color="success" data-off-color="danger">
+          <td width="15%"> <% if producto.activo == true %> 
+
+            <label><input type="checkbox" value="" onclick="Activo(<%= producto.id %>, <%= producto.activo %>, 'producto');" checked>Activo</label>
          <% else %> 
-            <input type="checkbox" id="<%= producto.id %>" name="my-checkbox"  data-on-text="Activo" data-off-text="Desactivo" data-on-color="success" data-off-color="danger">
+
+             <label><input type="checkbox" value="" onclick="Activo(<%= producto.id %>, <%= producto.activo %>,'producto');">Activo</label>
         <% end %></td>
         <td width="20%">
           <a href="/productos/<%= producto.id %>" class="btn btn-info">

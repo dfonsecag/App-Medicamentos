@@ -1,13 +1,7 @@
 <script type="text/javascript">
 var msj = "<%= notice %>";
   $(document).ready(function() {
-     $("[name='my-checkbox']").bootstrapSwitch();
-      $("[name='my-checkbox']").on('switchChange.bootstrapSwitch', function (event, state) {
-        
-    id = $(this).attr('id');
-    var aler = updatefarmacia(id, state); 
-      
-});
+   
   if(msj!='')
     swal(msj, "", "success")
 
@@ -43,9 +37,11 @@ var msj = "<%= notice %>";
          <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Mostrar
           </a></td>
         <td> <% if farmacium.verificado == true %> 
-             <input type="checkbox" id="<%= farmacium.id %>" name="my-checkbox" checked  data-on-text="Verificada" data-off-text="No Verificada" data-on-color="success" data-off-color="danger">
+
+            <label><input type="checkbox" value="" onclick="updatefarmacia(<%= farmacium.id %>, <%= farmacium.verificado %>);" checked>Verificada</label>
          <% else %> 
-            <input type="checkbox" id="<%= farmacium.id %>" name="my-checkbox"  data-on-text="Verificada" data-off-text="No Verificada" data-on-color="success" data-off-color="danger">
+
+             <label><input type="checkbox" value="" onclick="updatefarmacia(<%= farmacium.id %>, <%= farmacium.verificado %>);">Verificada</label>
         <% end %></td>
       </tr>
     <% end %>

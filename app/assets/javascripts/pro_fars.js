@@ -5,6 +5,10 @@ function Seleccion_Articulo(id,laboratorio) {
  
 
  function update (id, activo) {
+  if(activo==false)
+    activo=true
+  else
+    activo= false
  	 $.ajax({
        url: '/pro_farmacia_update/'+id,
       method: 'put',

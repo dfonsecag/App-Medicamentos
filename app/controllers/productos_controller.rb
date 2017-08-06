@@ -48,7 +48,7 @@ class ProductosController < ApplicationController
   # Encontrar el plan paciente con un laboratorio
    def Plan_Paciente
     id = params[:id]
-      plan_paciente = PlanPaciente.find_by_sql("SELECT nombre, laboratorio_id FROM plan_pacientes where laboratorio_id= #{id}")
+      plan_paciente = PlanPaciente.find_by_sql("SELECT nombre FROM plan_pacientes where laboratorio_id= #{id}")
       render json: plan_paciente
     end
 

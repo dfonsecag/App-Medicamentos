@@ -1,6 +1,10 @@
 
 
  function updatefarmacia (id, activo) {
+  if(activo==false)
+    activo=true
+  else
+    activo= false
 
   swal.queue([{
   title: 'Verificar Farmacia',
@@ -14,7 +18,7 @@
        url: '/farmacia_verificado/'+id,
       method: 'put',
       data: JSON.stringify({ 
-        activo: activo
+      activo: activo
 
     }),
     contentType: "application/json; charset=utf-8",

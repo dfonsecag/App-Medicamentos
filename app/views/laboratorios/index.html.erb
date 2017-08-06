@@ -1,13 +1,6 @@
 <script type="text/javascript">
 var msj = "<%= notice %>";
   $(document).ready(function() {
-     $("[name='my-checkbox']").bootstrapSwitch();
-      $("[name='my-checkbox']").on('switchChange.bootstrapSwitch', function (event, state) {
-        
-    id = $(this).attr('id');
-    var aler = Activo(id, state, 'laboratorio'); 
-      
-});
   if(msj!='')
     swal(msj, "", "success")
 
@@ -39,11 +32,13 @@ var msj = "<%= notice %>";
     <% @laboratorios.each do |laboratorio| %>
       <tr id="<%= laboratorio.id %>">
         <td width="15%"><%= laboratorio.nombre %></td>
-        <td width="22%"><%= laboratorio.descripcion %></td>
-        <td width="32%"> <% if laboratorio.activo == true %> 
-             <input type="checkbox" id="<%= laboratorio.id %>" name="my-checkbox" checked  data-on-text="Activo" data-off-text="Desactivo" data-on-color="success" data-off-color="danger">
+        <td width="40%"><%= laboratorio.descripcion %></td>
+      <td width="15%"> <% if laboratorio.activo == true %> 
+
+            <label><input type="checkbox" value="" onclick="Activo(<%= laboratorio.id %>, <%= laboratorio.activo %>, 'laboratorio');" checked>Activo</label>
          <% else %> 
-            <input type="checkbox" id="<%= laboratorio.id %>" name="my-checkbox"  data-on-text="Activo" data-off-text="Desactivo" data-on-color="success" data-off-color="danger">
+
+             <label><input type="checkbox" value="" onclick="Activo(<%= laboratorio.id %>, <%= laboratorio.activo %>,'laboratorio');">Activo</label>
         <% end %></td>
          <td width="20%">
           <a href="/laboratorios/<%= laboratorio.id %>" class="btn btn-info">

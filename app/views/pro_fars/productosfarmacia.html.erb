@@ -28,35 +28,40 @@ var msj = "<%= notice %>";
       <th>Plan paciente</th>
        <th>Oferta</th>
        <th>Disponibilidad</th>
-       <th>Actualizar Disponibilidad</th>
-      <th>Actualizar Estado Producto</th>
+       <th>Activo</th>
+      <th>Editar Disponibilidad</th>
     </tr>
   </thead>
 
   <tbody>
     <% @productos.each do |producto| %>
       <tr>
-        <td width="9%"><%= producto.producto.nombre %></td>
-        <td width="9%"><%= producto.producto.sustancium.descripcion %></td>
-        <td width="9%"><%= producto.producto.presentacion.descripcion %></td>       
-        <td width="9%"><%= producto.producto.laboratorio.nombre %></td>
+        <td width="13%"><%= producto.producto.nombre %></td>
+        <td width="13%"><%= producto.producto.sustancium.descripcion %></td>
+        <td width="13%"><%= producto.producto.presentacion.descripcion %></td>       
+        <td width="13%"><%= producto.producto.laboratorio.nombre %></td>
         <% if producto.producto.plan_paciente != nil %> 
-           <td td width="9%"><a href="/farmacia_plan_paciente/<%= producto.producto.plan_paciente.id %>" class="btn btn-info"><%= producto.producto.plan_paciente.nombre %>
+           <td td width="13%"><a href="/farmacia_plan_paciente/<%= producto.producto.plan_paciente.id %>" class="btn btn-info"><%= producto.producto.plan_paciente.nombre %>
           </a></td>
          <% else producto.producto.plan_paciente != nil %> 
-           <td width="9%">No presenta Plan Paciente</td>
+           <td width="13%">No presenta Plan Paciente</td>
         <% end %>
         
-        <td width="9%"><%= producto.producto.oferta %></td>
-        <td width="9%"><%= producto.nombre %></td>
-        <td width="30%">
-         <% if producto.activo_produc == true %> 
-             <input type="checkbox" id="<%= producto.producto.id %>" name="my-checkbox" checked  data-on-text="Disponible" data-off-text="No Disponible" data-on-color="success" data-off-color="danger">
+        <td width="13%"><%= producto.producto.compra %> + <%= producto.producto.oferta %></td>
+        <td width="13%"><%= producto.nombre %></td>
+       
+
+        <td width="15%"> <% if producto.activo_produc == true %> 
+
+            <label><input type="checkbox" value="" onclick="update(<%= producto.producto.id %>, <%= producto.activo_produc %>);" checked>Activo</label>
          <% else %> 
-            <input type="checkbox" id="<%= producto.producto.id %>" name="my-checkbox"  data-on-text="Disponible" data-off-text="No Disponible" data-on-color="success" data-off-color="danger">
-        <% end %>
-        <td width="12%"> <a href="/pro_farmacia_edit/<%= producto.producto.id %>" class="btn btn-success">
-            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar Estado
+
+             <label><input type="checkbox" value="" onclick="update(<%= producto.producto.id %>, <%= producto.activo_produc %>);">Activo</label>
+        <% end %></td>
+
+
+        <td width="15%"> <a href="/pro_farmacia_edit/<%= producto.producto.id %>" class="btn btn-success">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar Disponibilidad
           </a></td>
          
           
