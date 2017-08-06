@@ -47,11 +47,8 @@ function Hablilitar() {
     } 
       else   
       {
-         $("#producto_compra").val(1);
-        $("#producto_oferta").val(1);
-        $('#plan_paciente').show();
-        $('#divoferta1').show();
-        $('#divoferta2').show();
+      $('#plan_paciente').show();
+ -    $('#oferta').show();
       $("#producto_plan_paciente_id").append('<option value='+data[0].laboratorio_id+'>'+data[0].nombre+'</option>');      
       }
     },
@@ -62,11 +59,9 @@ function Hablilitar() {
    
 }
 else{
-  $('#plan_paciente').hide();
-     $("#producto_compra").val(0);
-    $("#producto_oferta").val(0);
-    $('#plan_paciente').hide();
-    $('#divoferta1').hide();
-    $('#divoferta2').hide();
+     $('#plan_paciente').hide();
+     $('#oferta').hide();
+ -    $("#producto_plan_paciente_id").val("");
+ -    $("#producto_oferta").val("");
 }
 }
