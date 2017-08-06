@@ -24,7 +24,7 @@ class Api::V1::ConsultasController < ApplicationController
   # obtiene un select de un producto determinado buscado por el usuario
   def InfoProducto
   	id = params[:id]
-       @productos = Producto.find_by_sql("select distinct  productos.nombre as nombreProducto, productos.id as idProducto, productos.oferta, laboratorios.nombre as nombreLaboratorio, presentacions.descripcion, plan_pacientes.id, 
+       @productos = Producto.find_by_sql("select distinct  productos.nombre as nombreProducto, productos.id as idProducto, productos.oferta, productos.compra, laboratorios.nombre as nombreLaboratorio, presentacions.descripcion, plan_pacientes.id, 
 		plan_pacientes.nombre as nombrePlanPaciente, plan_pacientes.id as idPlanPaciente,
 		sustancia.descripcion as descripcionSustancia
 		 from productos, presentacions, plan_pacientes, laboratorios, sustancia where 

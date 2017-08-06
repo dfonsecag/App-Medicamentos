@@ -31,11 +31,13 @@ var msj = "<%= notice %>";
         <td width="12%"><%= producto.laboratorio.nombre %></td>
         <% if producto.plan_paciente != nil %> 
            <td width="12%"><%= producto.plan_paciente.nombre %></td>
+           <td width="11%"><%= producto.oferta %></td>
          <% else producto.plan_paciente != nil %> 
            <td width="12%"></td>
+           <td width="11%"></td>
         <% end %>
         
-        <td width="11%"><%= producto.oferta %></td>
+        
         <td width="35%">
          <button type="button" class="btn btn-success" onclick="Seleccion_Articulo(<%= producto.id %>,<%= producto.laboratorio.id %>)" data-toggle="modal" data-target="#exampleModalLong"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Añadir Producto</button>
 

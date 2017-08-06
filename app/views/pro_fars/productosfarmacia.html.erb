@@ -43,11 +43,13 @@ var msj = "<%= notice %>";
         <% if producto.producto.plan_paciente != nil %> 
            <td td width="13%"><a href="/farmacia_plan_paciente/<%= producto.producto.plan_paciente.id %>" class="btn btn-info"><%= producto.producto.plan_paciente.nombre %>
           </a></td>
+          <td width="13%"><%= producto.producto.compra %> + <%= producto.producto.oferta %></td>
          <% else producto.producto.plan_paciente != nil %> 
            <td width="13%">No presenta Plan Paciente</td>
+           <td width="13%"></td>
         <% end %>
         
-        <td width="13%"><%= producto.producto.compra %> + <%= producto.producto.oferta %></td>
+        
         <td width="13%"><%= producto.nombre %></td>
        
 
