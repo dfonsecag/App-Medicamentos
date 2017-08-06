@@ -37,29 +37,12 @@ function Verificar() {
 }
 function Hablilitar() {
    if( $('#plan').prop('checked') ) { 
-     $.ajax({
-    url:  "/plan_paciente/"+$("#producto_laboratorio_id").val(),
-    method: "get",
-    success: function(data) { 
-if (data!='') {
-
-        $('#plan_paciente').show();
+     $('#plan_paciente').show();
       $('#divoferta1').show();
       $('#divoferta2').show();
       $("#producto_compra").val(1);
       $("#producto_oferta").val(1);
-      $("#producto_plan_paciente_id").val($("#producto_laboratorio_id").val());
-      $("#plan_paciente_nombre").val(data[0].nombre);
-    }
-    else{
-       swal('Este laboratorio no disponde de plan paciente.','','error')
-    }
-    },
-     error: function(data) {
-    
-     }
-  });
- } 
+    } 
       
 else{
      $('#plan_paciente').hide();

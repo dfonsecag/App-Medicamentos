@@ -21,10 +21,7 @@
   <div class="col-md-12 col-lg-12  col-xs-12 col-sm-12">
   <div class="col-md-5 col-lg-5  col-xs-5 col-sm-5">
   <div class="field" id="plan_paciente" style="display:none">    
-   <div class="form-group">
-      <label for="disabledTextInput">Plan Paciente</label>
-      <input class="form-control" id="plan_paciente_nombre" type="text" readonly>
-    </div>
+    <%= f.collection_select :plan_paciente_id, PlanPaciente.all, :id, :nombre, include_blank: true , label: "Plan Paciente"%>
   </div>
   </div>
     <div class="col-md-2 col-lg-2  col-xs-2 col-sm-2 ">
