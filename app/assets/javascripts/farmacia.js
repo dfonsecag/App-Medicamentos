@@ -55,8 +55,10 @@ function delete_farmacia(id,nombre) {
     }),
     contentType: "application/json; charset=utf-8",
         success:function(data){
+
               swal.insertQueueStep("Famacia Verificada")
           resolve()
+          $("#"+id).remove();
         }
     });
 
