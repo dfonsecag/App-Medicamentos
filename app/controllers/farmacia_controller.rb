@@ -8,7 +8,7 @@ class FarmaciaController < ApplicationController
   # GET /farmacia.json
   def index
      @farmacia = Farmacium.paginate(:page => params[:page], :per_page => 8)
-     sql = 'SELECT id, nombre,"cedulaJur", sucursal, direccion, telefono1, correo, verificado from Farmacia where verificado = false and correo <> "ADMIN"'
+     sql = 'SELECT id, nombre,"cedulaJur", sucursal, direccion, telefono1, correo, verificado from Farmacia where verificado = false'
     @farmacia =  Farmacium.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
   end
  # para las farmacias verificadas
