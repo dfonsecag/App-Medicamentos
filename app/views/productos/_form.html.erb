@@ -24,13 +24,17 @@
     <%= f.collection_select :plan_paciente_id, PlanPaciente.all, :id, :nombre, include_blank: true , label: "Plan Paciente"%>
   </div>
   </div>
-   <div class="col-md-2 col-lg-2  col-xs-2 col-sm-2 ">
-   <div class="field" id="oferta" style="display:none" >
-    <%= f.text_field :oferta %>
+    <div class="col-md-2 col-lg-2  col-xs-2 col-sm-2 ">
+   <div class="field" id="divoferta1" style="display:none" >
+    <%= f.number_field :compra, label: "Compra" , :value =>0%>
   </div>
   </div>
-   
 
+  <div class="col-md-2 col-lg-2  col-xs-2 col-sm-2">
+    <div class="field" id="divoferta2" style="display:none">
+    <%= f.number_field :oferta  ,label: "Regalía", :value =>0%>
+  </div>
+  </div>
   </div>
 
 

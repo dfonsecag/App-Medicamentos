@@ -38,12 +38,17 @@ function Verificar() {
 function Hablilitar() {
    if( $('#plan').prop('checked') ) { 
      $('#plan_paciente').show();
- -    $('#oferta').show();
+      $('#divoferta1').show();
+      $('#divoferta2').show();
+      $("#producto_compra").val(1);
+      $("#producto_oferta").val(1);
     } 
       
 else{
      $('#plan_paciente').hide();
  -    $('#oferta').hide();
  -    $("#producto_plan_paciente_id").val("");
- -    $("#producto_oferta").val("");}
+      $("#producto_compra").val(1);
+      $("#producto_oferta").val(1);
+}
 }
