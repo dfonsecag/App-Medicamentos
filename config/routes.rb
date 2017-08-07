@@ -46,6 +46,8 @@ Rails.application.routes.draw do
   post '/sustancias/busqueda', to: 'sustancia#busqueda'
   #busqueda de sustancias
   post '/farmacias/busqueda', to: 'farmacia#busqueda'
+  #busqueda de laboratorios de farmacias
+  post '/lab_fars/busqueda', to: 'lab_fars#busqueda'
   # actualizar activo laboratorio
    put '/laboratorio_activo/:id', to: 'laboratorios#activo_update'
    # actualizar activo plan paciente
