@@ -35,7 +35,7 @@ var msj = "<%= notice %>";
 
   <tbody>
     <% @productos.each do |producto| %>
-      <tr>
+      <tr  id="<%= producto.producto.id %>">
         <td width="13%"><%= producto.producto.nombre %></td>
         <td width="13%"><%= producto.producto.sustancium.descripcion %></td>
         <td width="13%"><%= producto.producto.presentacion.descripcion %></td>       
@@ -64,7 +64,9 @@ var msj = "<%= notice %>";
 
         <td width="15%"> <a href="/pro_farmacia_edit/<%= producto.producto.id %>" class="btn btn-success">
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar Disponibilidad
-          </a></td>
+          </a>
+           <button class="btn btn-danger" onclick="delete_producto_farmacia(<%= producto.id %>)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> </button>
+          </td>
          
           
 

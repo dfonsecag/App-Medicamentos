@@ -93,15 +93,15 @@ class ProFarsController < ApplicationController
   def destroy
     @pro_far.destroy
     respond_to do |format|
-      format.html { redirect_to pro_fars_url, notice: 'Pro far was successfully destroyed.' }
-      format.json { head :no_content }
+       msg = { :status => "ok", :message => "Eliminado!" }
+        format.json { render :json => msg }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pro_far
-       # @pro_far = ProFar.find(params[:id])
+      @pro_far = ProFar.find(params[:id])
        
     end
 

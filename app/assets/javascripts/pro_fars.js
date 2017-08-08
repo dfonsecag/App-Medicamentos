@@ -29,3 +29,34 @@ function Seleccion_Articulo(id,laboratorio) {
         }
     });
  }
+
+
+
+// funcion para eliminar producto_farmacia
+function delete_producto_farmacia(id) {
+    swal({
+  title: 'Desea eliminar este producto su farmacia ?',
+  text: "",
+  type: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Si, eliminar.'
+}).then(function () {
+    $.ajax({
+    url:  "/pro_fars/"+id,
+    method: "delete",
+    success: function(data) { 
+        $("#"+id).remove();
+          swal(
+    'Eliminado!',
+    'producto eliminado.',
+    'success'
+  )
+    },
+     error: function(data) {
+    
+   }
+});
+})
+}
