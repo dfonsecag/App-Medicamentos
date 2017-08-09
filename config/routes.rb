@@ -46,8 +46,15 @@ Rails.application.routes.draw do
   post '/sustancias/busqueda', to: 'sustancia#busqueda'
   #busqueda de sustancias
   post '/farmacias/busqueda', to: 'farmacia#busqueda'
-  #busqueda de laboratorios de farmacias
+  #busqueda de laboratorios que la farmacia va anadir
   post '/lab_fars/busqueda', to: 'lab_fars#busqueda'
+  #busqueda de laboratorios que la farmacia va agrego
+  post '/lab_fars/busquedaLaboratoriosAgregados', to: 'lab_fars#busquedaLaboratoriosAgregados'
+  #busqueda de productos por agregar farmacia
+  post '/pro_fars/busquedaProductos', to: 'pro_fars#showBusqueda'
+  #busqueda de productos farmacia tiene agregado
+  post '/pro_fars/pro_farmBusqueda', to: 'pro_fars#pro_farmBusqueda'
+
   # actualizar activo laboratorio
    put '/laboratorio_activo/:id', to: 'laboratorios#activo_update'
    # actualizar activo plan paciente

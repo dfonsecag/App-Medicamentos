@@ -6,8 +6,18 @@ var msj = "<%= notice %>";
 
 });
 </script>
+<h1 class="text-center">Productos del Laboratorio: <%= @lab.nombre %></h1>
+<div class="col-lg-10 col-md-10 col-md-offset-1 col-lg-offset-1  col-xs-12 col-sm-12">
+<%=  form_tag '/pro_fars/busquedaProductos' , :class => 'form-inline' do %>
 
-<h1 class="text-center">Lista de Productos</h1>
+  <div class="form-group">
+   <input type="text" class="form-control"  placeholder="Nombre" name="producto_id">
+   <input type="hidden" class="form-control" name="laboratorio" value="<%= @lab.id %>" >
+  </div>
+  <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
+<% end %>
+</div>
+<div class="col-lg-10 col-md-10 col-md-offset-1 col-lg-offset-1  col-xs-12 col-sm-12">
 
 <table class="table table-striped table-condensed">
   <thead>
@@ -25,15 +35,15 @@ var msj = "<%= notice %>";
   <tbody>
     <% @productos.each do |producto| %>
       <tr>
-        <td width="12%"><%= producto.nombre %></td>
-        <td width="12%"><%= producto.sustancium.descripcion %></td>
-        <td width="12%"><%= producto.presentacion.descripcion %></td>       
-        <td width="12%"><%= producto.laboratorio.nombre %></td>
+        <td width="15%"><%= producto.nombre %></td>
+        <td width="15%"><%= producto.sustancium.descripcion %></td>
+        <td width="15%"><%= producto.presentacion.descripcion %></td>       
+        <td width="15%"><%= producto.laboratorio.nombre %></td>
         <% if producto.plan_paciente != nil %> 
-           <td width="12%"><%= producto.plan_paciente.nombre %></td>
-           <td width="11%"><%= producto.oferta %></td>
+           <td width="15%"><%= producto.plan_paciente.nombre %></td>
+           <td width="11%"><%= producto.compra %> + <%= producto.oferta %></td>
          <% else producto.plan_paciente != nil %> 
-           <td width="12%"></td>
+           <td width="15%"></td>
            <td width="11%"></td>
         <% end %>
         
@@ -46,6 +56,7 @@ var msj = "<%= notice %>";
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">

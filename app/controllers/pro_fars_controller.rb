@@ -11,10 +11,21 @@ class ProFarsController < ApplicationController
   # GET /pro_fars/1
   # GET /pro_fars/1.json
   def show
-     # @productos = Producto.where(["laboratorio_id = ? ",params[:id]])
      id =  session[:farmacia_id]
      laboratorio = params[:id]
+     @lab =  Laboratorio.find_by_sql("select nombre, id from laboratorios where id = #{laboratorio} ").first
     @productos = Producto.find_by_sql("Select * from productos where not exists (select * from pro_fars where pro_fars.producto_id = productos.id and pro_fars.farmacium_id = #{id}) and laboratorio_id = #{laboratorio}")
+
+       @pro_far = ProFar.new
+    render :template => "pro_fars/index"
+  end
+   # producto por a;adir busqueda
+  def showBusqueda
+     id =  session[:farmacia_id]
+     laboratorio = params[:laboratorio]
+     nombre = params[:producto_id]
+     @lab =  Laboratorio.find_by_sql("select nombre, id from laboratorios where id = #{laboratorio} ").first
+    @productos = Producto.find_by_sql("Select * from productos where not exists (select * from pro_fars where pro_fars.producto_id = productos.id and pro_fars.farmacium_id = #{id}) and laboratorio_id = #{laboratorio} and LOWER(nombre) like LOWER('%#{nombre}%')")
 
        @pro_far = ProFar.new
     render :template => "pro_fars/index"
@@ -24,8 +35,18 @@ class ProFarsController < ApplicationController
   def pro_farm
        id =  session[:farmacia_id]
      laboratorio = params[:id]
-     @lab =  Laboratorio.find_by_sql("select nombre from laboratorios where id = #{laboratorio} ").first
+     @lab =  Laboratorio.find_by_sql("select id, nombre from laboratorios where id = #{laboratorio} ").first
    @productos = ProFar.find_by_sql("select * from pro_fars, productos, disponibilidads where pro_fars.producto_id = productos.id and disponibilidads.id =pro_fars.disponibilidad_id and productos.laboratorio_id = #{laboratorio} and pro_fars.farmacium_id = #{id}")
+    render :template => "pro_fars/productosfarmacia"
+  end
+   # GET /lab_fars
+  #  busqueda productos de un laboratorio farmacia agregados
+  def pro_farmBusqueda
+     id =  session[:farmacia_id]
+     laboratorio = params[:laboratorio]
+     nombre = params[:producto_id]
+     @lab =  Laboratorio.find_by_sql("select id, nombre from laboratorios where id = #{laboratorio} ").first
+   @productos = ProFar.find_by_sql("select * from pro_fars, productos, disponibilidads where pro_fars.producto_id = productos.id and disponibilidads.id =pro_fars.disponibilidad_id and productos.laboratorio_id = #{laboratorio} and pro_fars.farmacium_id = #{id} and LOWER(productos.nombre) like LOWER('%#{nombre}%')")
     render :template => "pro_fars/productosfarmacia"
   end
 
@@ -91,6 +112,7 @@ class ProFarsController < ApplicationController
   # DELETE /pro_fars/1
   # DELETE /pro_fars/1.json
   def destroy
+    @pro_far = ProFar.where(["producto_id = ? and farmacium_id = ?", params[:id], session[:farmacia_id]]).first
     @pro_far.destroy
     respond_to do |format|
        msg = { :status => "ok", :message => "Eliminado!" }
@@ -101,7 +123,7 @@ class ProFarsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pro_far
-      @pro_far = ProFar.find(params[:id])
+      # @pro_far = ProFar.find(params[:id])
        
     end
 

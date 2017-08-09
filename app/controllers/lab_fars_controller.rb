@@ -13,14 +13,26 @@ class LabFarsController < ApplicationController
   # Busqueda de laboratorios en farmacia
   def busqueda
     nombre = params[:laboratorio_id]
+    id =  session[:farmacia_id]
     @cant_lab =  Farmacium.find_by_sql("select cant_lab from farmacia where id = #{id} ").first
-    sql = "Select * from laboratorios where not exists (select * from lab_fars where lab_fars.laboratorio_id = laboratorios.id and lab_fars.farmacium_id = #{id} )"
+    sql = "Select * from laboratorios where not exists (select * from lab_fars where lab_fars.laboratorio_id = laboratorios.id and lab_fars.farmacium_id = #{id} ) and  LOWER(laboratorios.nombre) like LOWER('%#{nombre}%')"
     @laboratorios =  Laboratorio.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+    render :template => "lab_fars/index"
+  end
+   # Busqueda de laboratorios farmacia agregados
+  def busquedaLaboratoriosAgregados
+    nombre = params[:laboratorio_id]
+    id =  session[:farmacia_id]
+    sql = "Select laboratorios.nombre, laboratorios.descripcion, laboratorios.id, lab_fars.activo from lab_fars, laboratorios where lab_fars.farmacium_id = #{id} and lab_fars.laboratorio_id = laboratorios.id and  LOWER(laboratorios.nombre) like LOWER('%#{nombre}%')"
+    @laboratorios =  Laboratorio.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+    render :template => "lab_fars/laboratoriosfarmacia"
   end
   # GET /lab_fars
   # laboratorios farmacia agregados
   def lab_farm
-    @laboratorios = LabFar.where(["farmacium_id = ? ",session[:farmacia_id]]).paginate(:page => params[:page], :per_page => 8)
+    id =  session[:farmacia_id]
+    sql = "Select laboratorios.nombre, laboratorios.descripcion, laboratorios.id, lab_fars.activo from lab_fars, laboratorios where lab_fars.farmacium_id = #{id} and lab_fars.laboratorio_id = laboratorios.id"
+    @laboratorios =  Laboratorio.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
     render :template => "lab_fars/laboratoriosfarmacia"
   end
   # vista de productos anadir la farmacia
@@ -40,7 +52,7 @@ class LabFarsController < ApplicationController
    
     respond_to do |format|
       if farmaciaCant.cant_lab ==0
-       format.html { redirect_to "/lab_fars", notice: 'Laboratorio cantidad maxima' }
+       format.html { redirect_to "/lab_fars", notice: 'Laboratorio cantidad máxima' }
     else
        
     @lab_far = LabFar.new(farmacium_id: farmacia_id, laboratorio_id: laboratorio_id, activo: activo)
@@ -66,21 +78,7 @@ class LabFarsController < ApplicationController
   def edit
   end
 
-  # POST /lab_fars
-  # POST /lab_fars.json
-  def create
-    @lab_far = LabFar.new(lab_far_params)
 
-    respond_to do |format|
-      if @lab_far.save
-        format.html { redirect_to @lab_far, notice: 'Lab far was successfully created.' }
-        format.json { render :show, status: :created, location: @lab_far }
-      else
-        format.html { render :new }
-        format.json { render json: @lab_far.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   # PATCH/PUT /lab_fars/1
   # PATCH/PUT /lab_fars/1.json
@@ -92,16 +90,6 @@ class LabFarsController < ApplicationController
         LabFar.where(laboratorio_id: id, farmacium_id:farmacia_id).update_all(activo: activo )
        msg = { :status => "ok", :message => "Actualizado!" }
         format.json { render :json => msg }
-    end
-  end
-
-  # DELETE /lab_fars/1
-  # DELETE /lab_fars/1.json
-  def destroy
-    @lab_far.destroy
-    respond_to do |format|
-      format.html { redirect_to lab_fars_url, notice: 'Lab far was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
