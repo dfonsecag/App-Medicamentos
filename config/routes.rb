@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     #busqueda de producto
   post '/producto/busqueda', to: 'productos#busqueda'
   #busqueda de laboatorio
-  post '/laboratorio/busqueda', to: 'laboratorios#busqueda'
+  get '/laboratorio/busqueda/:nombre', to: 'laboratorios#busqueda'
    #busqueda de plan paciente
   post '/plan_pacientes/busqueda', to: 'plan_pacientes#busqueda'
   #busqueda de presentaciones

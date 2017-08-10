@@ -33,3 +33,10 @@ function delete_laboratorio(id) {
 });
 })
 }
+// llamar url busqueda laboratorios
+function busqueda()
+{
+    var nombre =  $("#nombre").val();
+
+    window.location = 'laboratorio/busqueda/'+nombre;
+}
