@@ -53,4 +53,17 @@ function delete_laboratorio_farmacia(id) {
 });
 })
 }
+// llamar url busqueda laboratorios de farmacia
+function busquedaLabsFar()
+{
+    var nombre =  $("#nombre").val();
 
+    window.location = '/lab_fars/busqueda/'+nombre;
+}
+// llamar url busqueda laboratorios farmacia anadidos
+function busquedaLabsFarmaciaAgregados()
+{
+    var nombre =  $("#nombre").val();
+
+    window.location = '/lab_fars/busquedalaboratoriosfarmacia/'+nombre;
+}

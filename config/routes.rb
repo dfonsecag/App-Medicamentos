@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pagos
   resources :pro_fars
   resources :disponibilidads
   resources :lab_fars
@@ -49,13 +50,13 @@ Rails.application.routes.draw do
   #busqueda de farmacias por Veriificar
   get '/farmacia/busqueda/:nombre', to: 'farmacia#busqueda'
   #busqueda de laboratorios que la farmacia va anadir
-  post '/lab_fars/busqueda', to: 'lab_fars#busqueda'
+  get '/lab_fars/busqueda/:laboratorio_id', to: 'lab_fars#busqueda'
   #busqueda de laboratorios que la farmacia va agrego
-  post '/lab_fars/busquedaLaboratoriosAgregados', to: 'lab_fars#busquedaLaboratoriosAgregados'
+  get '/lab_fars/busquedalaboratoriosfarmacia/:laboratorio_id', to: 'lab_fars#busquedaLaboratoriosAgregados'
   #busqueda de productos por agregar farmacia
-  post '/pro_fars/busquedaProductos', to: 'pro_fars#showBusqueda'
+  get '/pro_fars/busquedaProductos/:laboratorio/:producto_id', to: 'pro_fars#showBusqueda'
   #busqueda de productos farmacia tiene agregado
-  post '/pro_fars/pro_farmBusqueda', to: 'pro_fars#pro_farmBusqueda'
+  get '/pro_fars/pro_farmBusqueda/:laboratorio/:producto_id', to: 'pro_fars#pro_farmBusqueda'
 
   # actualizar activo laboratorio
    put '/laboratorio_activo/:id', to: 'laboratorios#activo_update'

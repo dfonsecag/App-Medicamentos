@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170806140332) do
+ActiveRecord::Schema.define(version: 20170811135749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,17 @@ ActiveRecord::Schema.define(version: 20170806140332) do
     t.datetime "updated_at",                 null: false
     t.boolean  "activo",      default: true
   end
+
+  create_table "pagos", force: :cascade do |t|
+    t.integer  "farmacium_id"
+    t.decimal  "monto"
+    t.integer  "numcomprobante"
+    t.integer  "cantLab"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "pagos", ["farmacium_id"], name: "index_pagos_on_farmacium_id", using: :btree
 
   create_table "plan_pacientes", force: :cascade do |t|
     t.string   "nombre"
@@ -136,6 +147,7 @@ ActiveRecord::Schema.define(version: 20170806140332) do
 
   add_foreign_key "lab_fars", "farmacia"
   add_foreign_key "lab_fars", "laboratorios"
+  add_foreign_key "pagos", "farmacia"
   add_foreign_key "plan_pacientes", "laboratorios"
   add_foreign_key "pro_fars", "disponibilidads"
   add_foreign_key "pro_fars", "farmacia"

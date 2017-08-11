@@ -60,3 +60,19 @@ function delete_producto_farmacia(id) {
 });
 })
 }
+// llamar url busqueda productos farmacia 
+function busquedaProfars()
+{
+    var nombre =  $("#nombre").val();
+    var laboratorio =  $("#laboratorio").val();
+
+    window.location = '/pro_fars/busquedaProductos/'+laboratorio+'/'+nombre;
+}
+// llamar url busqueda productos farmacia anadidos
+function busquedaProfarsAnadidos()
+{
+    var nombre =  $("#nombre").val();
+    var laboratorio =  $("#laboratorio").val();
+
+    window.location = '/pro_fars/pro_farmBusqueda/'+laboratorio+'/'+nombre;
+}

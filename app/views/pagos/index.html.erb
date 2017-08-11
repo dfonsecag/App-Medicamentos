@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Pagos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Farmacia</th>
+      <th>Monto</th>
+      <th>Numcomprobante</th>
+      <th>Cantlab</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pagos.each do |pago| %>
+      <tr>
+        <td><%= pago.farmacia %></td>
+        <td><%= pago.monto %></td>
+        <td><%= pago.numcomprobante %></td>
+        <td><%= pago.cantLab %></td>
+        <td><%= link_to 'Show', pago %></td>
+        <td><%= link_to 'Edit', edit_pago_path(pago) %></td>
+        <td><%= link_to 'Destroy', pago, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pago', new_pago_path %>

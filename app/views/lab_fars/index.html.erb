@@ -6,16 +6,19 @@ var msj = "<%= notice %>";
 
 });
 </script>
-<h1 class="text-center">Lista de  Laboratorios existentes:</h1>
-<h1 class="text-center">Cantidad de laboratorios disponibles :<%= @cant_lab.cant_lab %></h1>
-<div class="col-lg-8 col-md-8 col-md-offset-2 col-lg-offset-2  col-xs-12 col-sm-12">
-<%=  form_tag '/lab_fars/busqueda' , :class => 'form-inline' do %>
-<div class="form-group">
-    <input type="text" class="form-control"  placeholder="Nombre" name="laboratorio_id">
+ <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#exampleModalLong"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Reportar Pago laboratorios</button>
+
+
+<h1 class="text-center"> <span class="label label-default">Laboratorios disponibles: <%= @cant_lab.cant_lab %></span></h1>
+<h1 class="text-center"> <span class="label label-default">Lista de  Laboratorios disponibles:</span></h1>
+<br>
+
+  <div class="col-lg-3 col-md-3 col-xs-4 col-sm-4 col-md-offset-2 col-lg-offset-2">
+   <input type="text" class="form-control"  placeholder="Nombre" name="nombre" id="nombre">
   </div>
-  <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
-<% end %>
-</div>
+ <div class="col-lg-2 col-md-2 col-xs-3 col-sm-3">
+  <button type="submit" class="btn btn-success" onclick="busquedaLabsFar();"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
+  </div>
 <div class="col-lg-8 col-md-8 col-md-offset-2 col-lg-offset-2  col-xs-12 col-sm-12">
 <table class="table table-striped table-condensed"">
   <thead>
@@ -44,4 +47,34 @@ var msj = "<%= notice %>";
 
  <div class="col-lg-8 col-md-8 col-md-offset-4 col-lg-offset-4 col-xs-offset-4 col-sm-offset-4 col-xs-12 col-sm-12" >
         <%= will_paginate @laboratorios, renderer: BootstrapPagination::Rails %>
+ </div>
+
+ <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="text-center"> <span class="label label-default">Reportar Pago</span></h1>
+      </div>
+      
+      <div class="modal-footer">
+         <%= bootstrap_form_for(@pago) do |f| %>
+                <div class="field">
+                  <%= f.number_field :numcomprobante,label: "Número Comprobante" %>
+                </div>
+                <div class="field">
+                  <%= f.text_field :monto,label: "monto" %>
+                </div>                
+                <div class="field">
+                  <%= f.number_field :cantLab ,label: "Cantidad Laboratorios"%>
+                </div>
+                <%= f.hidden_field :farmacium_id, :value =>  current_user.id %>
+            
+             <div class="actions">
+              <input type="submit" name="commit" value="Pagar" class="btn btn-success" />
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            </div>
+          <% end %>
+      </div>
     </div>
+  </div>
+</div>

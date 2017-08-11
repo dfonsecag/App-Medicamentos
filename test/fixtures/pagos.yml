@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  farmacia_id: 
+  monto: 9.99
+  numcomprobante: 1
+  cantLab: 1
+
+two:
+  farmacia_id: 
+  monto: 9.99
+  numcomprobante: 1
+  cantLab: 1
