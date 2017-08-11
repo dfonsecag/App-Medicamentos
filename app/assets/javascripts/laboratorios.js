@@ -38,5 +38,5 @@ function busqueda()
 {
     var nombre =  $("#nombre").val();
 
-    window.location = 'laboratorio/busqueda/'+nombre;
+    window.location = '/laboratorio/busqueda/'+nombre;
 }

@@ -9,7 +9,6 @@ var msj = "<%= notice %>";
 <%= render 'linkprincipal' %>
  <br>
  <br>
- <br>
 <form class="form-group">
 <div class="col-lg-5 col-md-5 col-xs-5 col-sm-5">
   <div class="form-group">
@@ -31,14 +30,14 @@ var msj = "<%= notice %>";
 
 
 <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
-  <h1 class="center">Pasos para el paciente:</h1>
+  <h2 class="text-center"> <span class="label label-default">Pasos para el paciente:</span></h2>
     
   <%= bootstrap_form_for(@tipo_plan) do |f| %>
    <div class="field">
     <%= f.hidden_field :tipo, :value => 'Paciente' %>
   </div>
   <div class="field">
-    <%= f.text_field :descripcion %>
+    <%= f.text_field :descripcion , label: "Descripción"%>
   </div>
   <div class="field">
   <%= f.hidden_field :plan_paciente_id, :value => @plan_paciente.id %>
@@ -70,13 +69,13 @@ var msj = "<%= notice %>";
 </div>
 
 <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12">
-  <h1 class="center">Pasos para la Farmacia:</h1>
+  <h2 class="text-center"> <span class="label label-default">Pasos para la Farmacia:</span></h2>
   <%= bootstrap_form_for(@tipo_plan) do |f| %>
    <div class="field">
     <%= f.hidden_field :tipo, :value => 'Farmacia' %>
   </div>
   <div class="field">
-    <%= f.text_field :descripcion %>
+    <%= f.text_field :descripcion , label: "Descripción"%>
   </div>
   <div class="field">
   <%= f.hidden_field :plan_paciente_id, :value => @plan_paciente.id %>

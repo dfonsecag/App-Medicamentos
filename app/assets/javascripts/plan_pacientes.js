@@ -30,3 +30,10 @@ function deletePlanPaciente(id) {
 });
 })
 }
+// llamar url busqueda plan pacientes
+function busquedaPlanPaciente()
+{
+    var nombre =  $("#nombre").val();
+
+    window.location = '/plan_pacientes/busqueda/'+nombre;
+}

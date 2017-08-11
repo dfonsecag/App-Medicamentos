@@ -67,4 +67,17 @@ function delete_farmacia(id,nombre) {
 }])
 
 }
+// llamar url busqueda Farmacias Verificar
+function busquedaFarmaciasVerificar()
+{
+    var nombre =  $("#nombre").val();
 
+    window.location = '/farmacia/busqueda/'+nombre;
+}
+// llamar url busqueda Farmacias verificadas
+function busquedaFarmaciasVerificadas()
+{
+    var nombre =  $("#nombre").val();
+
+    window.location = '/farmacias_verificadas/busqueda/'+nombre;
+}

@@ -32,3 +32,10 @@ function delete_presentacion(id) {
 });
 })
 }
+// llamar url busqueda presentacion
+function busquedaPresentacion()
+{
+    var nombre =  $("#nombre").val();
+
+    window.location = '/presentaciones/busqueda/'+nombre;
+}

@@ -1,15 +1,16 @@
 
 
-<h1 class="text-center">Lista de Farmacias por verificadas</h1>
-<div class="col-lg-10 col-md-10  col-xs-12 col-sm-12">
-<%=  form_tag '/farmacias/busqueda' , :class => 'form-inline' do %>
-<div class="form-group">
-    <label for="exampleInputEmail1">Búsqueda</label>
-    <input type="text" class="form-control"  placeholder="Nombre" name="nombre">
+
+
+<h1 class="text-center"> <span class="label label-default">Lista de Farmacias Verificadas</span></h1>
+<br>
+
+  <div class="col-lg-3 col-md-3 col-xs-4 col-sm-4 ">
+   <input type="text" class="form-control"  placeholder="Nombre" name="nombre" id="nombre">
   </div>
-  <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
-<% end %>
-</div>
+ <div class="col-lg-2 col-md-2 col-xs-3 col-sm-3">
+  <button type="submit" class="btn btn-success" onclick="busquedaFarmaciasVerificadas();"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
+  </div>
 
 <table class="table table-striped table-condensed">
   <thead>
@@ -21,7 +22,7 @@
       <th>Correo</th>
       <th>Telefono1</th>
       <th>Telefono2</th>
-      <th>Cantidad de Laboratorios</th>
+      <th>Laboratorios Disponibles</th>
       <th>Acciones</th>
     </tr>
   </thead>

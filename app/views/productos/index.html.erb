@@ -8,15 +8,15 @@ var msj = "<%= notice %>";
 });
 </script>
 
-<h1 class="text-center">Lista de Productos</h1>
-<div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
-<%=  form_tag '/producto/busqueda' , :class => 'form-inline' do %>
-<div class="form-group">
-    <input type="text" class="form-control"  placeholder="Nombre" name="nombre">
+<h1 class="text-center"> <span class="label label-default">Lista de Productos</span></h1>
+<br>
+
+  <div class="col-lg-3 col-md-3 col-xs-4 col-sm-4">
+   <input type="text" class="form-control"  placeholder="Nombre" name="nombre" id="nombre">
   </div>
-  <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
-<% end %>
-</div>
+ <div class="col-lg-2 col-md-2 col-xs-3 col-sm-3">
+  <button type="submit" class="btn btn-success" onclick="busquedaProductos();"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
+  </div>
 <table class="table table-striped table-condensed">
   <thead>
     <tr>

@@ -6,17 +6,17 @@ var msj = "<%= notice %>";
 
 });
 </script>
+<h1 class="text-center"> <span class="label label-default">Presentación de productos</span></h1>
+<br>
 
-<h1 class="text-center">Presentación de productos</h1>
-<div class="col-lg-8 col-md-8 col-md-offset-2 col-lg-offset-2  col-xs-12 col-sm-12">
-<%=  form_tag '/presentaciones/busqueda' , :class => 'form-inline' do %>
-<div class="form-group">
-    
-    <input type="text" class="form-control"  placeholder="Descripción" name="nombre">
+  <div class="col-lg-3 col-md-3 col-xs-4 col-sm-4 col-md-offset-2 col-lg-offset-2">
+   <input type="text" class="form-control"  placeholder="Nombre" name="nombre" id="nombre">
   </div>
-  <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
-<% end %>
-</div>
+ <div class="col-lg-2 col-md-2 col-xs-3 col-sm-3">
+  <button type="submit" class="btn btn-success" onclick="busquedaPresentacion();"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
+  </div>
+
+
 <div class="col-lg-7 col-md-7 col-md-offset-2 col-lg-offset-2  col-xs-12 col-sm-12">
 <table class="table table-striped table-condensed"">
   <thead>

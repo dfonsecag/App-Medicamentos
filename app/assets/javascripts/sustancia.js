@@ -32,3 +32,11 @@ function delete_sustancia(id) {
 });
 })
 }
+
+// llamar url busqueda presentacion
+function busquedaSustancias()
+{
+    var nombre =  $("#nombre").val();
+
+    window.location = '/sustancias/busqueda/'+nombre;
+}

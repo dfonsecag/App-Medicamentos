@@ -53,3 +53,10 @@ else{
       $("#producto_oferta").val(0);
 }
 }
+// llamar url busqueda productos
+function busquedaProductos()
+{
+    var nombre =  $("#nombre").val();
+
+    window.location = '/producto/busqueda/'+nombre;
+}

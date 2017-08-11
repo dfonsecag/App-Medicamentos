@@ -35,17 +35,19 @@ Rails.application.routes.draw do
     # ruta para farmacias verificadas
    get '/farmacias_verificadas', to: 'farmacia#farmacias_verificadas'  
     #busqueda de producto
-  post '/producto/busqueda', to: 'productos#busqueda'
+  get '/producto/busqueda/:nombre', to: 'productos#busqueda'
   #busqueda de laboatorio
   get '/laboratorio/busqueda/:nombre', to: 'laboratorios#busqueda'
    #busqueda de plan paciente
-  post '/plan_pacientes/busqueda', to: 'plan_pacientes#busqueda'
+  get '/plan_pacientes/busqueda/:nombre', to: 'plan_pacientes#busqueda'
   #busqueda de presentaciones
-  post '/presentaciones/busqueda', to: 'presentacions#busqueda'
+  get '/presentaciones/busqueda/:nombre', to: 'presentacions#busqueda'
   #busqueda de sustancias
-  post '/sustancias/busqueda', to: 'sustancia#busqueda'
-  #busqueda de sustancias
-  post '/farmacias/busqueda', to: 'farmacia#busqueda'
+  get '/sustancias/busqueda/:nombre', to: 'sustancia#busqueda'
+  #busqueda de farmacias verificadas
+  get '/farmacias_verificadas/busqueda/:nombre', to: 'farmacia#busquedaVerificadas'
+  #busqueda de farmacias por Veriificar
+  get '/farmacia/busqueda/:nombre', to: 'farmacia#busqueda'
   #busqueda de laboratorios que la farmacia va anadir
   post '/lab_fars/busqueda', to: 'lab_fars#busqueda'
   #busqueda de laboratorios que la farmacia va agrego

@@ -9,8 +9,7 @@ class PlanPacientesController < ApplicationController
     @plan_pacientes = PlanPaciente.paginate(:page => params[:page], :per_page => 8)
   end
    def busqueda
-    nombre = params[:nombre]
-      
+    nombre = params[:nombre]      
    sql = "select * from plan_pacientes where LOWER(nombre) like LOWER('%#{nombre}%')"
     @plan_pacientes=  PlanPaciente.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
     render :template => "plan_pacientes/index"
