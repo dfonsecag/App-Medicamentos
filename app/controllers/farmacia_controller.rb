@@ -1,7 +1,7 @@
 class FarmaciaController < ApplicationController
   before_action :set_farmacium, only: [:show, :edit, :update, :destroy]
-  before_action :autenticacion, except:[:new, :create]
-  before_action :verificarUsuario, only: [:index, :update_verificado ]
+  before_action :autenticacion, except:[:new, :create, :creado]
+  before_action :verificarUsuario, only: [:index, :update_verificado, :destroy , :farmacias_verificadas, :busqueda,:busquedaVerificadas, :update_verificado]
   
 
   # GET /farmacia
@@ -54,13 +54,16 @@ class FarmaciaController < ApplicationController
       if @farmacium.save
         # notificar a la farmacia por correo
         # UserNotifier.send_signup_email(@farmacium).deliver
-        format.html { redirect_to "/farmacia/new", notice: 'Farmacia creada con éxito.' }
+        format.html { redirect_to "/creado" }
        
       else
         format.html { render :new }
         format.json { render json: @farmacium.errors, status: :unprocessable_entity }
       end
     end
+  end
+  def creado
+    render :template => "farmacia/creado"
   end
 
   # PATCH/PUT /farmacia/1

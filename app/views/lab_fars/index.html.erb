@@ -45,36 +45,4 @@ var msj = "<%= notice %>";
 </table>
 </div>
 
- <div class="col-lg-8 col-md-8 col-md-offset-4 col-lg-offset-4 col-xs-offset-4 col-sm-offset-4 col-xs-12 col-sm-12" >
-        <%= will_paginate @laboratorios, renderer: BootstrapPagination::Rails %>
- </div>
-
- <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="text-center"> <span class="label label-default">Reportar Pago</span></h1>
-      </div>
-      
-      <div class="modal-footer">
-         <%= bootstrap_form_for(@pago) do |f| %>
-                <div class="field">
-                  <%= f.number_field :numcomprobante,label: "Número Comprobante" %>
-                </div>
-                <div class="field">
-                  <%= f.text_field :monto,label: "monto" %>
-                </div>                
-                <div class="field">
-                  <%= f.number_field :cantLab ,label: "Cantidad Laboratorios"%>
-                </div>
-                <%= f.hidden_field :farmacium_id, :value =>  current_user.id %>
-            
-             <div class="actions">
-              <input type="submit" name="commit" value="Pagar" class="btn btn-success" />
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-            </div>
-          <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+ 
