@@ -7,7 +7,7 @@
   
     <div class="field">
     <br>
-    <%= f.collection_select :laboratorio_id, @laboratorios, :id, :nombre , label: "Laboratorios"%>
+    <%= f.collection_select :laboratorio_id, Laboratorio.find_by_sql("Select id, nombre from laboratorios where  not exists (select * from plan_pacientes where plan_pacientes.laboratorio_id = laboratorios.id )"), :id, :nombre , label: "Laboratorios"%>
     
   </div>
 
