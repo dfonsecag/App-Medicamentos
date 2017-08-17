@@ -1,6 +1,7 @@
 class DisponibilidadsController < ApplicationController
   before_action :set_disponibilidad, only: [:show, :edit, :update, :destroy]
   before_action :autenticacion
+  before_action :verificarUsuario
 
   # GET /disponibilidads
   # GET /disponibilidads.json
