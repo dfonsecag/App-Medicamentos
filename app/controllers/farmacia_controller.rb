@@ -53,8 +53,8 @@ class FarmaciaController < ApplicationController
     respond_to do |format|
       if @farmacium.save
         # notificar a la farmacia por correo
-        UserNotifier.send_signup_email(@farmacium).deliver
-        format.html { redirect_to "/creado" }
+        # UserNotifier.send_signup_email(@farmacium).deliver
+        format.html { redirect_to "/login", notice: 'Farmacia creada con éxito. Pronto se le enviará un correo que su farmacia ha sido verificada' }
        
       else
         format.html { render :new }
