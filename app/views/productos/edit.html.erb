@@ -3,4 +3,69 @@
 <h1 class="text-center"> <span class="label label-default">Actualizar Producto</span></h1>
 <br>
 
-<%= render 'form' %>
+<%= bootstrap_form_for(@producto) do |f| %>
+ 
+<div class="col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3  col-xs-12 col-sm-12">
+  <div class="field">
+    <%= f.text_field :nombre %>
+  </divdfon>
+  <div class="field">
+    <%= f.collection_select :sustancium_id, Sustancium.all, :id, :descripcion, label: "Sustancia" %>
+  </div>
+  <div class="field">
+    <%= f.collection_select :presentacion_id, Presentacion.all, :id, :descripcion, label: "Presentación" %>
+  </div> 
+  <div class="field">    
+    <%= f.collection_select :laboratorio_id, Laboratorio.all, :id, :nombre %>
+  </div>
+  <div class="field">    
+      <input type="checkbox" id="plan" onclick="Hablilitar();" >Tiene Plan Paciente<br>
+  </div>
+  </div>
+  <br>
+  <% if @producto.plan_paciente_id != nil %> 
+  <div class="col-md-5 col-lg-5  col-xs-5 col-sm-5">
+  <div class="field" id="plan_paciente">    
+    <%= f.collection_select :plan_paciente_id, PlanPaciente.all, :id, :nombre, include_blank: true , label: "Plan Paciente"%>
+  </div>
+  </div>
+    <div class="col-md-2 col-lg-2  col-xs-2 col-sm-2 ">
+   <div class="field" id="divoferta1" >
+    <%= f.number_field :compra, label: "Compra"%>
+  </div>
+  </div>
+
+  <div class="col-md-2 col-lg-2  col-xs-2 col-sm-2">
+    <div class="field" id="divoferta2">
+    <%= f.number_field :oferta  ,label: "Regalía"%>
+  </div>
+  </div>
+  </div>
+
+	<% else %> 
+    <div class="col-md-5 col-lg-5  col-xs-5 col-sm-5">
+  <div class="field" id="plan_paciente" style="display:none">    
+    <%= f.collection_select :plan_paciente_id, PlanPaciente.all, :id, :nombre, include_blank: true , label: "Plan Paciente"%>
+  </div>
+  </div>
+    <div class="col-md-2 col-lg-2  col-xs-2 col-sm-2 ">
+   <div class="field" id="divoferta1" style="display:none" >
+    <%= f.number_field :compra, label: "Compra"%>
+  </div>
+  </div>
+
+  <div class="col-md-2 col-lg-2  col-xs-2 col-sm-2">
+    <div class="field" id="divoferta2" style="display:none">
+    <%= f.number_field :oferta  ,label: "Regalía"%>
+  </div>
+  </div>
+
+
+<% end %>
+  <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12  col-md-offset-3 col-lg-offset-3">
+  <div class="actions">
+ <%= f.submit class: 'btn btn-success ' %>
+  </div>
+  
+<% end %>
+</div>

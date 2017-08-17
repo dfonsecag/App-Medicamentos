@@ -57,7 +57,7 @@ end
     Farmacium.where(correo: 'dgf-95@hotmail.com').update_all(password_digest: password_reset )
     # notificar a la farmacia por correo
       UserMailer.password_reset(user, password_new).deliver
-     redirect_to "/reset_password", notice: 'Su contraseña fue enviada a su correo eléctronico.' 
+     redirect_to "/login", notice: 'Su contraseña fue enviada a su correo eléctronico.' 
      else
       redirect_to "/reset_password", notice: 'Este correo no se encuentra registrado' 
      end

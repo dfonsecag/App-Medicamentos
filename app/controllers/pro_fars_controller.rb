@@ -14,7 +14,7 @@ class ProFarsController < ApplicationController
      id =  session[:farmacia_id]
      laboratorio = params[:id]
      @lab =  Laboratorio.find_by_sql("select nombre, id from laboratorios where id = #{laboratorio} ").first
-    @productos = Producto.find_by_sql("Select * from productos where not exists (select * from pro_fars where pro_fars.producto_id = productos.id and pro_fars.farmacium_id = #{id}) and laboratorio_id = #{laboratorio}")
+    @productos = Producto.find_by_sql("Select * from productos where not exists (select * from pro_fars where pro_fars.producto_id = productos.id and pro_fars.farmacium_id = #{id}) and laboratorio_id = #{laboratorio} and productos.activo = true")
 
        @pro_far = ProFar.new
     render :template => "pro_fars/index"

@@ -45,7 +45,7 @@ class Api::V1::ConsultasController < ApplicationController
   def FarmaciasCercanaSearch
   	id = params[:id]
        @farmacias = ProFar.find_by_sql("select pro_fars.id, farmacia.nombre, farmacia.latitud, farmacia.longitud	
-  FROM pro_fars, farmacia where activo_produc= true  and producto_id = #{id} and pro_fars.farmacium_id = farmacia.id")
+  FROM pro_fars, farmacia where activo_produc = true  and producto_id = #{id} and pro_fars.farmacium_id = farmacia.id")
      render json: @farmacias
   end
    # metodo para buscar informacion de producto farmacia de un producto especifico

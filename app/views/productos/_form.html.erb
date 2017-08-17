@@ -18,7 +18,7 @@
   </div>
   </div>
   <br>
-  <div class="col-md-12 col-lg-12  col-xs-12 col-sm-12">
+  
   <div class="col-md-5 col-lg-5  col-xs-5 col-sm-5">
   <div class="field" id="plan_paciente" style="display:none">    
     <%= f.collection_select :plan_paciente_id, PlanPaciente.all, :id, :nombre, include_blank: true , label: "Plan Paciente"%>
@@ -34,7 +34,7 @@
     <div class="field" id="divoferta2" style="display:none">
     <%= f.number_field :oferta  ,label: "Regalía"%>
   </div>
-  </div>
+  
   </div>
 
 
