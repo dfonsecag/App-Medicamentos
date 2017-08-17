@@ -89,7 +89,7 @@ class FarmaciaController < ApplicationController
         Farmacium.where(id:id).update_all(verificado: activo )
          @farmacium = Farmacium.find(params[:id])
          # Envio de correo electronico de confirmacion de verificacion farmacia
-        # FarmaciaVerificator.send_email(@farmacium).deliver
+        FarmaciaVerificator.send_email(@farmacium).deliver
 
        msg = { :status => "ok", :message => "Actualizado!" }
         format.json { render :json => msg }

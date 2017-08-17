@@ -54,7 +54,7 @@ end
      if(user != nil)
     password_new = p SecureRandom.hex(10)
     password_reset = BCrypt::Password.create(password_new)
-    Farmacium.where(correo: 'dgf-95@hotmail.com').update_all(password_digest: password_reset )
+    # Farmacium.where(correo: 'dgf-95@hotmail.com').update_all(password_digest: password_reset )
     # notificar a la farmacia por correo
       UserMailer.password_reset(user, password_new).deliver
      redirect_to "/login", notice: 'Su contraseña fue enviada a su correo eléctronico.' 
