@@ -58,16 +58,16 @@ Rails.application.configure do
   #    authentication: 'plain',
   #    enable_starttls_auto: true }
 
-     ActionMailer::Base.delivery_method = :smtp
-ActionMailer::Base.smtp_settings = {
-  :address => 'smtp.gmail.com',
-  :port => 587,
-  :user_name => "diegogarciafonseca@gmail.com",
-  :password => "df563183",
-  :authentication => :plain,
-  :enable_starttls_auto => true,
-  :openssl_verify_mode => 'none' 
-} 
+#      ActionMailer::Base.delivery_method = :smtp
+# ActionMailer::Base.smtp_settings = {
+#   :address => 'smtp.gmail.com',
+#   :port => 587,
+#   :user_name => "diegogarciafonseca@gmail.com",
+#   :password => "df563183",
+#   :authentication => :plain,
+#   :enable_starttls_auto => true,
+#   :openssl_verify_mode => 'none' 
+# } 
 
      
 
