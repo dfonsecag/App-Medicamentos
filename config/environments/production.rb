@@ -58,7 +58,7 @@ Rails.application.configure do
   #    authentication: 'plain',
   #    enable_starttls_auto: true }
 
-config.action_mailer.default_url_options = { :host => 'https://appmedicamentos.herokuapp.com' }  
+config.action_mailer.default_url_options = { :host => 'appmedicamentos.herokuapp.com' }  
 config.action_mailer.delivery_method = :smtp  
 config.action_mailer.perform_deliveries = true  
 config.action_mailer.raise_delivery_errors = false  
@@ -66,7 +66,7 @@ config.action_mailer.default :charset => "utf-8"
 config.action_mailer.smtp_settings = {  
   address: "smtp.gmail.com",
   port: 587,
-  domain: "https://appmedicamentos.herokuapp.com",
+  domain: "appmedicamentos.herokuapp.com",
   authentication: "plain",
   enable_starttls_auto: true,
   user_name: "diegogarciafonseca@gmail.com",
