@@ -52,7 +52,7 @@ class LabFarsController < ApplicationController
    
     respond_to do |format|
       if farmaciaCant.cant_lab ==0
-       format.html { redirect_to "/lab_fars", notice: 'Laboratorio cantidad máxima' }
+       format.html { redirect_to "/lab_fars", notice: 'Debes de pagar para obtener más laboratorios' }
     else
        
     @lab_far = LabFar.new(farmacium_id: farmacia_id, laboratorio_id: laboratorio_id, activo: activo)

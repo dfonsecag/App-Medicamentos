@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
   before_action :set_session, only: [:show, :edit, :update, :destroy]
   before_action :autenticacion, only: [:update_contrasena]
+  require 'sendgrid-ruby'
+  include SendGrid
   
   # GET /sessions/new
   def new    
@@ -54,9 +56,19 @@ end
      if(user != nil)
     password_new = p SecureRandom.hex(10)
     password_reset = BCrypt::Password.create(password_new)
-    # Farmacium.where(correo: 'dgf-95@hotmail.com').update_all(password_digest: password_reset )
+    Farmacium.where(correo: 'dgf-95@hotmail.com').update_all(password_digest: password_reset )
     # notificar a la farmacia por correo
-      UserMailer.password_reset(user, password_new).deliver
+    from = Email.new(email: 'diegogarciafonseca@gmail.com')
+    to = Email.new(email: 'dgf-95@hotmail.com')
+    subject = 'Regeneracion de clave App Medicamentos'
+    content = Content.new(type: 'text/plain', value: password_new)
+    mail = Mail.new(from, subject, to, content)
+
+    sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
+    response = sg.client.mail._('send').post(request_body: mail.to_json)
+    puts response.status_code
+    puts response.body
+    puts response.headers
      redirect_to "/login", notice: 'Su contraseña fue enviada a su correo eléctronico.' 
      else
       redirect_to "/reset_password", notice: 'Este correo no se encuentra registrado' 

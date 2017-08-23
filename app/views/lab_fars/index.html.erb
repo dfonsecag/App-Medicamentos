@@ -6,10 +6,17 @@ var msj = "<%= notice %>";
 
 });
 </script>
- <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#exampleModalLong"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Reportar Pago laboratorios</button>
+<a href="/pagos/new" class="btn btn-success">
+        <span class="glyphicon glyphicon-check" aria-hidden="true"></span> Reportar Pago laboratorios
+          </a>
 
 
+ <% if  @cant_lab.cant_lab == 0 %> 
+<h3> <span class="label label-default">Debes depositar al número cuenta 001-1966504-0 para obtener mas laboratorios.</span></h3>
+<h3> <span class="label label-default">Cada laboratorio tiene un costo de ₡5000</span></h3>
+<% else  %> 
 <h1 class="text-center"> <span class="label label-default">Laboratorios disponibles: <%= @cant_lab.cant_lab %></span></h1>
+<% end %>
 <h1 class="text-center"> <span class="label label-default">Lista de  Laboratorios disponibles:</span></h1>
 <br>
 
