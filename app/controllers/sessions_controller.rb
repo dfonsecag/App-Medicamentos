@@ -61,7 +61,7 @@ end
     from = Email.new(email: 'diegogarciafonseca@gmail.com')
     to = Email.new(email: 'dgf-95@hotmail.com')
     subject = 'Regeneracion de clave App Medicamentos'
-    content = Content.new(type: 'text/plain', value: password_new)
+    content = Content.new(type: 'text/plain', value: "Estimada Farmacia: #{user.nombre}, su nueva contraseña para ingresar es:  #{password_new}")
     mail = Mail.new(from, subject, to, content)
 
     sg = SendGrid::API.new(api_key: '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')
