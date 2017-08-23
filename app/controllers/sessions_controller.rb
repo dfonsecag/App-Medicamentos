@@ -64,7 +64,7 @@ end
     content = Content.new(type: 'text/plain', value: password_new)
     mail = Mail.new(from, subject, to, content)
 
-    sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
+    sg = SendGrid::API.new(api_key: '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')
     response = sg.client.mail._('send').post(request_body: mail.to_json)
     puts response.status_code
     puts response.body
