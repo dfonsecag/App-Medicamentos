@@ -9,7 +9,7 @@ var msj = "<%= notice %>";
 <a href="/pagos/new" class="btn btn-success">
         <span class="glyphicon glyphicon-check" aria-hidden="true"></span> Reportar Pago laboratorios
           </a>
-
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong"><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Añadir Producto</button>
 
  <% if  @cant_lab.cant_lab == 0 %> 
 <h3> <span class="label label-default">Debes depositar al número cuenta 001-1966504-0 para obtener mas laboratorios.</span></h3>
@@ -50,6 +50,32 @@ var msj = "<%= notice %>";
     <% end %>
   </tbody>
 </table>
+
 </div>
 
+
+ <!-- Modal -->
+  <div class="modal fade" id="exampleModalLong" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><span class="label label-default">Reporte pago Laboratorios</span></h4>
+        </div>
+        <div class="modal-body">
+           <%= bootstrap_form_for(@pago) do |f| %>
+            <div class="field">
+              <%= f.number_field :numcomprobante , label: "Número de comprobante" %>
+            </div>
+             <div class="actions">
+              <input type="submit" name="commit" value="Enviar Comprobante" class="btn btn-success" />
+              
+            </div>
+          <% end %>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</div>
  
