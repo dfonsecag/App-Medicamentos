@@ -2,7 +2,8 @@ class FarmaciaController < ApplicationController
   before_action :set_farmacium, only: [:show, :edit, :update, :destroy]
   before_action :autenticacion, except:[:new, :create, :creado]
   before_action :verificarUsuario, only: [:index, :update_verificado, :destroy , :farmacias_verificadas, :busqueda,:busquedaVerificadas, :update_verificado]
-  
+  require 'sendgrid-ruby'
+  include SendGrid
 
   # GET /farmacia
   # GET /farmacia.json
@@ -53,8 +54,19 @@ class FarmaciaController < ApplicationController
     respond_to do |format|
       if @farmacium.save
         # notificar a la farmacia por correo
-        # UserNotifier.send_signup_email(@farmacium).deliver
-        format.html { redirect_to "/login", notice: 'Farmacia creada con éxito. Pronto se le enviará un correo que su farmacia ha sido verificada' }
+         from = Email.new(email: 'diegogarciafonseca@gmail.com')
+          to = Email.new(email: "#{@farmacium.correo}")
+          subject = 'Bienvenida a la aplicación App Medicamentos'
+          content = Content.new(type: 'text/plain', value: "Bienvenida Farmacia: #{@farmacium.nombre}. Pronto le notificaremos al correo #{@farmacium.correo},
+           que el registro de su farmacia fue verificada exitosamente .")
+          mail = Mail.new(from, subject, to, content)
+
+          sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
+          response = sg.client.mail._('send').post(request_body: mail.to_json)
+          puts response.status_code
+          puts response.body
+          puts response.headers
+        format.html { redirect_to "/login", notice: 'Farmacia creada con éxito. Pronto se le enviaremos un correo que su farmacia ha sido verificada exitosamente.' }
        
       else
         format.html { render :new }
@@ -89,7 +101,18 @@ class FarmaciaController < ApplicationController
         Farmacium.where(id:id).update_all(verificado: activo )
          @farmacium = Farmacium.find(params[:id])
          # Envio de correo electronico de confirmacion de verificacion farmacia
-        FarmaciaVerificator.send_email(@farmacium).deliver
+         from = Email.new(email: 'diegogarciafonseca@gmail.com')
+          to = Email.new(email: "#{@farmacium.correo}")
+          subject = 'Bienvenida a la aplicación App Medicamentos'
+          content = Content.new(type: 'text/plain', value: "Bienvenida Farmacia: #{@farmacium.nombre}. Pronto le notificaremos al correo #{@farmacium.correo},
+           que el registro de su farmacia fue verificada exitosamente .")
+          mail = Mail.new(from, subject, to, content)
+
+          sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
+          response = sg.client.mail._('send').post(request_body: mail.to_json)
+          puts response.status_code
+          puts response.body
+          puts response.headers
 
        msg = { :status => "ok", :message => "Actualizado!" }
         format.json { render :json => msg }

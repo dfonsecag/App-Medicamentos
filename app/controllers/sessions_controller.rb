@@ -59,12 +59,12 @@ end
     Farmacium.where(correo: 'dgf-95@hotmail.com').update_all(password_digest: password_reset )
     # notificar a la farmacia por correo
     from = Email.new(email: 'diegogarciafonseca@gmail.com')
-    to = Email.new(email: 'dgf-95@hotmail.com')
+    to = Email.new(email: "#{user.correo}")
     subject = 'Regeneracion de clave App Medicamentos'
     content = Content.new(type: 'text/plain', value: "Estimada Farmacia: #{user.nombre}, su nueva contraseña para ingresar es:  #{password_new}")
     mail = Mail.new(from, subject, to, content)
 
-    sg = SendGrid::API.new(api_key: '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')
+    sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
     response = sg.client.mail._('send').post(request_body: mail.to_json)
     puts response.status_code
     puts response.body
