@@ -26,13 +26,16 @@ class PagosController < ApplicationController
   def create
     @pago = Pago.new(pago_params)
 
+    @pago.farmacium_id = session[:farmacia_id]
+    @pago.numcomprobante = params[:pago][:numcomprobante]
+
+
     respond_to do |format|
       if @pago.save
-        format.html { redirect_to @pago, notice: 'Pago was successfully created.' }
-        format.json { render :show, status: :created, location: @pago }
+         format.html { redirect_to "/lab_fars", notice: 'Comprobante se envió satisfactoriamente.' }
       else
         format.html { render :new }
-        format.json { render json: @pago.errors, status: :unprocessable_entity }
+        
       end
     end
   end
