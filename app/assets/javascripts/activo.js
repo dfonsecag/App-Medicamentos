@@ -44,16 +44,12 @@ swal({
   cancelButtonClass: 'btn btn-danger',
   buttonsStyling: false
 }).then(function () {
-  if(verificado==false)
-    verificado=true
-  else
-    verificado= false
+  
   
    $.ajax({
        url: '/pagos/'+id+'/'+farmacia_id,
       method: 'put',
       data: JSON.stringify({ 
-        verificado: verificado,
 
     }),
     contentType: "application/json; charset=utf-8",

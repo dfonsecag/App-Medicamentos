@@ -54,11 +54,10 @@ class PagosController < ApplicationController
   # PATCH/PUT /pagos/1.json
   def update
      respond_to do |format|
-       verificado = params[:pago][:verificado]
        idfarmacia = params[:idfarmacia]
         id = params[:id]
         
-        Pago.where(id: id).update_all(verificado: verificado )
+        Pago.where(id: id).update_all(verificado: true )
         farmacia =  Farmacium.find_by_sql("select nombre, correo from farmacia where id = #{idfarmacia} ").first
          # notificar a la farmacia por correo
     from = Email.new(email: 'diegogarciafonseca@gmail.com')
