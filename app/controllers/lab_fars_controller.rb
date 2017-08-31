@@ -17,7 +17,7 @@ class LabFarsController < ApplicationController
     nombre = params[:laboratorio_id]
     id =  session[:farmacia_id]
     @cant_lab =  Farmacium.find_by_sql("select cant_lab from farmacia where id = #{id} ").first
-    sql = "Select * from laboratorios where not exists (select * from lab_fars where lab_fars.laboratorio_id = laboratorios.id and lab_fars.farmacium_id = #{id} ) and  LOWER(laboratorios.nombre) like LOWER('%#{nombre}%')"
+    sql = "Select * from laboratorios where not exists (select * from lab_fars where lab_fars.laboratorio_id = laboratorios.id and lab_fars.farmacium_id = #{id} ) and laboratorios.activo = true and  LOWER(laboratorios.nombre) like LOWER('%#{nombre}%')"
     @laboratorios =  Laboratorio.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
     render :template => "lab_fars/index"
   end

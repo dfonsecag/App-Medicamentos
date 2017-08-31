@@ -70,6 +70,8 @@ Rails.application.routes.draw do
    put '/sustancia_activo/:id', to: 'sustancia#activo_update'
    # actualizar activo sustancia
    put '/producto_activo/:id', to: 'productos#activo_update'
+    # realiza el verificado del pago de la farmacia
+   put '/pagos/:id/:idfarmacia', to: 'pagos#update'
 
    # ruta para que la farmacia vea la lista de requisitos del plan paciente
    get '/farmacia_plan_paciente/:id', to: 'plan_pacientes#farmacia_plan_paciente'

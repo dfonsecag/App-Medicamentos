@@ -1,10 +1,15 @@
 class PagosController < ApplicationController
   before_action :set_pago, only: [:show, :edit, :update, :destroy]
+    require 'sendgrid-ruby'
+  include SendGrid
+  
 
   # GET /pagos
   # GET /pagos.json
   def index
-    @pagos = Pago.all
+
+    sql = "select pagos.id, pagos.numcomprobante, pagos.verificado,pagos.farmacium_id, farmacia.nombre from pagos, farmacia where pagos.farmacium_id = farmacia.id"
+    @pagos =  Pago.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
   end
 
   # GET /pagos/1
@@ -24,6 +29,7 @@ class PagosController < ApplicationController
   # POST /pagos
   # POST /pagos.json
   def create
+
     @pago = Pago.new(pago_params)
 
     @pago.farmacium_id = session[:farmacia_id]
@@ -31,11 +37,15 @@ class PagosController < ApplicationController
 
 
     respond_to do |format|
+      if (params[:pago][:numcomprobante].length >=  11)
+      format.html { redirect_to "/lab_fars", notice: 'Comprobante no puede tener mas de 11 carácteres.' }
+      else
       if @pago.save
          format.html { redirect_to "/lab_fars", notice: 'Comprobante se envió satisfactoriamente.' }
       else
-        format.html { render :new }
+        format.html { redirect_to "/lab_fars", notice: 'Reporte de pago no debe estar en blanco.' }
         
+        end
       end
     end
   end
@@ -43,14 +53,28 @@ class PagosController < ApplicationController
   # PATCH/PUT /pagos/1
   # PATCH/PUT /pagos/1.json
   def update
-    respond_to do |format|
-      if @pago.update(pago_params)
-        format.html { redirect_to @pago, notice: 'Pago was successfully updated.' }
-        format.json { render :show, status: :ok, location: @pago }
-      else
-        format.html { render :edit }
-        format.json { render json: @pago.errors, status: :unprocessable_entity }
-      end
+     respond_to do |format|
+       verificado = params[:pago][:verificado]
+       idfarmacia = params[:idfarmacia]
+        id = params[:id]
+        
+        Pago.where(id: id).update_all(verificado: verificado )
+        farmacia =  Farmacium.find_by_sql("select nombre, correo from farmacia where id = #{idfarmacia} ").first
+         # notificar a la farmacia por correo
+    from = Email.new(email: 'diegogarciafonseca@gmail.com')
+    to = Email.new(email: "#{farmacia.correo}")
+    subject = 'Verificación de pago laboratorios'
+    content = Content.new(type: 'text/plain', value: "Estimada Farmacia: #{farmacia.nombre}, su compobante número #{id}, sea verificado con éxito.")
+    mail = Mail.new(from, subject, to, content)
+
+    sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
+    response = sg.client.mail._('send').post(request_body: mail.to_json)
+    puts response.status_code
+    puts response.body
+    puts response.headers
+
+       msg = { :status => "ok", :message => "Actualizado!" }
+        format.json { render :json => msg }
     end
   end
 
@@ -72,6 +96,6 @@ class PagosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pago_params
-      params.require(:pago).permit(:farmacia_id, :monto, :numcomprobante, :cantLab)
+      params.require(:pago).permit(:farmacia_id, :numcomprobante, :verificado)
     end
 end

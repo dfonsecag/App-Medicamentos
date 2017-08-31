@@ -1,33 +1,49 @@
-<p id="notice"><%= notice %></p>
+<script type="text/javascript">
+var msj = "<%= notice %>";
+  $(document).ready(function() {
+  if(msj!='')
+    swal(msj, "", "success")
 
-<h1>Listing Pagos</h1>
+});
+</script>
+<h1 class="text-center"> <span class="label label-default">Lista pagos de Farmacia</span></h1>
+<br>
 
-<table>
+  <div class="col-lg-3 col-md-3 col-xs-4 col-sm-4 col-md-offset-2 col-lg-offset-2">
+   <input type="text" class="form-control"  placeholder="Nombre" name="nombre" id="nombre">
+  </div>
+ <div class="col-lg-2 col-md-2 col-xs-3 col-sm-3">
+  <button type="submit" class="btn btn-success" onclick="busquedaPresentacion();"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Buscar</button>
+  </div>
+<div class="col-lg-7 col-md-7 col-md-offset-2 col-lg-offset-2  col-xs-12 col-sm-12">
+<table class="table table-striped table-condensed">
   <thead>
     <tr>
       <th>Farmacia</th>
-      <th>Monto</th>
-      <th>Numcomprobante</th>
-      <th>Cantlab</th>
-      <th colspan="3"></th>
+      <th>Número comprobante</th>
+      <th>Acciones</th>
     </tr>
   </thead>
 
   <tbody>
     <% @pagos.each do |pago| %>
       <tr>
-        <td><%= pago.farmacia %></td>
-        <td><%= pago.monto %></td>
-        <td><%= pago.numcomprobante %></td>
-        <td><%= pago.cantLab %></td>
-        <td><%= link_to 'Show', pago %></td>
-        <td><%= link_to 'Edit', edit_pago_path(pago) %></td>
-        <td><%= link_to 'Destroy', pago, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td width="20%"><%= pago.nombre %></td>
+        <td width="20%"><%= pago.numcomprobante %></td>
+        <td width="15%"> <% if pago.verificado == true %> 
+
+            <label><input type="checkbox"  value="" onclick="verificarPago(<%= pago.id %>, <%= pago.verificado %>, <%= pago.farmacium_id %>);" checked>  Verificado</label>
+         <% else %> 
+
+             <label><input type="checkbox" value="" onclick="verificarPago(<%= pago.id %>, <%= pago.verificado %>, <%= pago.farmacium_id %>);">  Verificado</label>
+        <% end %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
 <br>
-
-<%= link_to 'New Pago', new_pago_path %>
+ <div class="col-lg-8 col-md-8 col-md-offset-4 col-lg-offset-4 col-xs-offset-4 col-sm-offset-4 col-xs-8 col-sm-8" >
+        <%= will_paginate @pagos, renderer: BootstrapPagination::Rails %>
+    </div>

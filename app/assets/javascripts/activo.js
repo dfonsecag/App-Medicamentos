@@ -27,3 +27,50 @@ function Activo (id, activo, elemento) {
     });
  }
 
+
+
+function verificarPago (id, verificado, farmacia_id) {
+  
+swal({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  type: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!',
+  cancelButtonText: 'No, cancel!',
+  confirmButtonClass: 'btn btn-success',
+  cancelButtonClass: 'btn btn-danger',
+  buttonsStyling: false
+}).then(function () {
+  if(verificado==false)
+    verificado=true
+  else
+    verificado= false
+  
+   $.ajax({
+       url: '/pagos/'+id+'/'+farmacia_id,
+      method: 'put',
+      data: JSON.stringify({ 
+        verificado: verificado,
+
+    }),
+    contentType: "application/json; charset=utf-8",
+        success:function(data){
+              swal(
+    'Verificación de pago',
+    'Actualizado.',
+    'success'
+  )
+        }
+    });
+}, function (dismiss) {
+  // dismiss can be 'cancel', 'overlay',
+  // 'close', and 'timer'
+  if (dismiss === 'cancel') {
+    window.location = '/pagos';
+  }
+})
+}
+
