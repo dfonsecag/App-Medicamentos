@@ -1,5 +1,7 @@
 class PagosController < ApplicationController
   before_action :set_pago, only: [:show, :edit, :update, :destroy]
+  before_action :autenticacion
+  before_action :verificarUsuario, only: [:update, :destroy, :index]
     require 'sendgrid-ruby'
   include SendGrid
   

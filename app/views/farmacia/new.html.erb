@@ -8,6 +8,131 @@
 
 <h1 class="text-center"> <span class="label label-default">Crear Farmacia</span></h1><br>
 
-<%= render 'form' %>
+<style>
+      #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+<%= bootstrap_form_for(@farmacium) do |f| %>
+  
+
+<div class="col-md-4 col-lg-4 col-xs-6 col-sm-6">
+  <div class="field">
+
+    <%= f.text_field :nombre , label: "Nombre"%>
+  </div>
+</div>
+<div class="col-md-4 col-lg-4 col-xs-6 col-sm-6">
+  <div class="field">
+    <%= f.text_field :cedulaJur, label: "Cédula Jurídica" %>
+  </div>
+</div>
+
+<div class="col-md-4 col-lg-4 col-xs-6 col-sm-6">
+ <div class="field">
+    <%= f.text_field :sucursal , label: "Sucursal"%>
+  </div>
+</div>
+
+<div class="col-md-7 col-lg-7 col-xs-12 col-sm-12">
+   <div class="field">
+    <%= f.text_field :direccion, label: "Dirección" %>
+  </div>
+</div>  
+ <div class="col-md-5 col-lg-5 col-xs-6 col-sm-6">
+ <div class="field">  
+    <%= f.text_field :correo , label: "Correo"%>
+  </div>
+ </div>
+ 
+  <div class="col-md-3 col-lg-3 col-xs-6 col-sm-6">
+  <div class="field">
+    <%= f.number_field :telefono1 , label: "Teléfono 1"%>
+  </div>
+  </div>
+  <div class="col-md-3 col-lg-3 col-xs-6 col-sm-6">
+  <div class="field">
+    <%= f.number_field :telefono2 , label: "Teléfono 2"%>
+  </div>
+  </div>
+   <div class="col-md-3 col-lg-3 col-xs-6 col-sm-6">
+  <div class="field">
+    <%= f.password_field  :password , label: "Contraseña"%>
+  </div>
+  </div>
+  <div class="field">
+    <%= f.hidden_field  :latitud%>
+  </div>
+  <div class="field">
+    <%= f.hidden_field  :longitud %>
+  </div>
+   <div class="col-md-3 col-lg-3 col-xs-6 col-sm-6">
+  <div class="field">
+    <%= f.file_field :photo , id: 'pictureInput' , label: "Foto Farmacia" %>
+     
+  </div>
+  </div>
+  <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12">
+    <h2 class="text-center"> <span class="label label-default">Seleccione ubicación Farmacia en el Mapa</span></h2><br>
+  </div>
+ <div id="map"></div>
+
+  <div class="col-md-7 col-lg-7 col-xs-7 col-sm-7 col-md-offset-5 col-lg-offset-5 col-xs-offset-5 col-sm-offset-5">
+  <div class="actions">
+ <%= f.submit class: 'btn btn-success btn-lg' %>
+  </div>
+  </div>
+  
+<% end %>
+
+
+       <script>
+       
+        var marker;
+        var latitud, longitud;
+        if($("#farmacium_latitud").val()==0){
+          latitud=10.374024198091103;
+          longitud= -84.34032440185547;
+           $("#farmacium_latitud").val(latitud);
+        $("#farmacium_longitud").val(longitud);
+        }
+        else{
+         latitud= Number($("#farmacium_latitud").val());
+          longitud=Number($("#farmacium_longitud").val());
+        }
+        function initMap() {
+          var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 13,
+            center: {lat: latitud, lng: longitud}
+          });
+
+          marker = new google.maps.Marker({
+            map: map,
+            draggable: true,
+            animation: google.maps.Animation.DROP,
+            position: {lat: latitud, lng: longitud}
+          });
+          google.maps.event.addListener(marker, 'dragend', function(a) {
+              $("#farmacium_latitud").val(this.position.lat());
+              $("#farmacium_longitud").val(this.position.lng());
+              // bingo!
+              // a.latLng contains the co-ordinates where the marker was dropped
+          });
+          marker.addListener('click', toggleBounce);
+        }
+
+
+        function toggleBounce() {
+          if (marker.getAnimation() !== null) {
+            marker.setAnimation(null);
+          } else {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+          }
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZJ05COskGvwxls_hwwKz-xHSwQhT1l7Y&callback=initMap"
+    async defer></script>
+    
 
 
