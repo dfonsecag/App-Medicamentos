@@ -29,7 +29,7 @@ function Activo (id, activo, elemento) {
 
 
 
-function verificarPago (id, verificado, farmacia_id) {
+function verificarPago (id, farmacia_id) {
   
 swal({
   title: 'Are you sure?',
