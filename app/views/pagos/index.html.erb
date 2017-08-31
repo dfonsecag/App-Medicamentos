@@ -32,10 +32,10 @@ var msj = "<%= notice %>";
         <td width="20%"><%= pago.numcomprobante %></td>
         <td width="15%"> <% if pago.verificado == true %> 
 
-            <label><input type="checkbox"  value="" onclick="verificarPago(<%= pago.id %>, <%= pago.verificado %>, <%= pago.farmacium_id %>);" checked>  Verificado</label>
+            <label><input type="checkbox"  value="" onclick="verificarPago(<%= pago.id %>, <%= pago.farmacium_id %>);" checked>  Verificado</label>
          <% else %> 
 
-             <label><input type="checkbox" value="" onclick="verificarPago(<%= pago.id %>, <%= pago.verificado %>, <%= pago.farmacium_id %>);">  Verificado</label>
+             <label><input type="checkbox" value="" onclick="verificarPago(<%= pago.id %>, <%= pago.farmacium_id %>);">  Verificado</label>
         <% end %></td>
       </tr>
     <% end %>
