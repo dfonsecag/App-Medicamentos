@@ -7,13 +7,13 @@ class ProductosController < ApplicationController
   # GET /productos.json
   def index
      sql = "select * from productos order by nombre"
-    @productos =  Producto.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+    @productos =  Producto.paginate_by_sql(sql, :page => params[:page], :per_page => 7)
   end
   def busqueda
     nombre = params[:nombre]
       
    sql = "select * from productos where LOWER(nombre) like LOWER('%#{nombre}%') order by nombre"
-    @productos =  Producto.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+    @productos =  Producto.paginate_by_sql(sql, :page => params[:page], :per_page => 7)
     render :template => "productos/index"
   end
 
