@@ -18,7 +18,7 @@ class Api::V1::ConsultasController < ApplicationController
   # metodo para buscar un determinado producto
   def SearchProducto
   	nombre = params[:nombre]
-       @productos = Producto.find_by_sql("select nombre, id from productos where LOWER(nombre) like LOWER('%#{nombre}%') and activo = true")
+       @productos = Producto.find_by_sql("select nombre, id from productos where LOWER(nombre) like LOWER('%#{nombre}%') and activo = true order by nombre")
      render json: @productos
   end
   # obtiene un select de un producto determinado buscado por el usuario

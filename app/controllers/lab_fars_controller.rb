@@ -8,7 +8,7 @@ class LabFarsController < ApplicationController
     @pago = Pago.new
     id =  session[:farmacia_id]
     @cant_lab =  Farmacium.find_by_sql("select cant_lab from farmacia where id = #{id} ").first
-    sql = "Select * from laboratorios where not exists (select * from lab_fars where lab_fars.laboratorio_id = laboratorios.id and lab_fars.farmacium_id = #{id} ) and laboratorios.activo = true"
+    sql = "Select * from laboratorios where not exists (select * from lab_fars where lab_fars.laboratorio_id = laboratorios.id and lab_fars.farmacium_id = #{id} ) and laboratorios.activo = true order by nombre"
     @laboratorios =  Laboratorio.paginate_by_sql(sql, :page => params[:page], :per_page => 5)
   end
   # Busqueda de laboratorios en farmacia
@@ -17,7 +17,7 @@ class LabFarsController < ApplicationController
     nombre = params[:laboratorio_id]
     id =  session[:farmacia_id]
     @cant_lab =  Farmacium.find_by_sql("select cant_lab from farmacia where id = #{id} ").first
-    sql = "Select * from laboratorios where not exists (select * from lab_fars where lab_fars.laboratorio_id = laboratorios.id and lab_fars.farmacium_id = #{id} ) and laboratorios.activo = true and  LOWER(laboratorios.nombre) like LOWER('%#{nombre}%')"
+    sql = "Select * from laboratorios where not exists (select * from lab_fars where lab_fars.laboratorio_id = laboratorios.id and lab_fars.farmacium_id = #{id} ) and laboratorios.activo = true and  LOWER(laboratorios.nombre) like LOWER('%#{nombre}%') order by nombre"
     @laboratorios =  Laboratorio.paginate_by_sql(sql, :page => params[:page], :per_page => 5)
     render :template => "lab_fars/index"
   end
@@ -25,7 +25,7 @@ class LabFarsController < ApplicationController
   def busquedaLaboratoriosAgregados
     nombre = params[:laboratorio_id]
     id =  session[:farmacia_id]
-    sql = "Select laboratorios.nombre, laboratorios.descripcion, laboratorios.id, lab_fars.activo from lab_fars, laboratorios where lab_fars.farmacium_id = #{id} and lab_fars.laboratorio_id = laboratorios.id and  LOWER(laboratorios.nombre) like LOWER('%#{nombre}%')"
+    sql = "Select laboratorios.nombre, laboratorios.descripcion, laboratorios.id, lab_fars.activo from lab_fars, laboratorios where lab_fars.farmacium_id = #{id} and lab_fars.laboratorio_id = laboratorios.id and  LOWER(laboratorios.nombre) like LOWER('%#{nombre}%') order by nombre"
     @laboratorios =  Laboratorio.paginate_by_sql(sql, :page => params[:page], :per_page => 7)
     render :template => "lab_fars/laboratoriosfarmacia"
   end
@@ -33,7 +33,7 @@ class LabFarsController < ApplicationController
   # laboratorios farmacia agregados
   def lab_farm
     id =  session[:farmacia_id]
-    sql = "Select laboratorios.nombre, laboratorios.descripcion, laboratorios.id, lab_fars.activo from lab_fars, laboratorios where lab_fars.farmacium_id = #{id} and lab_fars.laboratorio_id = laboratorios.id"
+    sql = "Select laboratorios.nombre, laboratorios.descripcion, laboratorios.id, lab_fars.activo from lab_fars, laboratorios where lab_fars.farmacium_id = #{id} and lab_fars.laboratorio_id = laboratorios.id order by nombre"
     @laboratorios =  Laboratorio.paginate_by_sql(sql, :page => params[:page], :per_page => 7)
     render :template => "lab_fars/laboratoriosfarmacia"
   end
