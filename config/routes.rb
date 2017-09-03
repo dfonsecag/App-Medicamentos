@@ -57,8 +57,10 @@ Rails.application.routes.draw do
   get '/pro_fars/busquedaProductos/:laboratorio/:producto_id', to: 'pro_fars#showBusqueda'
   #busqueda de productos farmacia tiene agregado
   get '/pro_fars/pro_farmBusqueda/:laboratorio/:producto_id', to: 'pro_fars#pro_farmBusqueda'
+   #busqueda de pagos farmacia 
+  get '/pagos/busqueda/:nombre', to: 'pagos#busqueda'
 
-  get '/creado', to: 'farmacia#creado'
+  
 
   # actualizar activo laboratorio
    put '/laboratorio_activo/:id', to: 'laboratorios#activo_update'

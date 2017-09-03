@@ -8,13 +8,13 @@ class LaboratoriosController < ApplicationController
      @laboratorios = Laboratorio.all
       # render json: @laboratorios
       
-    @laboratorios = Laboratorio.paginate(:page => params[:page], :per_page => 8)
+    @laboratorios = Laboratorio.paginate(:page => params[:page], :per_page => 7)
   end
    def busqueda
     nombre = params[:nombre]
       
    sql = "select * from laboratorios where LOWER(nombre) like LOWER('%#{nombre}%')"
-    @laboratorios =  Laboratorio.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+    @laboratorios =  Laboratorio.paginate_by_sql(sql, :page => params[:page], :per_page => 7)
     render :template => "laboratorios/index"
   end
 

@@ -6,12 +6,12 @@ class PlanPacientesController < ApplicationController
   # GET /plan_pacientes
   # GET /plan_pacientes.json
   def index
-    @plan_pacientes = PlanPaciente.paginate(:page => params[:page], :per_page => 8)
+    @plan_pacientes = PlanPaciente.paginate(:page => params[:page], :per_page => 7)
   end
    def busqueda
     nombre = params[:nombre]      
    sql = "select * from plan_pacientes where LOWER(nombre) like LOWER('%#{nombre}%')"
-    @plan_pacientes=  PlanPaciente.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+    @plan_pacientes=  PlanPaciente.paginate_by_sql(sql, :page => params[:page], :per_page => 7)
     render :template => "plan_pacientes/index"
   end
 

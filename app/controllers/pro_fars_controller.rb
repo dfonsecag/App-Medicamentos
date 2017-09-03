@@ -4,28 +4,27 @@ class ProFarsController < ApplicationController
 
   # GET /pro_fars
   # GET /pro_fars.json
-  def index
-    @productos = Producto.all
-  end
+ 
 
   # GET /pro_fars/1
   # GET /pro_fars/1.json
   def show
      id =  session[:farmacia_id]
      laboratorio = params[:id]
-     @lab =  Laboratorio.find_by_sql("select nombre, id from laboratorios where id = #{laboratorio} ").first
-    @productos = Producto.find_by_sql("Select * from productos where not exists (select * from pro_fars where pro_fars.producto_id = productos.id and pro_fars.farmacium_id = #{id}) and laboratorio_id = #{laboratorio} and productos.activo = true")
-
+     @lab =  Laboratorio.find_by_sql("select nombre, id from laboratorios where id = #{laboratorio} ").first    
+    sql = "Select * from productos where not exists (select * from pro_fars where pro_fars.producto_id = productos.id and pro_fars.farmacium_id = #{id}) and laboratorio_id = #{laboratorio} and productos.activo = true"
+    @productos =  Producto.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
        @pro_far = ProFar.new
     render :template => "pro_fars/index"
   end
-   # producto por a;adir busqueda
+   # producto por anadir busqueda
   def showBusqueda
      id =  session[:farmacia_id]
      laboratorio = params[:laboratorio]
      nombre = params[:producto_id]
-     @lab =  Laboratorio.find_by_sql("select nombre, id from laboratorios where id = #{laboratorio} ").first
-    @productos = Producto.find_by_sql("Select * from productos where not exists (select * from pro_fars where pro_fars.producto_id = productos.id and pro_fars.farmacium_id = #{id}) and laboratorio_id = #{laboratorio} and LOWER(nombre) like LOWER('%#{nombre}%')")
+     @lab =  Laboratorio.find_by_sql("select nombre, id from laboratorios where id = #{laboratorio} ").first    
+    sql = "Select * from productos where not exists (select * from pro_fars where pro_fars.producto_id = productos.id and pro_fars.farmacium_id = #{id}) and laboratorio_id = #{laboratorio} and LOWER(nombre) like LOWER('%#{nombre}%')"
+    @productos =  Producto.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
 
        @pro_far = ProFar.new
     render :template => "pro_fars/index"
@@ -35,8 +34,9 @@ class ProFarsController < ApplicationController
   def pro_farm
        id =  session[:farmacia_id]
      laboratorio = params[:id]
-     @lab =  Laboratorio.find_by_sql("select id, nombre from laboratorios where id = #{laboratorio} ").first
-   @productos = ProFar.find_by_sql("select * from pro_fars, productos, disponibilidads where pro_fars.producto_id = productos.id and disponibilidads.id =pro_fars.disponibilidad_id and productos.laboratorio_id = #{laboratorio} and pro_fars.farmacium_id = #{id}")
+     @lab =  Laboratorio.find_by_sql("select id, nombre from laboratorios where id = #{laboratorio} ").first   
+   sql = "select * from pro_fars, productos, disponibilidads where pro_fars.producto_id = productos.id and disponibilidads.id =pro_fars.disponibilidad_id and productos.laboratorio_id = #{laboratorio} and pro_fars.farmacium_id = #{id}"
+   @productos =  ProFar.paginate_by_sql(sql, :page => params[:page], :per_page => 7)
     render :template => "pro_fars/productosfarmacia"
   end
    # GET /lab_fars
@@ -46,7 +46,8 @@ class ProFarsController < ApplicationController
      laboratorio = params[:laboratorio]
      nombre = params[:producto_id]
      @lab =  Laboratorio.find_by_sql("select id, nombre from laboratorios where id = #{laboratorio} ").first
-   @productos = ProFar.find_by_sql("select * from pro_fars, productos, disponibilidads where pro_fars.producto_id = productos.id and disponibilidads.id =pro_fars.disponibilidad_id and productos.laboratorio_id = #{laboratorio} and pro_fars.farmacium_id = #{id} and LOWER(productos.nombre) like LOWER('%#{nombre}%')")
+     sql = "select * from pro_fars, productos, disponibilidads where pro_fars.producto_id = productos.id and disponibilidads.id =pro_fars.disponibilidad_id and productos.laboratorio_id = #{laboratorio} and pro_fars.farmacium_id = #{id} and LOWER(productos.nombre) like LOWER('%#{nombre}%')"
+    @productos =  ProFar.paginate_by_sql(sql, :page => params[:page], :per_page => 7)
     render :template => "pro_fars/productosfarmacia"
   end
 

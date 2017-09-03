@@ -8,27 +8,27 @@ class FarmaciaController < ApplicationController
   # GET /farmacia
   # GET /farmacia.json
   def index
-     @farmacia = Farmacium.paginate(:page => params[:page], :per_page => 8)
+     @farmacia = Farmacium.paginate(:page => params[:page], :per_page => 7)
      sql = 'SELECT id, nombre,"cedulaJur", sucursal, direccion, telefono1, correo, verificado from Farmacia where verificado = false'
-    @farmacia =  Farmacium.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+    @farmacia =  Farmacium.paginate_by_sql(sql, :page => params[:page], :per_page => 7)
   end
  # para las farmacias verificadas
   def farmacias_verificadas
-    @farmacia = Farmacium.paginate(:page => params[:page], :per_page => 8)
+    @farmacia = Farmacium.paginate(:page => params[:page], :per_page => 7)
      sql = 'SELECT id, nombre,"cedulaJur", sucursal, direccion,cant_lab, telefono1, telefono2, correo, cant_lab from Farmacia where verificado = true'
-    @farmacia =  Farmacium.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+    @farmacia =  Farmacium.paginate_by_sql(sql, :page => params[:page], :per_page => 7)
     render :template => "farmacia/verificada"
   end
   def busqueda
     nombre = params[:nombre]      
     sql = "SELECT * from Farmacia where verificado = false and LOWER(nombre) like LOWER('%#{nombre}%')"
-    @farmacia =  Farmacium.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+    @farmacia =  Farmacium.paginate_by_sql(sql, :page => params[:page], :per_page => 7)
     render :template => "farmacia/index"
   end
   def busquedaVerificadas
     nombre = params[:nombre]      
    sql = "SELECT * from Farmacia where verificado = true and LOWER(nombre) like LOWER('%#{nombre}%')"
-    @farmacia =  Farmacium.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+    @farmacia =  Farmacium.paginate_by_sql(sql, :page => params[:page], :per_page => 7)
     render :template => "farmacia/verificada"
   end
 

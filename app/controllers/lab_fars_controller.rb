@@ -9,7 +9,7 @@ class LabFarsController < ApplicationController
     id =  session[:farmacia_id]
     @cant_lab =  Farmacium.find_by_sql("select cant_lab from farmacia where id = #{id} ").first
     sql = "Select * from laboratorios where not exists (select * from lab_fars where lab_fars.laboratorio_id = laboratorios.id and lab_fars.farmacium_id = #{id} ) and laboratorios.activo = true"
-    @laboratorios =  Laboratorio.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+    @laboratorios =  Laboratorio.paginate_by_sql(sql, :page => params[:page], :per_page => 5)
   end
   # Busqueda de laboratorios en farmacia
   def busqueda
@@ -18,7 +18,7 @@ class LabFarsController < ApplicationController
     id =  session[:farmacia_id]
     @cant_lab =  Farmacium.find_by_sql("select cant_lab from farmacia where id = #{id} ").first
     sql = "Select * from laboratorios where not exists (select * from lab_fars where lab_fars.laboratorio_id = laboratorios.id and lab_fars.farmacium_id = #{id} ) and laboratorios.activo = true and  LOWER(laboratorios.nombre) like LOWER('%#{nombre}%')"
-    @laboratorios =  Laboratorio.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+    @laboratorios =  Laboratorio.paginate_by_sql(sql, :page => params[:page], :per_page => 5)
     render :template => "lab_fars/index"
   end
    # Busqueda de laboratorios farmacia agregados
@@ -26,7 +26,7 @@ class LabFarsController < ApplicationController
     nombre = params[:laboratorio_id]
     id =  session[:farmacia_id]
     sql = "Select laboratorios.nombre, laboratorios.descripcion, laboratorios.id, lab_fars.activo from lab_fars, laboratorios where lab_fars.farmacium_id = #{id} and lab_fars.laboratorio_id = laboratorios.id and  LOWER(laboratorios.nombre) like LOWER('%#{nombre}%')"
-    @laboratorios =  Laboratorio.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+    @laboratorios =  Laboratorio.paginate_by_sql(sql, :page => params[:page], :per_page => 7)
     render :template => "lab_fars/laboratoriosfarmacia"
   end
   # GET /lab_fars
@@ -34,7 +34,7 @@ class LabFarsController < ApplicationController
   def lab_farm
     id =  session[:farmacia_id]
     sql = "Select laboratorios.nombre, laboratorios.descripcion, laboratorios.id, lab_fars.activo from lab_fars, laboratorios where lab_fars.farmacium_id = #{id} and lab_fars.laboratorio_id = laboratorios.id"
-    @laboratorios =  Laboratorio.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+    @laboratorios =  Laboratorio.paginate_by_sql(sql, :page => params[:page], :per_page => 7)
     render :template => "lab_fars/laboratoriosfarmacia"
   end
   # vista de productos anadir la farmacia
@@ -49,8 +49,8 @@ class LabFarsController < ApplicationController
 
     farmacia_id =  session[:farmacia_id]
     laboratorio_id = params[:id]
-    activo = true    
-    farmaciaCant = Farmacium.where(id: farmacia_id).first
+    activo = true 
+    farmaciaCant = Farmacium.find_by_sql("select cant_lab from farmacia where id = #{farmacia_id} ").first
    
     respond_to do |format|
       if farmaciaCant.cant_lab ==0

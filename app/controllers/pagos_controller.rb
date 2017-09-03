@@ -11,8 +11,16 @@ class PagosController < ApplicationController
   def index
 
     sql = "select pagos.id, pagos.numcomprobante, pagos.verificado,pagos.farmacium_id, farmacia.nombre from pagos, farmacia where pagos.farmacium_id = farmacia.id"
-    @pagos =  Pago.paginate_by_sql(sql, :page => params[:page], :per_page => 8)
+    @pagos =  Pago.paginate_by_sql(sql, :page => params[:page], :per_page => 9)
   end
+  def busqueda
+    nombre = params[:nombre]
+      
+   sql = "select pagos.id, pagos.numcomprobante, pagos.verificado,pagos.farmacium_id, farmacia.nombre from  pagos, farmacia where pagos.farmacium_id = farmacia.id and LOWER(farmacia.nombre) like LOWER('%#{nombre}%')"
+    @pagos =  Pago.paginate_by_sql(sql, :page => params[:page], :per_page => 9)
+    render :template => "pagos/index"
+  end
+
 
   # GET /pagos/1
   # GET /pagos/1.json
@@ -60,7 +68,10 @@ class PagosController < ApplicationController
         id = params[:id]
         
         Pago.where(id: id).update_all(verificado: true )
-        farmacia =  Farmacium.find_by_sql("select nombre, correo from farmacia where id = #{idfarmacia} ").first
+        farmacia =  Farmacium.find_by_sql("select nombre, correo, cant_lab from farmacia where id = #{idfarmacia} ").first
+        
+         cant = farmacia.cant_lab + 1 
+         Farmacium.where(id:idfarmacia).update_all(cant_lab: cant )
          # notificar a la farmacia por correo
     from = Email.new(email: 'diegogarciafonseca@gmail.com')
     to = Email.new(email: "#{farmacia.correo}")
