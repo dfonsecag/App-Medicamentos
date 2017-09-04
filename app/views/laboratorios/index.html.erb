@@ -1,10 +1,13 @@
 <script type="text/javascript">
 var msj = "<%= notice %>";
-  $(document).ready(function() {
-  if(msj!='')
+  
+  if(msj!=''){
     swal(msj, "", "success")
+    window.location = '/laboratorios'
+  }
+  
 
-});
+
 </script>
 <h1 class="text-center"> <span class="label label-default">Lista  de Laboratorios</span></h1>
 <br>

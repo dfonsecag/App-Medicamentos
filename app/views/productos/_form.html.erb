@@ -5,13 +5,13 @@
     <%= f.text_field :nombre %>
   </divdfon>
   <div class="field">
-    <%= f.collection_select :sustancium_id, Sustancium.all, :id, :descripcion, label: "Sustancia" %>
+    <%= f.collection_select :sustancium_id, Sustancium.find_by_sql("Select id, descripcion from sustancia order by descripcion"), :id, :descripcion, label: "Sustancia" %>
   </div>
   <div class="field">
-    <%= f.collection_select :presentacion_id, Presentacion.all, :id, :descripcion, label: "Presentación" %>
+    <%= f.collection_select :presentacion_id, Presentacion.find_by_sql("Select id, descripcion from presentacions order by descripcion"), :id, :descripcion, label: "Presentación" %>
   </div> 
   <div class="field">    
-    <%= f.collection_select :laboratorio_id, Laboratorio.all, :id, :nombre %>
+    <%= f.collection_select :laboratorio_id, Laboratorio.find_by_sql("Select id, nombre from laboratorios order by nombre"), :id, :nombre %>
   </div>
   <div class="field">    
       <input type="checkbox" id="plan" onclick="Hablilitar();" >Tiene Plan Paciente<br>
@@ -21,7 +21,7 @@
   
   <div class="col-md-5 col-lg-5  col-xs-5 col-sm-5">
   <div class="field" id="plan_paciente" style="display:none">    
-    <%= f.collection_select :plan_paciente_id, PlanPaciente.all, :id, :nombre, include_blank: true , label: "Plan Paciente"%>
+    <%= f.collection_select :plan_paciente_id, PlanPaciente.find_by_sql("Select id, nombre from plan_pacientes order by nombre"), :id, :nombre, include_blank: true , label: "Plan Paciente"%>
   </div>
   </div>
     <div class="col-md-2 col-lg-2  col-xs-2 col-sm-2 ">
