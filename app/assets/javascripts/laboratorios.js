@@ -2,9 +2,9 @@
   
 
 // funcion para eliminar laboratorio
-function delete_laboratorio(id, nombre) {
+function delete_laboratorio(id) {
     swal({
-  title: 'Desea eliminar este laboratorio  '+nombre+' ?',
+  title: 'Desea eliminar este laboratorio   ?',
   text: "",
   type: 'warning',
   showCancelButton: true,
